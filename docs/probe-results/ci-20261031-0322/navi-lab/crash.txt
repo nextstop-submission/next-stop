@@ -1,0 +1,149 @@
+--------- beginning of crash
+10-30 11:17:49.328   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:17:49.401   184   184 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: FATAL EXCEPTION: main
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: Process: ai.umos.vehiclecontrol, PID: 7618
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: java.lang.RuntimeException: Unable to get provider ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider: java.lang.NullPointerException: createCar(context) must not be null
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7787)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:7293)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7000)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2241)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: Caused by: java.lang.NullPointerException: createCar(context) must not be null
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.vehiclePropertyRepository(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:17)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.getVehiclePreferenceUseCase(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:7)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider.onCreate(VehiclePreferenceContentProvider.kt:22)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7782)
+10-30 11:17:50.048  7618  7618 E AndroidRuntime: 	... 11 more
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: FATAL EXCEPTION: main
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: Process: ai.umos.mediaapp, PID: 7623
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: java.lang.RuntimeException: Unable to create service ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4684)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleCreateService(Unknown Source:0)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2269)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at b5.c.<init>(Unknown Source:54)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at b5.i.a(Unknown Source:20)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at E2.c0.<init>(SourceFile:26)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at d0.f.k(Unknown Source:14)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at d0.e.get(Unknown Source:321)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at B7.a.get(Unknown Source:13)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.e(Unknown Source:19)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.onCreate(Unknown Source:0)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4671)
+10-30 11:17:50.148  7623  7623 E AndroidRuntime: 	... 9 more
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: FATAL EXCEPTION: main
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: Process: ai.umos.mediaapp, PID: 7587
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: java.lang.RuntimeException: Unable to create service ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4684)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleCreateService(Unknown Source:0)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2269)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at b5.c.<init>(Unknown Source:54)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at b5.i.a(Unknown Source:20)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at E2.c0.<init>(SourceFile:26)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at d0.f.k(Unknown Source:14)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at d0.e.get(Unknown Source:321)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at B7.a.get(Unknown Source:13)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.e(Unknown Source:19)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.onCreate(Unknown Source:0)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4671)
+10-30 11:17:50.199  7587  7587 E AndroidRuntime: 	... 9 more
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: FATAL EXCEPTION: DefaultDispatcher-worker-4
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: Process: ai.umos.inputmethod, PID: 9469
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: java.lang.IllegalArgumentException: Failed requirement.
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at u1.d.invokeSuspend(Unknown Source:64)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at u1.d.invoke(Unknown Source:15)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invokeSuspend(Unknown Source:36)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:2)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:1)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at c5.b.b(Unknown Source:7)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at kotlinx.coroutines.i.c(Unknown Source:53)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at kotlinx.coroutines.g.d(Unknown Source:0)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s.invokeSuspend(Unknown Source:74)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:1)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:2)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.C.e(Unknown Source:95)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k.B(Unknown Source:10)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k.u(Unknown Source:179)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k.j(Unknown Source:0)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at androidx.datastore.core.k$g.invokeSuspend(Unknown Source:12)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at kotlin.coroutines.jvm.internal.a.resumeWith(Unknown Source:10)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at kotlinx.coroutines.V.run(Unknown Source:128)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at kotlinx.coroutines.internal.l$a.run(Unknown Source:3)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at d5.k.run(Unknown Source:2)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at d5.a.F(Unknown Source:0)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at d5.a$c.d(Unknown Source:14)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at d5.a$c.p(Unknown Source:28)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	at d5.a$c.run(Unknown Source:0)
+10-30 11:17:55.032  9469  9846 E AndroidRuntime: 	Suppressed: kotlinx.coroutines.internal.h: [I0{Cancelling}@61c1772, Dispatchers.IO]
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: FATAL EXCEPTION: pool-3-thread-1
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: Process: com.android.systemui, PID: 7759
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views. Expected: main Calling: pool-3-thread-1
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewRootImpl.checkThread(ViewRootImpl.java:10215)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewRootImpl.focusableViewAvailable(ViewRootImpl.java:5729)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.ViewGroup.focusableViewAvailable(ViewGroup.java:969)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.View.setFlags(View.java:17518)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.View.setClickable(View.java:13396)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at android.view.View.setOnClickListener(View.java:7447)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.applibrary.quickcontrols.SeatTempDynamicInteractorView.bind(SeatTempDynamicInteractorView.kt:168)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.control.dagger.VehicleControlModule$Companion$provideDriverSeatTempBinder$1.tryBind(VehicleControlModule.kt:723)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.tryBindInteractorView(VehicleController.java:219)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:202)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.registerVehicleControlViews(VehicleController.java:212)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController$$ExternalSyntheticLambda12.accept(R8$$SyntheticClass:0)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1528)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.lambda$new$0(VehicleController.java:151)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController.$r8$lambda$hY4qnrknH6eYWqQYO5sjg4BU7iA(VehicleController.java:0)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at com.android.systemui.car.vehiclecontrol.VehicleController$$ExternalSyntheticLambda6.run(R8$$SyntheticClass:0)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+10-30 11:18:06.440  7759  8504 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1012)
+10-30 11:19:14.258   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:19:14.335   184   184 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:20:44.222   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:20:44.342   184   184 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:21:53.777   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-30 11:21:53.833   184   184 F libc    : crash_dump helper failed to exec, or was killed

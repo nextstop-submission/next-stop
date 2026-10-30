@@ -1,0 +1,31 @@
+--------- beginning of main
+10-29 11:44:53.287 I/NextStop(31785): NS|UX|restricted=false
+10-29 11:44:53.411 I/NextStop(31785): NS|RESTORE|done=0/5
+10-29 11:44:53.434 I/NextStop(31785): NS|START|mode=DEMO navi=true sources=demo-signal
+10-29 11:44:53.442 I/NextStop(31785): NS|EFFECT|NAVIGATE_TO|index=0
+10-29 11:44:59.275 I/NextStop(31785): NS|NAV|Requested
+10-29 11:45:00.574 I/NextStop(31785): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793299500572)
+10-29 11:45:03.047 I/NextStop(31785): NS|NAV|Cancelled
+10-29 11:45:03.697 I/NextStop(31785): NS|SIGNAL|OdometerUpdated(km=1000.0, atMillis=1793299503697)
+10-29 11:45:05.175 I/NextStop(31785): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793299505175)
+10-29 11:45:05.176 I/NextStop(31785): NS|EFFECT|PARKED|index=0
+10-29 11:45:06.553 I/NextStop(31785): NS|SIGNAL|DoorChanged(open=true, atMillis=1793299506553)
+10-29 11:45:07.688 I/NextStop(31785): NS|SIGNAL|DoorChanged(open=false, atMillis=1793299507688)
+10-29 11:45:12.725 I/NextStop(31785): NS|SIGNAL|OdometerUpdated(km=1001.4000244140625, atMillis=1793299512725)
+10-29 11:45:13.027 I/NextStop(31785): NS|NAV|RouteStarted
+10-29 11:45:14.096 I/NextStop(31785): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793299514096)
+10-29 11:45:14.097 I/NextStop(31785): NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=8921
+10-29 11:45:14.097 I/NextStop(31785): NS|EFFECT|NAVIGATE_TO|index=1
+10-29 11:45:17.323 I/NextStop(31785): NS|NAV|Requested
+10-29 11:45:22.241 I/NextStop(31785): NS|NAV|Cancelled
+10-29 11:45:28.542 I/NextStop(31785): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793299528542)
+10-29 11:45:28.551 I/NextStop(31785): NS|EFFECT|PARKED|index=1
+10-29 11:45:30.836 I/NextStop(31785): NS|SIGNAL|DoorChanged(open=true, atMillis=1793299530836)
+10-29 11:45:32.225 I/NextStop(31785): NS|SIGNAL|DoorChanged(open=false, atMillis=1793299532225)
+10-29 11:45:33.279 I/NextStop(31785): NS|SIGNAL|OdometerUpdated(km=1002.7999877929688, atMillis=1793299533279)
+10-29 11:45:35.050 I/NextStop(31785): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793299535050)
+10-29 11:45:35.050 I/NextStop(31785): NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=6508
+10-29 11:45:35.050 I/NextStop(31785): NS|EFFECT|NAVIGATE_TO|index=2
+10-29 11:45:36.555 I/NextStop(31785): NS|NAV|Requested
+10-29 11:45:38.428 I/NextStop(31785): NS|NAV|RouteStarted
+10-29 11:45:38.506 I/NextStop(31785): NS|NAV|Cancelled

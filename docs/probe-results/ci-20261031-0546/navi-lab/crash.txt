@@ -1,0 +1,679 @@
+--------- beginning of crash
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: FATAL EXCEPTION: DefaultDispatcher-worker-3
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: Process: ai.umos.inputmethod, PID: 6110
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: java.lang.IllegalArgumentException: Failed requirement.
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at u1.d.invokeSuspend(Unknown Source:64)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at u1.d.invoke(Unknown Source:15)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invokeSuspend(Unknown Source:36)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:2)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:1)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at c5.b.b(Unknown Source:7)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at kotlinx.coroutines.i.c(Unknown Source:53)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at kotlinx.coroutines.g.d(Unknown Source:0)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s.invokeSuspend(Unknown Source:74)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:1)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:2)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.C.e(Unknown Source:95)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k.B(Unknown Source:10)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k.u(Unknown Source:179)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k.j(Unknown Source:0)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$w.invokeSuspend(Unknown Source:34)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$w.l(Unknown Source:8)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.k$w.invoke(Unknown Source:4)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at androidx.datastore.core.B$b.invokeSuspend(Unknown Source:86)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at kotlin.coroutines.jvm.internal.a.resumeWith(Unknown Source:10)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at kotlinx.coroutines.V.run(Unknown Source:128)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at kotlinx.coroutines.internal.l$a.run(Unknown Source:3)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at d5.k.run(Unknown Source:2)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at d5.a.F(Unknown Source:0)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at d5.a$c.d(Unknown Source:14)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at d5.a$c.p(Unknown Source:28)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	at d5.a$c.run(Unknown Source:0)
+10-31 05:37:24.454  6110  6149 E AndroidRuntime: 	Suppressed: kotlinx.coroutines.internal.h: [I0{Cancelling}@be7962, Dispatchers.IO]
+10-31 05:37:33.912  3785  5992 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 5992 (GameThread), pid 3785 (mos.drivingview)
+10-31 05:37:41.602  6498  6498 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:37:41.602  6498  6498 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:37:41.602  6498  6498 F DEBUG   : Revision: '0'
+10-31 05:37:41.602  6498  6498 F DEBUG   : ABI: 'x86_64'
+10-31 05:37:41.602  6498  6498 F DEBUG   : Timestamp: 2026-10-30 13:37:35.444357544-0700
+10-31 05:37:41.602  6498  6498 F DEBUG   : Process uptime: 71s
+10-31 05:37:41.602  6498  6498 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:37:41.602  6498  6498 F DEBUG   : pid: 3785, tid: 5992, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:37:41.602  6498  6498 F DEBUG   : uid: 1010142
+10-31 05:37:41.602  6498  6498 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:37:41.602  6498  6498 F DEBUG   : Cause: null pointer dereference
+10-31 05:37:41.602  6498  6498 F DEBUG   :     rax 0000000000000000  rbx 0000732e630ff410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:37:41.602  6498  6498 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 000000000000f254  r11 0000000000000202
+10-31 05:37:41.602  6498  6498 F DEBUG   :     r12 0000732e630ff428  r13 0000732f630e9650  r14 0000732ee30e1cb0  r15 0000732e630ff450
+10-31 05:37:41.602  6498  6498 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:37:41.602  6498  6498 F DEBUG   :     rbp 0000733934132d80  rsp 0000733934132d28  rip 0000000000000000
+10-31 05:37:41.602  6498  6498 F DEBUG   : 25 total frames
+10-31 05:37:41.602  6498  6498 F DEBUG   : backtrace:
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.602  6498  6498 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.604  6498  6498 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.604  6498  6498 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:37:41.604  6498  6498 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:37:41.604  6498  6498 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:07.495  6657  7154 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 7154 (GameThread), pid 6657 (mos.drivingview)
+10-31 05:38:09.450  7495  7495 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:38:09.462  7495  7495 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:38:09.462  7495  7495 F DEBUG   : Revision: '0'
+10-31 05:38:09.462  7495  7495 F DEBUG   : ABI: 'x86_64'
+10-31 05:38:09.462  7495  7495 F DEBUG   : Timestamp: 2026-10-30 13:38:08.049189062-0700
+10-31 05:38:09.462  7495  7495 F DEBUG   : Process uptime: 24s
+10-31 05:38:09.462  7495  7495 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:38:09.462  7495  7495 F DEBUG   : pid: 6657, tid: 7154, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:38:09.462  7495  7495 F DEBUG   : uid: 1010142
+10-31 05:38:09.462  7495  7495 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:38:09.462  7495  7495 F DEBUG   : Cause: null pointer dereference
+10-31 05:38:09.462  7495  7495 F DEBUG   :     rax 0000000000000000  rbx 0000732e61f8f410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:38:09.462  7495  7495 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000012dae  r11 0000000000000202
+10-31 05:38:09.462  7495  7495 F DEBUG   :     r12 0000732e61f8f428  r13 0000732f61f79650  r14 0000732ee1f71cb0  r15 0000732e61f8f450
+10-31 05:38:09.462  7495  7495 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:38:09.462  7495  7495 F DEBUG   :     rbp 00007339355e6d80  rsp 00007339355e6d28  rip 0000000000000000
+10-31 05:38:09.462  7495  7495 F DEBUG   : 25 total frames
+10-31 05:38:09.462  7495  7495 F DEBUG   : backtrace:
+10-31 05:38:09.462  7495  7495 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.463  7495  7495 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:09.465  7495  7495 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:25.726  7548  7755 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 7755 (GameThread), pid 7548 (mos.drivingview)
+10-31 05:38:26.782  8109  8109 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:38:26.782  8109  8109 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:38:26.782  8109  8109 F DEBUG   : Revision: '0'
+10-31 05:38:26.782  8109  8109 F DEBUG   : ABI: 'x86_64'
+10-31 05:38:26.782  8109  8109 F DEBUG   : Timestamp: 2026-10-30 13:38:26.192975665-0700
+10-31 05:38:26.782  8109  8109 F DEBUG   : Process uptime: 17s
+10-31 05:38:26.782  8109  8109 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:38:26.782  8109  8109 F DEBUG   : pid: 7548, tid: 7755, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:38:26.782  8109  8109 F DEBUG   : uid: 1010142
+10-31 05:38:26.782  8109  8109 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:38:26.782  8109  8109 F DEBUG   : Cause: null pointer dereference
+10-31 05:38:26.782  8109  8109 F DEBUG   :     rax 0000000000000000  rbx 0000732e649f4410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:38:26.782  8109  8109 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 000000000001506a  r11 0000000000000202
+10-31 05:38:26.782  8109  8109 F DEBUG   :     r12 0000732e649f4428  r13 0000732f649de6e0  r14 0000732ee49d6cb0  r15 0000732e649f4450
+10-31 05:38:26.782  8109  8109 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:38:26.782  8109  8109 F DEBUG   :     rbp 00007339325b9d80  rsp 00007339325b9d28  rip 0000000000000000
+10-31 05:38:26.782  8109  8109 F DEBUG   : 25 total frames
+10-31 05:38:26.782  8109  8109 F DEBUG   : backtrace:
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.782  8109  8109 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.783  8109  8109 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:26.785  8109  8109 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:51.229  8151  8243 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 8243 (GameThread), pid 8151 (mos.drivingview)
+10-31 05:38:53.878  8664  8664 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:38:53.878  8664  8664 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:38:53.878  8664  8664 F DEBUG   : Revision: '0'
+10-31 05:38:53.878  8664  8664 F DEBUG   : ABI: 'x86_64'
+10-31 05:38:53.878  8664  8664 F DEBUG   : Timestamp: 2026-10-30 13:38:53.402981437-0700
+10-31 05:38:53.878  8664  8664 F DEBUG   : Process uptime: 27s
+10-31 05:38:53.878  8664  8664 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:38:53.878  8664  8664 F DEBUG   : pid: 8151, tid: 8243, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:38:53.878  8664  8664 F DEBUG   : uid: 1010142
+10-31 05:38:53.879  8664  8664 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:38:53.879  8664  8664 F DEBUG   : Cause: null pointer dereference
+10-31 05:38:53.879  8664  8664 F DEBUG   :     rax 0000000000000000  rbx 0000732e611d38c0  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:38:53.879  8664  8664 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000017d74  r11 0000000000000202
+10-31 05:38:53.879  8664  8664 F DEBUG   :     r12 0000732e611d38d8  r13 0000732f611bbe30  r14 0000732ee11b5380  r15 0000732e611d3900
+10-31 05:38:53.879  8664  8664 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:38:53.879  8664  8664 F DEBUG   :     rbp 0000733935660d80  rsp 0000733935660d28  rip 0000000000000000
+10-31 05:38:53.879  8664  8664 F DEBUG   : 25 total frames
+10-31 05:38:53.879  8664  8664 F DEBUG   : backtrace:
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:38:53.879  8664  8664 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:38:53.880  8664  8664 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:40:19.477  8728  8927 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 8927 (GameThread), pid 8728 (mos.drivingview)
+10-31 05:40:23.035 10400 10400 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:40:23.043 10400 10400 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:40:23.043 10400 10400 F DEBUG   : Revision: '0'
+10-31 05:40:23.044 10400 10400 F DEBUG   : ABI: 'x86_64'
+10-31 05:40:23.044 10400 10400 F DEBUG   : Timestamp: 2026-10-30 13:40:22.344075819-0700
+10-31 05:40:23.044 10400 10400 F DEBUG   : Process uptime: 85s
+10-31 05:40:23.044 10400 10400 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:40:23.044 10400 10400 F DEBUG   : pid: 8728, tid: 8927, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:40:23.044 10400 10400 F DEBUG   : uid: 1010142
+10-31 05:40:23.044 10400 10400 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:40:23.044 10400 10400 F DEBUG   : Cause: null pointer dereference
+10-31 05:40:23.045 10400 10400 F DEBUG   :     rax 0000000000000000  rbx 0000732e649ed320  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:40:23.045 10400 10400 F DEBUG   :     r8  0000000000000010  r9  0000733900000000  r10 0000000000000000  r11 0000000000000246
+10-31 05:40:23.045 10400 10400 F DEBUG   :     r12 0000732e649ed338  r13 0000732f649d6e30  r14 0000732ee49d0380  r15 0000732e649ed360
+10-31 05:40:23.045 10400 10400 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:40:23.045 10400 10400 F DEBUG   :     rbp 000073393575ed80  rsp 000073393575ed28  rip 0000000000000000
+10-31 05:40:23.045 10400 10400 F DEBUG   : 25 total frames
+10-31 05:40:23.045 10400 10400 F DEBUG   : backtrace:
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.045 10400 10400 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:40:23.046 10400 10400 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:40:33.360   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-31 05:40:33.452   185   185 F libc    : crash_dump helper failed to exec, or was killed
+10-31 05:40:52.206 10473 10762 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 10762 (GameThread), pid 10473 (mos.drivingview)
+10-31 05:40:56.559 11223 11223 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:40:56.559 11223 11223 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:40:56.559 11223 11223 F DEBUG   : Revision: '0'
+10-31 05:40:56.559 11223 11223 F DEBUG   : ABI: 'x86_64'
+10-31 05:40:56.559 11223 11223 F DEBUG   : Timestamp: 2026-10-30 13:40:53.401757680-0700
+10-31 05:40:56.559 11223 11223 F DEBUG   : Process uptime: 30s
+10-31 05:40:56.559 11223 11223 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:40:56.559 11223 11223 F DEBUG   : pid: 10473, tid: 10762, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:40:56.559 11223 11223 F DEBUG   : uid: 1010142
+10-31 05:40:56.559 11223 11223 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:40:56.559 11223 11223 F DEBUG   : Cause: null pointer dereference
+10-31 05:40:56.559 11223 11223 F DEBUG   :     rax 0000000000000000  rbx 0000732e61205410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:40:56.559 11223 11223 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000025b1e  r11 0000000000000202
+10-31 05:40:56.559 11223 11223 F DEBUG   :     r12 0000732e61205428  r13 0000732f611ef6e0  r14 0000732ee11e7cb0  r15 0000732e61205450
+10-31 05:40:56.559 11223 11223 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:40:56.559 11223 11223 F DEBUG   :     rbp 0000733935557d80  rsp 0000733935557d28  rip 0000000000000000
+10-31 05:40:56.559 11223 11223 F DEBUG   : 25 total frames
+10-31 05:40:56.559 11223 11223 F DEBUG   : backtrace:
+10-31 05:40:56.559 11223 11223 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:40:56.559 11223 11223 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.559 11223 11223 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.559 11223 11223 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.566 11223 11223 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.578 11223 11223 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.579 11223 11223 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.580 11223 11223 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.580 11223 11223 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.580 11223 11223 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:40:56.580 11223 11223 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:40:56.580 11223 11223 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:41:31.409 11302 11354 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 11354 (GameThread), pid 11302 (mos.drivingview)
+10-31 05:41:33.915 12325 12325 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:41:33.919 12325 12325 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:41:33.919 12325 12325 F DEBUG   : Revision: '0'
+10-31 05:41:33.919 12325 12325 F DEBUG   : ABI: 'x86_64'
+10-31 05:41:33.919 12325 12325 F DEBUG   : Timestamp: 2026-10-30 13:41:31.913275472-0700
+10-31 05:41:33.919 12325 12325 F DEBUG   : Process uptime: 35s
+10-31 05:41:33.920 12325 12325 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:41:33.920 12325 12325 F DEBUG   : pid: 11302, tid: 11354, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:41:33.920 12325 12325 F DEBUG   : uid: 1010142
+10-31 05:41:33.920 12325 12325 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:41:33.920 12325 12325 F DEBUG   : Cause: null pointer dereference
+10-31 05:41:33.920 12325 12325 F DEBUG   :     rax 0000000000000000  rbx 0000732e63ce28c0  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:41:33.920 12325 12325 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 000000000002a5a8  r11 0000000000000202
+10-31 05:41:33.920 12325 12325 F DEBUG   :     r12 0000732e63ce28d8  r13 0000732f63ccae30  r14 0000732ee3cc4380  r15 0000732e63ce2900
+10-31 05:41:33.920 12325 12325 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:41:33.920 12325 12325 F DEBUG   :     rbp 0000733935796d80  rsp 0000733935796d28  rip 0000000000000000
+10-31 05:41:33.921 12325 12325 F DEBUG   : 25 total frames
+10-31 05:41:33.921 12325 12325 F DEBUG   : backtrace:
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:41:33.921 12325 12325 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:42:39.506 12425 14798 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 14798 (GameThread), pid 12425 (mos.drivingview)
+10-31 05:42:40.951 19260 19260 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:42:40.951 19260 19260 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:42:40.951 19260 19260 F DEBUG   : Revision: '0'
+10-31 05:42:40.951 19260 19260 F DEBUG   : ABI: 'x86_64'
+10-31 05:42:40.951 19260 19260 F DEBUG   : Timestamp: 2026-10-30 13:42:39.935421721-0700
+10-31 05:42:40.951 19260 19260 F DEBUG   : Process uptime: 65s
+10-31 05:42:40.951 19260 19260 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:42:40.951 19260 19260 F DEBUG   : pid: 12425, tid: 14798, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:42:40.951 19260 19260 F DEBUG   : uid: 1010142
+10-31 05:42:40.951 19260 19260 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:42:40.951 19260 19260 F DEBUG   : Cause: null pointer dereference
+10-31 05:42:40.951 19260 19260 F DEBUG   :     rax 0000000000000000  rbx 0000732e63513410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:42:40.951 19260 19260 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000032728  r11 0000000000000202
+10-31 05:42:40.951 19260 19260 F DEBUG   :     r12 0000732e63513428  r13 0000732f634fd6e0  r14 0000732ee34f5cb0  r15 0000732e63513450
+10-31 05:42:40.951 19260 19260 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:42:40.951 19260 19260 F DEBUG   :     rbp 0000733935374d80  rsp 0000733935374d28  rip 0000000000000000
+10-31 05:42:40.951 19260 19260 F DEBUG   : 25 total frames
+10-31 05:42:40.951 19260 19260 F DEBUG   : backtrace:
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.951 19260 19260 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:42:40.952 19260 19260 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:43:00.029 19542 20422 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 20422 (GameThread), pid 19542 (mos.drivingview)
+10-31 05:43:03.001 22125 22125 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:43:03.038 22125 22125 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:43:03.038 22125 22125 F DEBUG   : Revision: '0'
+10-31 05:43:03.038 22125 22125 F DEBUG   : ABI: 'x86_64'
+10-31 05:43:03.038 22125 22125 F DEBUG   : Timestamp: 2026-10-30 13:43:00.309413643-0700
+10-31 05:43:03.038 22125 22125 F DEBUG   : Process uptime: 20s
+10-31 05:43:03.038 22125 22125 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:43:03.062 22125 22125 F DEBUG   : pid: 19542, tid: 20422, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:43:03.062 22125 22125 F DEBUG   : uid: 1010142
+10-31 05:43:03.062 22125 22125 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:43:03.062 22125 22125 F DEBUG   : Cause: null pointer dereference
+10-31 05:43:03.062 22125 22125 F DEBUG   :     rax 0000000000000000  rbx 0000732e61169410  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:43:03.062 22125 22125 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000034ee2  r11 0000000000000202
+10-31 05:43:03.062 22125 22125 F DEBUG   :     r12 0000732e61169428  r13 0000732f61153650  r14 0000732ee114bcb0  r15 0000732e61169450
+10-31 05:43:03.062 22125 22125 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:43:03.062 22125 22125 F DEBUG   :     rbp 00007339358d9d80  rsp 00007339358d9d28  rip 0000000000000000
+10-31 05:43:03.062 22125 22125 F DEBUG   : 25 total frames
+10-31 05:43:03.062 22125 22125 F DEBUG   : backtrace:
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:43:03.062 22125 22125 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:43:40.956 22772 25299 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 25299 (GameThread), pid 22772 (mos.drivingview)
+10-31 05:43:43.259 28235 28235 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:43:43.259 28235 28235 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:43:43.259 28235 28235 F DEBUG   : Revision: '0'
+10-31 05:43:43.260 28235 28235 F DEBUG   : ABI: 'x86_64'
+10-31 05:43:43.260 28235 28235 F DEBUG   : Timestamp: 2026-10-30 13:43:41.549551667-0700
+10-31 05:43:43.260 28235 28235 F DEBUG   : Process uptime: 37s
+10-31 05:43:43.260 28235 28235 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:43:43.260 28235 28235 F DEBUG   : pid: 22772, tid: 25299, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:43:43.260 28235 28235 F DEBUG   : uid: 1010142
+10-31 05:43:43.260 28235 28235 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:43:43.260 28235 28235 F DEBUG   : Cause: null pointer dereference
+10-31 05:43:43.260 28235 28235 F DEBUG   :     rax 0000000000000000  rbx 0000732e62d708c0  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:43:43.260 28235 28235 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000039d0a  r11 0000000000000202
+10-31 05:43:43.265 28235 28235 F DEBUG   :     r12 0000732e62d708d8  r13 0000732f62d58e30  r14 0000732ee2d52380  r15 0000732e62d70900
+10-31 05:43:43.265 28235 28235 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:43:43.265 28235 28235 F DEBUG   :     rbp 00007339356b9d80  rsp 00007339356b9d28  rip 0000000000000000
+10-31 05:43:43.265 28235 28235 F DEBUG   : 25 total frames
+10-31 05:43:43.265 28235 28235 F DEBUG   : backtrace:
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.265 28235 28235 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.268 28235 28235 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.269 28235 28235 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.270 28235 28235 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.270 28235 28235 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:43:43.270 28235 28235 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:43:43.270 28235 28235 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:44:17.246 28738 30050 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 30050 (GameThread), pid 28738 (mos.drivingview)
+10-31 05:44:21.725 32679 32679 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:44:21.725 32679 32679 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:44:21.725 32679 32679 F DEBUG   : Revision: '0'
+10-31 05:44:21.725 32679 32679 F DEBUG   : ABI: 'x86_64'
+10-31 05:44:21.725 32679 32679 F DEBUG   : Timestamp: 2026-10-30 13:44:18.278856995-0700
+10-31 05:44:21.725 32679 32679 F DEBUG   : Process uptime: 34s
+10-31 05:44:21.725 32679 32679 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:44:21.725 32679 32679 F DEBUG   : pid: 28738, tid: 30050, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:44:21.725 32679 32679 F DEBUG   : uid: 1010142
+10-31 05:44:21.725 32679 32679 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:44:21.725 32679 32679 F DEBUG   : Cause: null pointer dereference
+10-31 05:44:21.725 32679 32679 F DEBUG   :     rax 0000000000000000  rbx 0000732e612c6320  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:44:21.725 32679 32679 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 000000000003dde0  r11 0000000000000202
+10-31 05:44:21.725 32679 32679 F DEBUG   :     r12 0000732e612c6338  r13 0000732f612afe30  r14 0000732ee12a9380  r15 0000732e612c6360
+10-31 05:44:21.725 32679 32679 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:44:21.725 32679 32679 F DEBUG   :     rbp 0000733935696d80  rsp 0000733935696d28  rip 0000000000000000
+10-31 05:44:21.725 32679 32679 F DEBUG   : 25 total frames
+10-31 05:44:21.725 32679 32679 F DEBUG   : backtrace:
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:44:21.725 32679 32679 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:44:56.949  1811  4377 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 4377 (GameThread), pid 1811 (mos.drivingview)
+10-31 05:44:59.147  8422  8422 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:44:59.157  8422  8422 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:44:59.157  8422  8422 F DEBUG   : Revision: '0'
+10-31 05:44:59.157  8422  8422 F DEBUG   : ABI: 'x86_64'
+10-31 05:44:59.158  8422  8422 F DEBUG   : Timestamp: 2026-10-30 13:44:57.590179992-0700
+10-31 05:44:59.158  8422  8422 F DEBUG   : Process uptime: 32s
+10-31 05:44:59.158  8422  8422 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:44:59.158  8422  8422 F DEBUG   : pid: 1811, tid: 4377, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:44:59.158  8422  8422 F DEBUG   : uid: 1010142
+10-31 05:44:59.158  8422  8422 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:44:59.158  8422  8422 F DEBUG   : Cause: null pointer dereference
+10-31 05:44:59.158  8422  8422 F DEBUG   :     rax 0000000000000000  rbx 0000732e61f7d8c0  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:44:59.158  8422  8422 F DEBUG   :     r8  0000000000000010  r9  0000733900000000  r10 0000000000000000  r11 0000000000000246
+10-31 05:44:59.158  8422  8422 F DEBUG   :     r12 0000732e61f7d8d8  r13 0000732f61f65e30  r14 0000732ee1f5f380  r15 0000732e61f7d900
+10-31 05:44:59.158  8422  8422 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:44:59.158  8422  8422 F DEBUG   :     rbp 00007339356eed80  rsp 00007339356eed28  rip 0000000000000000
+10-31 05:44:59.158  8422  8422 F DEBUG   : 25 total frames
+10-31 05:44:59.158  8422  8422 F DEBUG   : backtrace:
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.158  8422  8422 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:44:59.159  8422  8422 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:44:59.161  8422  8422 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:45:00.398   431  8612 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:45:00.399   431  8612 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:45:00.399   431  8612 F DEBUG   : Revision: '0'
+10-31 05:45:00.399   431  8612 F DEBUG   : ABI: 'x86_64'
+10-31 05:45:00.399   431  8612 F DEBUG   : Timestamp: 2026-10-30 13:44:59.954131001-0700
+10-31 05:45:00.399   431  8612 F DEBUG   : Process uptime: 564s
+10-31 05:45:00.399   431  8612 F DEBUG   : Cmdline: /vendor/bin/hw/android.hardware.media.c2@1.0-service-goldfish
+10-31 05:45:00.399   431  8612 F DEBUG   : pid: 431, tid: 8612, name: sh.h264.decoder  >>> /vendor/bin/hw/android.hardware.media.c2@1.0-service-goldfish <<<
+10-31 05:45:00.399   431  8612 F DEBUG   : uid: 1013
+10-31 05:45:00.399   431  8612 F DEBUG   : signal 0 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr --------
+10-31 05:45:00.399   431  8612 F DEBUG   : Cause: null pointer dereference
+10-31 05:45:00.399   431  8612 F DEBUG   :     rax 0000000000000016  rbx 00007216e6872938  rcx 0000000000000000  rdx 0000000000000002
+10-31 05:45:00.399   431  8612 F DEBUG   :     r8  3cc1000000010001  r9  00007ffc535db0a0  r10 0000000000042af2  r11 0000000000000202
+10-31 05:45:00.399   431  8612 F DEBUG   :     r12 0000000000000000  r13 00007216e2f9caa0  r14 0000721726cc4128  r15 00007216e6cc2a88
+10-31 05:45:00.399   431  8612 F DEBUG   :     rdi 0000000000000000  rsi 00000000000000c0
+10-31 05:45:00.399   431  8612 F DEBUG   :     rbp 0000000000000000  rsp 00007216e2f9c800  rip 000072197a0dc574
+10-31 05:45:00.399   431  8612 F DEBUG   : 11 total frames
+10-31 05:45:00.402   431  8612 F DEBUG   : backtrace:
+10-31 05:45:00.402   431  8612 F DEBUG   :       #00 pc 0000000000058574  /vendor/lib64/libcodec2_vndk.so (C2Block2D::handle() const+4) (BuildId: 89dffc17c1631a0cb9769e0f89220bed)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #01 pc 00000000000261d1  /vendor/lib64/libcodec2_goldfish_common.so (getClientUsage(std::__1::shared_ptr<C2BlockPool> const&) (.cfi)+81) (BuildId: e771c370572c9b01341addfa796814e6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #02 pc 00000000000353c5  /vendor/lib64/libcodec2_goldfish_avcdec.so (android::C2GoldfishAvcDec::process(std::__1::unique_ptr<C2Work, std::__1::default_delete<C2Work> > const&, std::__1::shared_ptr<C2BlockPool> const&)+757) (BuildId: 9c7487ea7e9ef022477aee382f4a715c)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #03 pc 000000000000fba8  /vendor/lib64/libcodec2_goldfish_common.so (android::SimpleC2Component::processQueue()+2888) (BuildId: e771c370572c9b01341addfa796814e6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #04 pc 000000000000ebc4  /vendor/lib64/libcodec2_goldfish_common.so (android::SimpleC2Component::WorkHandler::onMessageReceived(android::sp<android::AMessage> const&)+180) (BuildId: e771c370572c9b01341addfa796814e6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #05 pc 0000000000018a4d  /apex/com.android.vndk.v34/lib64/libstagefright_foundation.so (android::AHandler::deliverMessage(android::sp<android::AMessage> const&)+109) (BuildId: c975657cb53e721cc39d275f8837e5b6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #06 pc 000000000001cd29  /apex/com.android.vndk.v34/lib64/libstagefright_foundation.so (android::AMessage::deliver()+105) (BuildId: c975657cb53e721cc39d275f8837e5b6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #07 pc 00000000000196b2  /apex/com.android.vndk.v34/lib64/libstagefright_foundation.so (android::ALooper::loop()+690) (BuildId: c975657cb53e721cc39d275f8837e5b6)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #08 pc 0000000000013b14  /apex/com.android.vndk.v34/lib64/libutils.so (android::Thread::_threadLoop(void*)+324) (BuildId: 68353ffe6b4ce48388707d3531ab84da)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #09 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:45:00.402   431  8612 F DEBUG   :       #10 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:45:19.753  9145 10517 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 10517 (GameThread), pid 9145 (mos.drivingview)
+10-31 05:45:22.150 12200 12200 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:45:22.150 12200 12200 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:45:22.150 12200 12200 F DEBUG   : Revision: '0'
+10-31 05:45:22.150 12200 12200 F DEBUG   : ABI: 'x86_64'
+10-31 05:45:22.150 12200 12200 F DEBUG   : Timestamp: 2026-10-31 05:45:20.893716834+0900
+10-31 05:45:22.150 12200 12200 F DEBUG   : Process uptime: 20s
+10-31 05:45:22.150 12200 12200 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:45:22.150 12200 12200 F DEBUG   : pid: 9145, tid: 10517, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:45:22.150 12200 12200 F DEBUG   : uid: 1010142
+10-31 05:45:22.150 12200 12200 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:45:22.150 12200 12200 F DEBUG   : Cause: null pointer dereference
+10-31 05:45:22.150 12200 12200 F DEBUG   :     rax 0000000000000000  rbx 0000732e64d298c0  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:45:22.150 12200 12200 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 00000000000450f0  r11 0000000000000202
+10-31 05:45:22.150 12200 12200 F DEBUG   :     r12 0000732e64d298d8  r13 0000732f64d11e30  r14 0000732ee4d0b380  r15 0000732e64d29900
+10-31 05:45:22.155 12200 12200 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:45:22.155 12200 12200 F DEBUG   :     rbp 0000733935730d80  rsp 0000733935730d28  rip 0000000000000000
+10-31 05:45:22.155 12200 12200 F DEBUG   : 25 total frames
+10-31 05:45:22.155 12200 12200 F DEBUG   : backtrace:
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.155 12200 12200 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.156 12200 12200 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.158 12200 12200 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.160 12200 12200 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.160 12200 12200 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.160 12200 12200 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:45:22.160 12200 12200 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:45:22.161 12200 12200 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:45:57.494 12600 14554 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 14554 (GameThread), pid 12600 (mos.drivingview)
+10-31 05:46:00.229 17438 17438 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-31 05:46:00.229 17438 17438 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-31 05:46:00.229 17438 17438 F DEBUG   : Revision: '0'
+10-31 05:46:00.229 17438 17438 F DEBUG   : ABI: 'x86_64'
+10-31 05:46:00.229 17438 17438 F DEBUG   : Timestamp: 2026-10-31 05:45:57.932474841+0900
+10-31 05:46:00.229 17438 17438 F DEBUG   : Process uptime: 36s
+10-31 05:46:00.229 17438 17438 F DEBUG   : Cmdline: ai.umos.drivingview
+10-31 05:46:00.229 17438 17438 F DEBUG   : pid: 12600, tid: 14554, name: GameThread  >>> ai.umos.drivingview <<<
+10-31 05:46:00.229 17438 17438 F DEBUG   : uid: 1010142
+10-31 05:46:00.229 17438 17438 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-31 05:46:00.229 17438 17438 F DEBUG   : Cause: null pointer dereference
+10-31 05:46:00.229 17438 17438 F DEBUG   :     rax 0000000000000000  rbx 0000732e623fb870  rcx 0000000000000000  rdx 0000000000000007
+10-31 05:46:00.229 17438 17438 F DEBUG   :     r8  0000000000000010  r9  00007fff65bc50a0  r10 0000000000049830  r11 0000000000000202
+10-31 05:46:00.229 17438 17438 F DEBUG   :     r12 0000732e623fb888  r13 0000732f623e40b0  r14 0000732ee23dd380  r15 0000732e623fb8b0
+10-31 05:46:00.229 17438 17438 F DEBUG   :     rdi 0000000000008c2a  rsi 0000000000008236
+10-31 05:46:00.229 17438 17438 F DEBUG   :     rbp 000073393573bd80  rsp 000073393573bd28  rip 0000000000000000
+10-31 05:46:00.229 17438 17438 F DEBUG   : 25 total frames
+10-31 05:46:00.229 17438 17438 F DEBUG   : backtrace:
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #00 pc 0000000000000000  <unknown>
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #01 pc 0000000006367cfd  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #02 pc 00000000025ffd7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #03 pc 00000000025fee57  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #04 pc 00000000026082c6  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #05 pc 0000000001eedf6c  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #06 pc 0000000001f15d3a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #07 pc 0000000001f154ae  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #08 pc 0000000001f16794  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #09 pc 0000000001f14b69  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #10 pc 0000000001f3ba93  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #11 pc 0000000002600811  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #12 pc 0000000002600dbe  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #13 pc 0000000006338d7e  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #14 pc 00000000056b727a  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #15 pc 0000000002552c4f  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #16 pc 0000000006344aaf  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #17 pc 00000000025d4f37  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #18 pc 0000000006393f78  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #19 pc 00000000063910c5  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #20 pc 00000000063a9476  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #21 pc 00000000063a9f66  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #22 pc 000000000639023d  /system_ext/app/DrivingView/DrivingView.apk!libUnreal.so (offset 0x1d470000) (BuildId: f74473e5c58ed483cc1ea45873759bd338d06dd8)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #23 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-31 05:46:00.229 17438 17438 F DEBUG   :       #24 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)

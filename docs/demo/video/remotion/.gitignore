@@ -1,0 +1,6 @@
+node_modules/
+out*.mp4
+# 음성·음악은 작업 폴더에서 복사해 쓴다(저장소에 넣지 않음)
+public/*.mp3
+# AI 생성 실사 클립도 작업 폴더에서 복사해 쓴다
+public/ai_*.mp4

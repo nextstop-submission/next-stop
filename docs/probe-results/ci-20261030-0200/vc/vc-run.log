@@ -1,0 +1,50 @@
+
+added 1 package in 4s
+Performing Streamed Install
+Success
+8088
+== pass clean (navi=false)
+Starting: Intent { cmp=app.nextstop/.drive.DriveActivity (has extras) }
+goto: page.goto: Timeout 120000ms exceeded.
+Call log:
+  - navigating to "http://127.0.0.1:8088/", waiting until "networkidle"
+
+inventory: 80 items
+1 gear:D: via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=? door_fl=null
+2 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+3 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=? door_fl=null
+4 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+5 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+6 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+7 door:open: via=body clicked=FL door → 1 sent=[] state: gear=? door_fl=null
+8 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+9 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+10 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+11 door:open: via=body clicked=FL door → 1 sent=[] state: gear=? door_fl=null
+12 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+13 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+vc-drive exit 0
+/sdcard/vc.mp4: 1 file pulled, 0 skipped. 0.3 MB/s (14118 bytes in 0.043s)
+== pass navi (navi=true)
+Starting: Intent { cmp=app.nextstop/.drive.DriveActivity (has extras) }
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+goto: page.goto: Timeout 120000ms exceeded.
+Call log:
+  - navigating to "http://127.0.0.1:8088/", waiting until "networkidle"
+
+inventory: 80 items
+1 gear:D: via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=? door_fl=null
+2 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+3 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=? door_fl=null
+4 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+5 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+6 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+7 door:open: via=body clicked=FL door → 1 sent=[] state: gear=? door_fl=null
+8 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+9 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+10 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=? door_fl=null
+11 door:open: via=body clicked=FL door → 1 sent=[] state: gear=? door_fl=null
+12 door:close: via=body clicked=FL door → 0 sent=[] state: gear=? door_fl=null
+13 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=? door_fl=null
+vc-drive exit 0
+/sdcard/vc.mp4: 1 file pulled, 0 skipped. 0.3 MB/s (14118 bytes in 0.045s)

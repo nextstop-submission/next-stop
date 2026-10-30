@@ -1,0 +1,14 @@
+1793340243296 C 0:00 계획 화면 띄움
+1793340260506 C 0:40 '운행 시작' 누름
+1793340268553 C 운행 시작 탭 성공
+1793340286156 C 시작 직후 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793340288285 C 시작 top=ai.umos.maps.android.navigation.app/.MainActivity → 앱으로 복귀
+1793340299502 C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째
+1793340513936 C VC 끝 exit=0
+1793340523175 C 정산 top=ai.umos.maps.android.navigation.app/.MainActivity → 앱으로 복귀
+1793340535706 C 정산 화면 top=app.nextstop/.drive.DriveActivity
+1793340538675 C 앱 복귀 횟수=2
+1793340540720 B 시작: demo.ps1 -Launch -Stops 5 -GapSec 3
+1793340677754 B demo.ps1 끝 exit=0 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793340684209 B 정산 top=ai.umos.maps.android.navigation.app/.MainActivity → 앱으로 복귀
+1793340696854 B 앱 복귀 횟수=1

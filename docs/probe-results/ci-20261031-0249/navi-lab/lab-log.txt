@@ -1,0 +1,35 @@
+--------- beginning of main
+         1793382320.234  8180  8180 I NSPROBE : NSPROBE|env|start|auto=false
+         1793382326.527  8180  8180 I NSPROBE : NSPROBE|lab|connected|ok
+         1793382326.596  8180  8180 I NSPROBE : NSPROBE|lab|cmd|state
+         1793382326.626  8180  8180 I NSPROBE : NSPROBE|lab|state.result|called
+         1793382330.828  8180  8180 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793382330.930  8180  8180 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793382332.292  8180  8288 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793382332.329  8180  8288 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793382336.213  8180  8180 I NSPROBE : NSPROBE|lab|cmd|route
+         1793382336.359  8180  8180 I NSPROBE : NSPROBE|lab|route.result|called
+         1793382358.752  8180  8180 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793382358.765  8180  8180 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793382362.811  8180  8180 I NSPROBE : NSPROBE|lab|cmd|state
+         1793382362.813  8180  8180 I NSPROBE : NSPROBE|lab|state.result|called
+         1793382371.589  8180  8180 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793382371.598  8180  8180 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793382375.645  8180  8427 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|INITIALIZING
+         1793382444.537  8180  8180 I NSPROBE : NSPROBE|lab|cmd|state
+         1793382444.676  8180  8180 I NSPROBE : NSPROBE|lab|state.result|called
+         1793382445.045  8180  8180 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793382445.055  8180  8180 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793382449.334  8180  8180 I NSPROBE : NSPROBE|lab|cmd|cancel
+         1793382449.340  8180  8180 I NSPROBE : NSPROBE|lab|cancel.result|called
+         1793382453.517  8180  8180 I NSPROBE : NSPROBE|lab|cmd|geocode 서울역
+         1793382453.534  8180  8180 I NSPROBE : NSPROBE|lab|geocoder.isPresent|false
+         1793382453.602  8180 17824 I NSPROBE : NSPROBE|lab|geocoder.result|empty
+         1793382465.771  8180  8180 I NSPROBE : NSPROBE|lab|cmd|search 서울역
+         1793382465.808  8180  8180 I NSPROBE : NSPROBE|lab|search.result|called
+         1793382508.297  8180  8180 I NSPROBE : NSPROBE|lab|cmd|state
+         1793382508.322  8180  8180 I NSPROBE : NSPROBE|lab|state.result|called
+         1793382508.519  8180  8180 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793382508.523  8180  8180 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793382512.658  8180  8180 I NSPROBE : NSPROBE|lab|cmd|foreground
+         1793382512.676  8180  8180 I NSPROBE : NSPROBE|lab|foreground.result|called

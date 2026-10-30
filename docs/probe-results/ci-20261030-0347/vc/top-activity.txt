@@ -1,0 +1,28 @@
+== pass clean (navi=false)
+step 1  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 2  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 3  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 4  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 5  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 6  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 7  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 8  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 9  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 10  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 11  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 12  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+step 13  topResumedActivity=ActivityRecord{70ffd7b u10 app.nextstop/.drive.DriveActivity t1000011}
+== pass navi (navi=true)
+step 1  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 2  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 3  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 4  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 5  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 6  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 7  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 8  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 9  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 10  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 11  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 12  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}
+step 13  topResumedActivity=ActivityRecord{3d13670 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000012}

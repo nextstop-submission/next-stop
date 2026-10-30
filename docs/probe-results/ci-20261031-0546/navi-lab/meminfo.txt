@@ -1,0 +1,40 @@
+Applications Memory Usage (in Kilobytes):
+Uptime: 626993 Realtime: 626993
+
+** MEMINFO in pid 12600 [ai.umos.drivingview] **
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:     5996                          39516
+         Native Heap:    27616                          30424
+                Code:   146016                         243352
+               Stack:     1168                           1172
+            Graphics:        0                              0
+       Private Other:    59552
+              System:     7919
+             Unknown:                                   63848
+ 
+           TOTAL PSS:   248267            TOTAL RSS:   378312       TOTAL SWAP PSS:       17
+ 
+ Objects
+               Views:        9         ViewRootImpl:        2
+         AppContexts:        7           Activities:        1
+              Assets:        3        AssetManagers:        0
+       Local Binders:       66        Proxy Binders:       59
+       Parcel memory:       17         Parcel count:       57
+    Death Recipients:        4             WebViews:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 
+
+** MEMINFO in pid 4135 [ai.pleos.service] **
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:      840                          34876
+         Native Heap:     1376                           4700
+                Code:      136                          50692

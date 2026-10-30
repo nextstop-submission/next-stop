@@ -1,0 +1,28 @@
+== pass clean (navi=false)
+step 1  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 2  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 3  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 4  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 5  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 6  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 7  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 8  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 9  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 10  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 11  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 12  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 13  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+== pass navi (navi=true)
+step 1  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 2  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 3  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 4  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 5  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 6  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 7  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 8  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 9  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 10  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 11  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 12  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}
+step 13  topResumedActivity=ActivityRecord{742110f u10 app.nextstop/.drive.DriveActivity t1000008}

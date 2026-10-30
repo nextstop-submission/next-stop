@@ -1,0 +1,48 @@
+
+added 1 package in 3s
+Performing Streamed Install
+Success
+8088
+== pass clean (navi=false)
+Starting: Intent { cmp=app.nextstop/.drive.DriveActivity (has extras) }
+bridge_ready after 0s (−1 = never)
+inventory: 80 items
+1 gear:D: via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+2 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+3 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+4 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+5 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+6 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+7 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+8 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+9 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+10 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+11 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+12 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+13 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+vc-drive exit 0
+demo-output/vc-drive-clean.mp4: 26장, 96초
+== pass navi (navi=true)
+Starting: Intent { cmp=app.nextstop/.drive.DriveActivity (has extras) }
+Warning: Activity not started, intent has been delivered to currently running top-most instance.
+goto: page.goto: Timeout 120000ms exceeded.
+Call log:
+  - navigating to "http://127.0.0.1:8088/", waiting until "networkidle"
+
+bridge_ready after 0s (−1 = never)
+inventory: 80 items
+1 gear:D: via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+2 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+3 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+4 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+5 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+6 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+7 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+8 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+9 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+10 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+11 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+12 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+13 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+vc-drive exit 0
+demo-output/vc-drive-navi.mp4: 208장, 475초

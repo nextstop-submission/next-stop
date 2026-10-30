@@ -1,0 +1,84 @@
+a(OdometerImpl): b
+checkCurrentDistanceDrivenCapabilities(Function1, Function1): void
+checkTripCumulativeDrivingDistanceCapabilities(Function1, Function1): void
+checkTripCumulativeDrivingTimeCapabilities(Function1, Function1): void
+checkTripCurrentDrivingDistanceCapabilities(Function1, Function1): void
+checkTripCurrentDrivingTimeCapabilities(Function1, Function1): void
+checkTripDrivingDistanceCapabilities(Function1, Function1): void
+checkTripDrivingTimeCapabilities(Function1, Function1): void
+checkTripInstantaneousDrivingDistanceCapabilities(Function1, Function1): void
+checkTripSinceRefillDrivingDistanceCapabilities(Function1, Function1): void
+checkTripSinceRefillDrivingTimeCapabilities(Function1, Function1): void
+getCurrentDistanceDriven(Function1, Function1): void
+getRangeRemainingDistance(Function1, Function1): void
+getTripCumulativeDrivingDistance(Function1, Function1): void
+getTripCumulativeDrivingTime(Function1, Function1): void
+getTripCurrentDrivingDistance(Function1, Function1): void
+getTripCurrentDrivingTime(Function1, Function1): void
+getTripInstantaneousDrivingDistance(Function1, Function1): void
+getTripSinceRefillDrivingDistance(Function1, Function1): void
+getTripSinceRefillDrivingTime(Function1, Function1): void
+registerDistanceDriven(DistanceDrivenListener): void
+registerRangeRemainingListener(RangeRemainingListener): void
+registerTripCumulativeDrivingDistance(DistanceDrivenListener): void
+registerTripCumulativeDrivingTime(DrivingTimeListener): void
+registerTripCurrentDrivingDistance(DistanceDrivenListener): void
+registerTripCurrentDrivingTime(DrivingTimeListener): void
+registerTripInstantaneousDrivingDistance(DistanceDrivenListener): void
+registerTripSinceRefillDrivingDistance(DistanceDrivenListener): void
+registerTripSinceRefillDrivingTime(DrivingTimeListener): void
+setRangeRemainingDistance$default(Odometer, float, Function1, Function1, int, Object): void
+setRangeRemainingDistance(float, Function1, Function1): void
+unregisterDistanceDriven(DistanceDrivenListener): void
+unregisterRangeRemainingListener(RangeRemainingListener): void
+unregisterTripCumulativeDrivingDistance(DistanceDrivenListener): void
+unregisterTripCumulativeDrivingTime(DrivingTimeListener): void
+unregisterTripCurrentDrivingDistance(DistanceDrivenListener): void
+unregisterTripCurrentDrivingTime(DrivingTimeListener): void
+unregisterTripInstantaneousDrivingDistance(DistanceDrivenListener): void
+unregisterTripSinceRefillDrivingDistance(DistanceDrivenListener): void
+unregisterTripSinceRefillDrivingTime(DrivingTimeListener): void
+
+--- calls ---
+call.checkCurrentDistanceDrivenCapabilities.cb0|CapabilityConfig(accessType=READ)<CapabilityConfig>
+call.checkTripCumulativeDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripCumulativeDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripCurrentDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripCurrentDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripInstantaneousDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripSinceRefillDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.checkTripSinceRefillDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getCurrentDistanceDriven.cb0|0.0<Float>
+call.getRangeRemainingDistance.cb0|500000.0<Float>
+call.getTripCurrentDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripInstantaneousDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripSinceRefillDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripCurrentDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripCumulativeDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripCumulativeDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+call.getTripSinceRefillDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerTripCumulativeDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerTripSinceRefillDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerTripCurrentDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerTripInstantaneousDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerTripSinceRefillDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerTripCumulativeDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerTripCurrentDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>

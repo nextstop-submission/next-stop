@@ -1,0 +1,38 @@
+--------- beginning of main
+10-29 08:18:36.728 I/NextStop( 6064): NS|UX|restricted=false
+10-29 08:18:36.745 I/NextStop( 6064): NS|START|mode=DEMO navi=true sources=demo-signal
+10-29 08:18:36.784 I/NextStop( 6064): NS|EFFECT|NAVIGATE_TO|index=0
+10-29 08:18:41.324 I/NextStop( 6064): NS|NAV|Requested
+10-29 08:18:46.013 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793287126013)
+10-29 08:18:50.226 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=1000.0, atMillis=1793287130226)
+10-29 08:18:51.699 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793287131699)
+10-29 08:18:51.700 I/NextStop( 6064): NS|EFFECT|PARKED|index=0
+10-29 08:18:53.490 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=true, atMillis=1793287133490)
+10-29 08:18:56.105 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287136105)
+10-29 08:19:08.609 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=1001.4000244140625, atMillis=1793287148609)
+10-29 08:19:11.030 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793287151030)
+10-29 08:19:11.034 I/NextStop( 6064): NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=19331
+10-29 08:19:11.034 I/NextStop( 6064): NS|EFFECT|NAVIGATE_TO|index=1
+10-29 08:19:12.543 I/NextStop( 6064): NS|NAV|Requested
+10-29 08:19:31.967 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793287171967)
+10-29 08:19:31.968 I/NextStop( 6064): NS|EFFECT|PARKED|index=1
+10-29 08:19:34.067 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=true, atMillis=1793287174066)
+10-29 08:19:36.205 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287176205)
+10-29 08:19:38.599 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=1002.7999877929688, atMillis=1793287178598)
+10-29 08:19:41.293 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793287181293)
+10-29 08:19:41.293 I/NextStop( 6064): NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=9326
+10-29 08:19:41.293 I/NextStop( 6064): NS|EFFECT|NAVIGATE_TO|index=2
+10-29 08:19:42.882 I/NextStop( 6064): NS|NAV|Requested
+10-29 08:19:46.212 I/NextStop( 6064): NS|UX|restricted=false
+10-29 08:19:46.227 I/NextStop( 6064): NS|RESTORE|done=2/5
+10-29 08:19:46.250 I/NextStop( 6064): NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer+aaos-odometer
+10-29 08:19:51.545 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793287191545)
+10-29 08:19:51.546 I/NextStop( 6064): NS|EFFECT|PARKED|index=2
+10-29 08:19:51.590 I/NextStop( 6064): NS|NAV|Requested
+10-29 08:19:55.298 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287195297)
+10-29 08:19:55.298 I/NextStop( 6064): NS|EFFECT|IGNORED|DOOR_UNCHANGED
+10-29 08:19:55.361 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287195304)
+10-29 08:19:55.361 I/NextStop( 6064): NS|EFFECT|IGNORED|DOOR_UNCHANGED
+10-29 08:19:58.164 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287195496)
+10-29 08:19:58.171 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287195686)
+10-29 08:19:58.180 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287197677)

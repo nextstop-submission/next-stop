@@ -1,0 +1,15 @@
+bridge_ready after 0s (−1 = never)
+inventory: 80 items
+1 gear:D: via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+2 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+3 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+4 door:close: via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+5 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+6 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+7 door:open: via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=0
+8 door:close: via=body clicked=already 0 sent=[] state: gear=[object Object] door_fl=0
+9 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+10 gear:P: via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+11 door:open: via=body clicked=FL door → 1 sent=[] state: gear=[object Object] door_fl=0
+12 door:close: via=body clicked=already 0 sent=[] state: gear=[object Object] door_fl=0
+13 gear:D: via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0

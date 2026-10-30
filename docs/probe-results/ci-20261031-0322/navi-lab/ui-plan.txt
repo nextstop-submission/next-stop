@@ -1,0 +1,19 @@
+다음집 · 오늘의 배송|||android.widget.TextView|false|[917,138][1630,174]|app.nextstop
+배송지를 추가하세요|||android.widget.TextView|false|[917,190][1158,226]|app.nextstop
+운행 시작|||android.widget.Button|true|[917,254][1097,338]|app.nextstop
+실측 화면|||android.widget.Button|true|[1109,254][1289,338]|app.nextstop
+순서: 자동 최적화|||android.widget.Button|true|[917,374][1146,458]|app.nextstop
+모두 지우기|||android.widget.Button|true|[1158,374][1338,458]|app.nextstop
+배송지 추가 — 주소·건물 이름으로 내비에서 찾기|||android.widget.TextView|false|[917,490][1335,516]|app.nextstop
+서울역|||android.widget.EditText|true|[917,543][1337,597]|app.nextstop
+내비에서 찾기|||android.widget.Button|true|[1349,528][1543,612]|app.nextstop
+내비 열어 고르기|||android.widget.Button|true|[917,624][1139,708]|app.nextstop
+내비에서 정한 목적지를 돌아올 때 받아 옵니다|||android.widget.TextView|false|[1151,653][1542,679]|app.nextstop
+내비에서 배송지 가져오기|||android.widget.TextView|false|[917,740][1136,766]|app.nextstop
+최근 목적지|||android.widget.Button|true|[917,778][1097,862]|app.nextstop
+즐겨찾기|||android.widget.Button|true|[1109,778][1289,862]|app.nextstop
+샘플|||android.widget.Button|true|[1301,778][1481,862]|app.nextstop
+음성 안내(선택)|||android.widget.TextView|false|[917,911][1052,937]|app.nextstop
+음성 끔|||android.widget.Button|true|[1068,882][1248,966]|app.nextstop
+P에서 문을 열고 닫은 뒤 D를 넣으면 1건 완료로 기록하고 다음 배송지를 내비에 보냅니다.|||android.widget.TextView|false|[917,990][1630,1042]|app.nextstop
+차량 신호 · 기어 P · 문 닫힘 · 0.0km|||android.widget.TextView|false|[2178,110][2503,136]|app.nextstop

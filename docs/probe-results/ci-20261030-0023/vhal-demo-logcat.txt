@@ -1,0 +1,21 @@
+--------- beginning of main
+10-29 08:22:49.950 I/NextStop( 6064): NS|UX|restricted=false
+10-29 08:22:49.951 I/NextStop( 6064): NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=12010.0, distanceSource=ODOMETER, energyUsed=1091.8181818181818, energyCostWon=1801500, grossWon=7200, netWon=-1794300, elapsedMillis=136457, netPerHourWon=-47337110, costPerParcelWon=225188, avgDwellMillis=10638)
+10-29 08:22:50.729 I/NextStop( 6064): NS|RESTORE|done=5/5
+10-29 08:22:50.752 I/NextStop( 6064): NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer+aaos-odometer
+10-29 08:22:50.761 I/NextStop( 6064): NS|EFFECT|IGNORED|NOT_STARTED
+10-29 08:22:50.768 I/NextStop( 6064): NS|EFFECT|NAVIGATE_TO|index=0
+10-29 08:22:50.989 I/NextStop( 6064): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793287370988)
+10-29 08:22:50.989 I/NextStop( 6064): NS|EFFECT|PARKED|index=0
+10-29 08:22:52.276 I/NextStop( 6064): NS|NAV|Requested
+10-29 08:22:52.386 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287372385)
+10-29 08:22:52.386 I/NextStop( 6064): NS|EFFECT|IGNORED|DOOR_UNCHANGED
+10-29 08:22:52.425 I/NextStop( 6064): NS|SIGNAL|DoorChanged(open=false, atMillis=1793287372392)
+10-29 08:22:52.425 I/NextStop( 6064): NS|EFFECT|IGNORED|DOOR_UNCHANGED
+10-29 08:22:53.566 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287372466)
+10-29 08:22:53.940 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287372564)
+10-29 08:22:55.844 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287375794)
+10-29 08:22:59.676 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287379676)
+10-29 08:23:03.559 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287382939)
+10-29 08:23:07.669 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287387669)
+10-29 08:23:11.679 I/NextStop( 6064): NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793287391679)

@@ -1,0 +1,117 @@
+﻿--------- beginning of main
+10-30 03:47:22.918  7828  7828 I NSPROBE : NSPROBE|env|start|auto=true
+10-30 03:47:23.183  7828  7828 I NSPROBE : NSPROBE|env|device|42dot Connect on x86_64 emulator sdk=34 release=14
+10-30 03:47:23.194  7828  7828 I NSPROBE : NSPROBE|env|app_sdk|vehicle=2.3.2 navihelper=3.0.5
+10-30 03:47:23.210  7828  7828 I NSPROBE : NSPROBE|env|vehicle_service|2.3.22
+10-30 03:47:23.268  7828  7828 I NSPROBE : NSPROBE|env|car_feature|true
+10-30 03:47:26.647  7828  7828 I NSPROBE : NSPROBE|vehicle|initialize|ok
+10-30 03:47:26.869  7828  7828 I NSPROBE : NSPROBE|vehicle|methods|getBrake ; getCarInfo ; getDisplay ; getDoor ; getDrivingMode ; getEvBattery ; getFuel ; getGear ; getHVAC ; getLight ; getOdometer ; getSafety ; getSeat ; getServiceManager$Vehicle_release ; getSideMirror ; getSteeringWheel ; getTire ; getToll ; getTurnSignal ; getWindow ; getWiper ; initialize ; release
+10-30 03:47:27.106  7828  7828 I NSPROBE : NSPROBE|door|methods|a ; checkDoorLockCapabilities ; checkDoorLockCapabilities ; checkDoorPositionCapabilities ; checkDoorPositionCapabilities ; checkGloveBoxLockCapabilities ; getCurrentDoorPosition ; getCurrentGloveBoxLockState ; getDoorLockState ; registerDoorLockState ; registerDoorPosition ; registerGloveBoxLockState ; setDoorLock$default ; setDoorLock ; setDoorPosition$default ; setDoorPosition ; setGloveBoxLock$default ; setGloveBoxLock ; unregisterDoorLockState ; unregisterDoorPosition ; unregisterGloveBoxLockState
+10-30 03:47:42.103  7828  7828 I NSPROBE : NSPROBE|gear|config.GEAR_SELECTION|CarPropertyConfig{mPropertyId=GEAR_SELECTION, mAccess=1, mAreaType=0, mChangeMode=1, mConfigArray=[4, 1, 2, 8, 16, 32, 64, 128, 256], mConfigString=, mMaxSampleRate=0.0, mMinSampleRate=0.0, mAreaIdConfigs =[AreaIdConfig{mAreaId=0, mSupportedEnumValues=[4, 1, 2, 8, 16, 32, 64, 128, 256]}], mType=class java.lang.Integer}
+10-30 03:47:42.724  7828  7828 I NSPROBE : NSPROBE|gear|read.GEAR_SELECTION|4 (PARK)
+10-30 03:47:42.807  7828  7828 I NSPROBE : NSPROBE|gear|config.CURRENT_GEAR|CarPropertyConfig{mPropertyId=CURRENT_GEAR, mAccess=1, mAreaType=0, mChangeMode=1, mConfigArray=[4, 1, 2, 16, 32, 64, 128, 256], mConfigString=, mMaxSampleRate=0.0, mMinSampleRate=0.0, mAreaIdConfigs =[AreaIdConfig{mAreaId=0, mSupportedEnumValues=[4, 1, 2, 16, 32, 64, 128, 256]}], mType=class java.lang.Integer}
+10-30 03:47:43.018  7828  7828 I NSPROBE : NSPROBE|gear|read.CURRENT_GEAR|4 (PARK)
+10-30 03:47:43.057  7828  7828 I NSPROBE : NSPROBE|odometer|aaos.read.PERF_ODOMETER|fail SecurityException requires android.car.permission.CAR_MILEAGE
+10-30 03:47:43.171  7828  7828 I NSPROBE : NSPROBE|gear|register.289408000|true
+10-30 03:47:43.309  7828  7828 I NSPROBE : NSPROBE|gear|register.289408001|true
+10-30 03:47:44.751  7828  7828 I NSPROBE : NSPROBE|odometer|methods|a(OdometerImpl): b ; checkCurrentDistanceDrivenCapabilities(Function1, Function1): void ; checkTripCumulativeDrivingDistanceCapabilities(Function1, Function1): void ; checkTripCumulativeDrivingTimeCapabilities(Function1, Function1): void ; checkTripCurrentDrivingDistanceCapabilities(Function1, Function1): void ; checkTripCurrentDrivingTimeCapabilities(Function1, Function1): void ; checkTripDrivingDistanceCapabilities(Function1, Function1): void ; checkTripDrivingTimeCapabilities(Function1, Function1): void ; checkTripInstantaneousDrivingDistanceCapabilities(Function1, Function1): void ; checkTripSinceRefillDrivingDistanceCapabilities(Function1, Function1): void ; checkTripSinceRefillDrivingTimeCapabilities(Function1, Function1): void ; getCurrentDistanceDriven(Function1, Function1): void ; getRangeRemainingDistance(Function1, Function1): void ; getTripCumulativeDrivingDistance(Function1, Function1): void ; getTripCumulativeDrivingTime(Function1, Function1): void ; getTripCurrentDrivingDistance(Function1, Function1): void ; getTripCurrentDrivingTime(Function1, Function1): void ; getTripInstantaneousDrivingDistance(Function1, Function1): void ; getTripSinceRefillDrivingDistance(Function1, Function1): void ; getTripSinceRefillDrivingTime(Function1, Function1): void ; registerDistanceDriven(DistanceDrivenListener): void ; registerRangeRemainingListener(RangeRemainingListener): void ; registerTripCumulativeDrivingDistance(DistanceDrivenListener): void ; registerTripCumulativeDrivingTime(DrivingTimeListener): void ; registerTripCurrentDrivingDistance(DistanceDrivenListener): void ; registerTripCurrentDrivingTime(DrivingTimeListener): void ; registerTripInstantaneousDrivingDistance(DistanceDrivenListener): void ; registerTripSinceRefillDrivingDistance(DistanceDrivenListener): void ; registerTripSinceRefillDrivingTime(DrivingTimeListener): void ; setRangeRemainingDistance$default(Odometer, float, Function1, Function1, int, Object): void ; setRangeRemainingDistance(float, Function1, Function1): void ; unregisterDistanceDriven(DistanceDrivenListener): void ; unregisterRangeRemainingListener(RangeRemainingListener): void ; unregisterTripCumulativeDrivingDistance(DistanceDrivenListener): void ; unregisterTripCumulativeDrivingTime(DrivingTimeListener): void ; unregisterTripCurrentDrivingDistance(DistanceDrivenListener): void ; unregisterTripCurrentDrivingTime(DrivingTimeListener): void ; unregisterTripInstantaneousDrivingDistance(DistanceDrivenListener): void ; unregisterTripSinceRefillDrivingDistance(DistanceDrivenListener): void ; unregisterTripSinceRefillDrivingTime(DrivingTimeListener): void
+10-30 03:47:55.501  7828  7885 I NSPROBE : NSPROBE|odometer|call.checkTripCumulativeDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:55.573  7828  7885 I NSPROBE : NSPROBE|odometer|call.checkTripCumulativeDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:55.694  7828  7885 I NSPROBE : NSPROBE|odometer|call.checkTripCurrentDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:55.700  7828  7863 I NSPROBE : NSPROBE|odometer|call.checkTripCurrentDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.105  7828  7863 I NSPROBE : NSPROBE|odometer|call.checkTripDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.112  7828  7885 I NSPROBE : NSPROBE|odometer|call.checkTripDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.158  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerDistanceDriven|ok
+10-30 03:47:56.217  7828  8865 I NSPROBE : NSPROBE|odometer|call.checkTripInstantaneousDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.510  7828  7885 I NSPROBE : NSPROBE|odometer|call.checkTripSinceRefillDrivingDistanceCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.579  7828  8878 I NSPROBE : NSPROBE|odometer|call.checkTripSinceRefillDrivingTimeCapabilities.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.604  7828  8885 I NSPROBE : NSPROBE|odometer|call.getTripCumulativeDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.613  7828  8887 I NSPROBE : NSPROBE|odometer|call.getTripCumulativeDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.648  7828  8891 I NSPROBE : NSPROBE|odometer|call.getTripCurrentDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.724  7828  7863 I NSPROBE : NSPROBE|odometer|call.getTripCurrentDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.783  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerRangeRemainingListener|ok
+10-30 03:47:56.882  7828  8878 I NSPROBE : NSPROBE|odometer|call.getTripSinceRefillDrivingTime.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.887  7828  7885 I NSPROBE : NSPROBE|odometer|call.getTripInstantaneousDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:56.931  7828  8865 I NSPROBE : NSPROBE|odometer|call.getTripSinceRefillDrivingDistance.cb1|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:57.019  7828  8888 I NSPROBE : NSPROBE|odometer|call.getRangeRemainingDistance.cb0|500000.0<Float>
+10-30 03:47:57.035  7828  7866 I NSPROBE : NSPROBE|odometer|call.checkCurrentDistanceDrivenCapabilities.cb0|CapabilityConfig(accessType=READ)<CapabilityConfig>
+10-30 03:47:57.058  7828  8884 I NSPROBE : NSPROBE|odometer|call.getCurrentDistanceDriven.cb0|0.0<Float>
+10-30 03:47:57.198  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripCumulativeDrivingDistance|ok
+10-30 03:47:57.450  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripCumulativeDrivingTime|ok
+10-30 03:47:57.554  7828  8894 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:47:57.662  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripCurrentDrivingDistance|ok
+10-30 03:47:57.790  7828  8894 I NSPROBE : NSPROBE|odometer|update.registerTripCumulativeDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:57.817  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripCurrentDrivingTime|ok
+10-30 03:47:58.022  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripInstantaneousDrivingDistance|ok
+10-30 03:47:58.182  7828  8894 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:47:58.198  7828  8888 I NSPROBE : NSPROBE|odometer|update.registerTripCurrentDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:58.374  7828  7866 I NSPROBE : NSPROBE|odometer|update.registerTripCumulativeDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:58.374  7828  8894 I NSPROBE : NSPROBE|odometer|update.registerTripCurrentDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:58.443  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripSinceRefillDrivingDistance|ok
+10-30 03:47:58.560  7828  7866 I NSPROBE : NSPROBE|odometer|update.registerTripInstantaneousDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:58.660  7828  7828 I NSPROBE : NSPROBE|odometer|register.registerTripSinceRefillDrivingTime|ok
+10-30 03:47:58.779  7828  8894 I NSPROBE : NSPROBE|odometer|update.registerTripSinceRefillDrivingTime.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:58.845  7828  7828 I NSPROBE : NSPROBE|ux|requiresDistractionOptimization|false
+10-30 03:47:59.099  7828  7866 I NSPROBE : NSPROBE|odometer|update.registerTripSinceRefillDrivingDistance.onFailed|a: ERROR_NOT_SUPPORTED_PROPERTY
+10-30 03:47:59.357  7828  7828 I NSPROBE : NSPROBE|navi|initialize|ok
+10-30 03:47:59.761  7828  7828 I NSPROBE : NSPROBE|navi|connection|CONNECTING
+10-30 03:48:02.852  7828  7866 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:03.226  7828  7866 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:03.476  7828  7828 I NSPROBE : NSPROBE|navi|requestRoute.coords-empty-poi|called
+10-30 03:48:04.262  7828  7828 I NSPROBE : NSPROBE|navi|connection|CONNECTING
+10-30 03:48:04.358  7828  7828 I NSPROBE : NSPROBE|navi|requestRoute.coords-poi-0|called
+10-30 03:48:04.559  7828  7828 I NSPROBE : NSPROBE|gear|update.GEAR_SELECTION|4 (PARK)
+10-30 03:48:04.747  7828  7861 I NSPROBE : NSPROBE|door|capability|access=READ_WRITE bounds=[Lai.pleos.playground.vehicle.constant.area.DoorValue;@8e62803=0..1, [Lai.pleos.playground.vehicle.constant.area.DoorValue;@f822380=0..1, [Lai.pleos.playground.vehicle.constant.area.DoorValue;@63a4db9=0..100, [Lai.pleos.playground.vehicle.constant.area.DoorValue;@97a5fe=0..100, [Lai.pleos.playground.vehicle.constant.area.DoorValue;@599415f=0..1, [Lai.pleos.playground.vehicle.constant.area.DoorValue;@2a5f7ac=0..1
+10-30 03:48:04.773  7828  7828 I NSPROBE : NSPROBE|gear|update.CURRENT_GEAR|4 (PARK)
+10-30 03:48:04.816  7828  7828 I NSPROBE : NSPROBE|navi|getDestinationInfo|called
+10-30 03:48:04.886  7828  7828 I NSPROBE : NSPROBE|navi|getRouteStateInfo|called
+10-30 03:48:05.028  7828  7828 I NSPROBE : NSPROBE|navi|getCurrentLocationInfo|called
+10-30 03:48:05.097  7828  7828 I NSPROBE : NSPROBE|navi|getRecentDestinationInfo|called
+10-30 03:48:05.177  7828  7828 I NSPROBE : NSPROBE|navi|getBookmarkInfo|called
+10-30 03:48:05.265  7828  7861 I NSPROBE : NSPROBE|door|read.ROW_1_RIGHT|0
+10-30 03:48:05.420  7828  9083 I NSPROBE : NSPROBE|door|update.ROW_1_RIGHT|0
+10-30 03:48:05.476  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_1_LEFT|0
+10-30 03:48:05.542  7828  7863 I NSPROBE : NSPROBE|door|read.ROW_2_LEFT|0
+10-30 03:48:05.595  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_1_RIGHT|0
+10-30 03:48:05.729  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_2_LEFT|0
+10-30 03:48:05.790  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_2_RIGHT|0
+10-30 03:48:05.798  7828  7863 I NSPROBE : NSPROBE|door|update.REAR|0
+10-30 03:48:05.803  7828  7863 I NSPROBE : NSPROBE|door|update.HOOD|0
+10-30 03:48:05.971  7828  9083 I NSPROBE : NSPROBE|door|update.ROW_2_LEFT|0
+10-30 03:48:06.268  7828  7863 I NSPROBE : NSPROBE|door|read.ROW_2_RIGHT|0
+10-30 03:48:06.278  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:06.670  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_2_RIGHT|0
+10-30 03:48:06.823  7828  7863 I NSPROBE : NSPROBE|door|read.ROW_3_LEFT|fail java.lang.IllegalArgumentException: area ID: 0x100 not supported for property ID: DOOR_POS
+10-30 03:48:07.091  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:07.223  7828  9083 I NSPROBE : NSPROBE|door|read.ROW_3_RIGHT|fail java.lang.IllegalArgumentException: area ID: 0x400 not supported for property ID: DOOR_POS
+10-30 03:48:07.226  7828  7828 I NSPROBE : NSPROBE|navi|app_navigateTo|s02
+10-30 03:48:07.494  7828  7863 I NSPROBE : NSPROBE|door|update.ROW_3_LEFT|fail java.lang.IllegalArgumentException: area ID: 0x100 not supported for property ID: DOOR_POS
+10-30 03:48:07.540  7828  9083 I NSPROBE : NSPROBE|door|update.ROW_3_RIGHT|fail java.lang.IllegalArgumentException: area ID: 0x400 not supported for property ID: DOOR_POS
+10-30 03:48:07.591  7828  7863 I NSPROBE : NSPROBE|door|read.HOOD|0
+10-30 03:48:07.657  7828  7863 I NSPROBE : NSPROBE|door|update.HOOD|0
+10-30 03:48:07.757  7828  7863 I NSPROBE : NSPROBE|door|read.REAR|0
+10-30 03:48:07.790  7828  7828 I NSPROBE : NSPROBE|navi|event|initialize.onConnected
+10-30 03:48:07.811  7828  7863 I NSPROBE : NSPROBE|door|update.REAR|0
+10-30 03:48:07.830  7828  7828 I NSPROBE : NSPROBE|navi|app_nav_event|Requested(stopId=s02)
+10-30 03:48:07.890  7828  7863 I NSPROBE : NSPROBE|door|read.ROW_1_LEFT|0
+10-30 03:48:08.938  7828  7828 I NSPROBE : NSPROBE|env|auto_done|listeners stay registered
+10-30 03:48:11.086  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:11.197  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:15.157  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:15.192  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:20.061  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:20.068  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:23.103  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:23.128  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:27.292  7828  8888 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:27.383  7828  8888 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:32.137  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:32.165  7828  7863 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:37.028  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:37.058  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:41.175  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:41.256  7828  9083 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:45.333  7828  8888 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:46.719  7828  8888 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>
+10-30 03:48:49.201  7828  7861 I NSPROBE : NSPROBE|odometer|update.registerRangeRemainingListener.onRangeRemainingChanged|500000.0<Float>
+10-30 03:48:51.047  7828  7861 I NSPROBE : NSPROBE|odometer|update.registerDistanceDriven.onDistanceDrivenUpdated|0.0<Float>

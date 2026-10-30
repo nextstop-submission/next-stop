@@ -1,0 +1,15 @@
+--------- beginning of crash
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: FATAL EXCEPTION: main
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: Process: app.nextstop, PID: 31858
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: android.app.RemoteServiceException$ForegroundServiceDidNotStartInTimeException: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{3f648ac u10 app.nextstop/.drive.RunService}
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.app.ActivityThread.generateForegroundServiceDidNotStartInTimeException(ActivityThread.java:2109)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2080)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mthrowRemoteServiceException(Unknown Source:0)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2374)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+10-29 12:16:05.165 31858 31858 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)

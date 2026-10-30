@@ -1,0 +1,18 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+*.keystore
+*.jks
+keystore.properties
+# 실측 원시 로그는 docs/probe-results/ 아래에 커밋한다 (스크립트가 개인정보 없는 것만 저장)
+
+# 실측 스크립트가 받아 두는 Pleos 배포물(Virtual Console 페이지 등) — 커밋하지 않는다
+.probe-cache/
+# 시연 녹화 결과(용량이 커서 커밋하지 않음)
+demo-output/

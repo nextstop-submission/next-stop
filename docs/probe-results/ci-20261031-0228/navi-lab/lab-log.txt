@@ -1,0 +1,45 @@
+--------- beginning of main
+         1793381061.768  7656  7656 I NSPROBE : NSPROBE|env|start|auto=false
+         1793381062.607  7656  7656 I NSPROBE : NSPROBE|lab|connected|ok
+         1793381068.417  7656  7656 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793381068.429  7656  7656 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793381069.518  7656  7698 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793381070.840  7656  7656 I NSPROBE : NSPROBE|lab|cmd|state
+         1793381070.921  7656  7656 I NSPROBE : NSPROBE|lab|state.result|called
+         1793381071.631  7656  7687 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793381075.883  7656  7656 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793381076.031  7656  7656 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793381076.692  7656  7687 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793381084.194  7656  7656 I NSPROBE : NSPROBE|lab|cmd|recent
+         1793381084.217  7656  7656 I NSPROBE : NSPROBE|lab|recent.result|called
+         1793381085.152  7656  7687 I NSPROBE : NSPROBE|lab.event|onRecentDestinationInfo|
+         1793381089.075  7656  7656 I NSPROBE : NSPROBE|lab|cmd|bookmarks
+         1793381089.447  7656  7656 I NSPROBE : NSPROBE|lab|bookmarks.result|called
+         1793381090.150  7656  7687 I NSPROBE : NSPROBE|lab.event|onBookmarkInfo| 0.000000,0.000000 poi= HOME |  0.000000,0.000000 poi= OFFICE
+         1793381093.199  7656  7656 I NSPROBE : NSPROBE|lab|cmd|search 서울역
+         1793381093.302  7656  7656 I NSPROBE : NSPROBE|lab|search.result|called
+         1793381188.430  7656 10023 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|INITIALIZING
+         1793381194.960  7656  7656 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793381194.978  7656  7656 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793381201.176  7656  7656 I NSPROBE : NSPROBE|lab|cmd|recent
+         1793381201.183  7656  7656 I NSPROBE : NSPROBE|lab|recent.result|called
+         1793381205.807  7656  7656 I NSPROBE : NSPROBE|lab|cmd|state
+         1793381205.813  7656  7656 I NSPROBE : NSPROBE|lab|state.result|called
+         1793381208.893  7656  7656 I NSPROBE : NSPROBE|lab|cmd|cancel
+         1793381208.905  7656  7656 I NSPROBE : NSPROBE|lab|cancel.result|called
+         1793381214.192  7656  7656 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793381214.198  7656  7656 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793381215.348  7656  7886 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|INITIALIZING
+         1793381332.075  7656  7687 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|FREE_DRIVE
+         1793381332.115  7656  7656 I NSPROBE : NSPROBE|lab|cmd|state
+         1793381332.138  7656  7656 I NSPROBE : NSPROBE|lab|state.result|called
+         1793381332.184  7656  7687 I NSPROBE : NSPROBE|lab.event|onWayPointInfo|0
+         1793381332.199  7656 16378 I NSPROBE : NSPROBE|lab.event|onBookmarkInfo| 0.000000,0.000000 poi= HOME |  0.000000,0.000000 poi= OFFICE
+         1793381332.203  7656  7678 I NSPROBE : NSPROBE|lab.event|onRecentDestinationInfo|
+         1793381332.207  7656  7678 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793381332.217  7656  7678 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793381332.236  7656  7678 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793381332.252  7656  7656 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793381332.261  7656  7656 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793381332.593  7656  7656 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793381332.598  7656  7656 I NSPROBE : NSPROBE|lab|loc.result|called

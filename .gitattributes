@@ -1,0 +1,11 @@
+* text=auto
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+gradlew text eol=lf
+*.jar binary
+*.png binary
+*.apk binary
+docs/internal/** export-ignore
+CLAUDE.md export-ignore
+docs/runbook/laptop-probe.md export-ignore

@@ -1,0 +1,13 @@
+--------- beginning of main
+10-29 12:16:02.494 I/NextStop(31858): NS|UX|restricted=true
+10-29 12:16:02.611 I/NextStop(31858): NS|RESTORE|done=3/5
+10-29 12:16:02.615 I/NextStop(31858): NS|START|mode=DEMO navi=true sources=demo-signal
+10-29 12:16:02.629 I/NextStop(31858): NS|EFFECT|NAVIGATE_TO|index=0
+10-29 12:16:05.045 I/NextStop(31858): NS|SERVICE|foreground
+10-29 12:16:05.164 I/NextStop(31858): NS|SERVICE|foreground
+10-29 12:16:32.085 I/NextStop(22116): NS|UX|restricted=true
+10-29 12:16:32.163 I/NextStop(22116): NS|RESTORE|done=0/5
+10-29 12:16:35.196 I/NextStop(22116): NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+10-29 12:16:35.332 I/NextStop(22116): NS|SERVICE|foreground
+10-29 12:16:35.456 I/NextStop(22116): NS|NAV|Requested
+10-29 12:16:35.457 I/NextStop(22116): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793301395457)

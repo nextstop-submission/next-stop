@@ -1,0 +1,7 @@
+실측 — 결과는 logcat NSPROBE · probe-events.jsonl|||android.widget.TextView|false|[885,114][2503,148]|app.nextstop
+전체 자동|||android.widget.Button|true|[885,164][1065,248]|app.nextstop
+도어|||android.widget.Button|true|[1077,164][1257,248]|app.nextstop
+기어|||android.widget.Button|true|[1269,164][1449,248]|app.nextstop
+Odometer|||android.widget.Button|true|[1461,164][1641,248]|app.nextstop
+내비 목적지|||android.widget.Button|true|[1653,164][1833,248]|app.nextstop
+[env] start = auto=false&#10;[lab] connected = ok&#10;|||android.widget.TextView|false|[885,264][2503,327]|app.nextstop

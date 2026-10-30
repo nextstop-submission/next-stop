@@ -1,0 +1,40 @@
+Applications Memory Usage (in Kilobytes):
+Uptime: 605243 Realtime: 605243
+
+** MEMINFO in pid 7519 [ai.umos.maps.android.navigation.app] **
+ 
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:    28100                          61684
+         Native Heap:   129724                         132276
+                Code:   109420                         216332
+               Stack:     4396                           4404
+            Graphics:        0                              0
+       Private Other:    14384
+              System:     8920
+             Unknown:                                   20044
+ 
+           TOTAL PSS:   294944            TOTAL RSS:   434740       TOTAL SWAP PSS:       14
+ 
+ Objects
+               Views:      171         ViewRootImpl:        1
+         AppContexts:        7           Activities:        1
+              Assets:        3        AssetManagers:        0
+       Local Binders:       68        Proxy Binders:       53
+       Parcel memory:       27         Parcel count:      120
+    Death Recipients:        8             WebViews:        0
+ 
+ SQL
+         MEMORY_USED:      828
+  PAGECACHE_OVERFLOW:      247          MALLOC_SIZE:       46
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b) cache hits cache misses cache size  Dbname
+PER CONNECTION STATS
+         4       96            106     4    31     6  /data/user/10/ai.umos.maps.android.navigation.app/no_backup/androidx.work.workdb
+         4        8                    0     0     0    (attached) temp
+         4       96             32     2    15     3  /data/user/10/ai.umos.maps.android.navigation.app/no_backup/androidx.work.workdb (2)
+         4       56            122  7428  1466    25  /data/user/10/ai.umos.maps.android.navigation.app/databases/com.google.android.datatransport.events
+         4       24             27     1    33     3  /data/user/10/ai.umos.maps.android.navigation.app/databases/AI_NAVIGATION_APP_SETTING_DATABASE
+         4        8                    0     0     0    (attached) temp

@@ -1,0 +1,7 @@
+      pleos.car.permission.NAVI_ROUTE_SEARCH: granted=true
+      android.car.permission.CAR_MILEAGE: granted=false
+      android.car.permission.CAR_DRIVING_STATE: granted=false
+      pleos.car.permission.NAVI_ROUTE: granted=true
+      android.car.permission.CAR_POWERTRAIN: granted=true
+      pleos.car.permission.CAR_DOORS: granted=true
+      pleos.car.permission.CAR_DRIVE: granted=true

@@ -1,0 +1,13 @@
+{
+  "name": "nextstop-demo-video",
+  "private": true,
+  "version": "0.0.0",
+  "description": "다음집 시연 영상 — 실제 녹화·앱 렌더 화면을 Remotion으로 엮는다(로컬 렌더, 지출 0)",
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "remotion": "4.0.534",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@fontsource/noto-sans-kr": "5.3.0"
+  }
+}

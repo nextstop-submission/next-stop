@@ -1,0 +1,16 @@
+﻿--------- beginning of main
+10-29 21:53:36.689  4530  4530 I NextStop: NS|UX|restricted=false
+10-29 21:53:36.836  4530  4530 I NextStop: NS|RESTORE|done=0/5
+10-29 21:53:36.843  4530  4530 I NextStop: NS|START|mode=DEMO navi=true sources=demo-signal
+10-29 21:53:36.861  4530  4530 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+10-29 21:53:40.325  4530  4530 I NextStop: NS|NAV|Requested
+10-29 21:53:47.970  4530  4530 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793336027969)
+10-29 21:53:52.639  4530  4530 I NextStop: NS|SIGNAL|OdometerUpdated(km=1001.4000244140625, atMillis=1793336032638)
+10-29 21:53:56.826  4530  4530 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793336036826)
+10-29 21:53:56.827  4530  4530 I NextStop: NS|EFFECT|PARKED|index=0
+10-29 21:54:02.121  4530  4530 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793336042120)
+10-29 21:54:06.104  4530  4530 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793336046104)
+10-29 21:54:10.551  4530  4530 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793336050550)
+10-29 21:54:10.560  4530  4530 I NextStop: NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=13724
+10-29 21:54:10.560  4530  4530 I NextStop: NS|EFFECT|NAVIGATE_TO|index=1
+10-29 21:54:12.597  4530  4530 I NextStop: NS|NAV|Requested

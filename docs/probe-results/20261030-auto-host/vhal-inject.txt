@@ -1,0 +1,80 @@
+cmd car_service inject-vhal-event 0x11400400 8
+System.Management.Automation.RemoteException
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-<user> build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at com.android.car.ICarImpl.lambda$new$0(ICarImpl.java:196)
+	at com.android.car.ICarImpl.$r8$lambda$s2-UoM6N3NTsvCgdggGoRDZI3aQ(Unknown Source:0)
+	at com.android.car.ICarImpl$$ExternalSyntheticLambda0.onShellCommand(Unknown Source:2)
+	at android.car.builtin.os.BinderHelper.onTransactForCmd(BinderHelper.java:132)
+	at com.android.car.ICarImpl.onTransact(ICarImpl.java:944)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+seen=False
+
+cmd car_service inject-vhal-event 0x11400400 4
+System.Management.Automation.RemoteException
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-<user> build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at com.android.car.ICarImpl.lambda$new$0(ICarImpl.java:196)
+	at com.android.car.ICarImpl.$r8$lambda$s2-UoM6N3NTsvCgdggGoRDZI3aQ(Unknown Source:0)
+	at com.android.car.ICarImpl$$ExternalSyntheticLambda0.onShellCommand(Unknown Source:2)
+	at android.car.builtin.os.BinderHelper.onTransactForCmd(BinderHelper.java:132)
+	at com.android.car.ICarImpl.onTransact(ICarImpl.java:944)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+seen=False
+
+cmd car_service inject-vhal-event 0x16400b00 1 1
+System.Management.Automation.RemoteException
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-<user> build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at com.android.car.ICarImpl.lambda$new$0(ICarImpl.java:196)
+	at com.android.car.ICarImpl.$r8$lambda$s2-UoM6N3NTsvCgdggGoRDZI3aQ(Unknown Source:0)
+	at com.android.car.ICarImpl$$ExternalSyntheticLambda0.onShellCommand(Unknown Source:2)
+	at android.car.builtin.os.BinderHelper.onTransactForCmd(BinderHelper.java:132)
+	at com.android.car.ICarImpl.onTransact(ICarImpl.java:944)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+seen=False
+
+cmd car_service inject-vhal-event 0x16400b00 1 0
+System.Management.Automation.RemoteException
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-<user> build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at com.android.car.ICarImpl.lambda$new$0(ICarImpl.java:196)
+	at com.android.car.ICarImpl.$r8$lambda$s2-UoM6N3NTsvCgdggGoRDZI3aQ(Unknown Source:0)
+	at com.android.car.ICarImpl$$ExternalSyntheticLambda0.onShellCommand(Unknown Source:2)
+	at android.car.builtin.os.BinderHelper.onTransactForCmd(BinderHelper.java:132)
+	at com.android.car.ICarImpl.onTransact(ICarImpl.java:944)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+seen=False
+
+cmd car_service inject-vhal-event 0x11400400 8
+System.Management.Automation.RemoteException
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-<user> build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at com.android.car.ICarImpl.lambda$new$0(ICarImpl.java:196)
+	at com.android.car.ICarImpl.$r8$lambda$s2-UoM6N3NTsvCgdggGoRDZI3aQ(Unknown Source:0)
+	at com.android.car.ICarImpl$$ExternalSyntheticLambda0.onShellCommand(Unknown Source:2)
+	at android.car.builtin.os.BinderHelper.onTransactForCmd(BinderHelper.java:132)
+	at com.android.car.ICarImpl.onTransact(ICarImpl.java:944)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+seen=False
+

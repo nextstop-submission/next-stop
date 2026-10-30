@@ -1,0 +1,71 @@
+--------- beginning of main
+         1793394154.779 18882 18882 I NSPROBE : NSPROBE|env|start|auto=false
+         1793394155.736 18882 18882 I NSPROBE : NSPROBE|lab|connected|ok
+         1793394160.913 18882 18882 I NSPROBE : NSPROBE|lab|cmd|state
+         1793394160.932 18882 18882 I NSPROBE : NSPROBE|lab|state.result|called
+         1793394161.838 18882 18882 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394162.356 18882 18882 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394167.557 18882 18882 I NextStop: NS|UX|restricted=false
+         1793394172.760 18882 18882 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793394173.834 18882 18882 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793394173834)
+         1793394176.507 18882 18882 I NextStop: NS|PLACE|search
+         1793394176.595 18882 18882 I NextStop: NS|PLACE|script search sent=true
+         1793394176.898 18882 18882 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394176557)
+         1793394177.612 18882 18882 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394176751)
+         1793394177.616 18882 18882 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394176885)
+         1793394178.811 18882 18882 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394178811)
+         1793394182.819 18882 18882 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394182817)
+         1793394185.822 18882 18882 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394185822)
+         1793394189.480 22709 22709 I NSPROBE : NSPROBE|env|start|auto=false
+         1793394190.190 22709 22709 I NSPROBE : NSPROBE|lab|connected|ok
+         1793394237.777 22709 22709 I NextStop: NS|UX|restricted=false
+         1793394244.299 22709 22709 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793394245.222 22709 22709 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793394245222)
+         1793394249.397 22709 22709 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394248636)
+         1793394249.849 22709 22709 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394248814)
+         1793394249.852 22709 22709 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394248856)
+         1793394249.856 22709 22709 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394248910)
+         1793394249.857 22709 22709 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394248939)
+         1793394252.167 22709 22709 I NSPROBE : NSPROBE|lab|cmd|cancel
+         1793394252.200 22709 22709 I NSPROBE : NSPROBE|lab|cancel.result|called
+         1793394253.914 22709 22709 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394253914)
+         1793394255.565 22709 22709 I NextStop: NS|PLACE|pick
+         1793394255.606 22709 22709 I NextStop: NS|PLACE|script pick sent=true
+         1793394257.826 22709 22709 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394257826)
+         1793394260.985 32739 32739 I NSPROBE : NSPROBE|env|start|auto=false
+         1793394261.620 32739 32739 I NSPROBE : NSPROBE|lab|connected|ok
+         1793394304.449 32739 32739 I NextStop: NS|UX|restricted=false
+         1793394308.976 32739 32739 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793394309.640 32739 32739 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793394309640)
+         1793394315.328 32739 32739 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394313839)
+         1793394315.399 32739 32739 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394314064)
+         1793394315.411 32739 32739 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793394314375)
+         1793394315.415 32739 32739 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394314452)
+         1793394315.416 32739 32739 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394314838)
+         1793394318.833 32739 32739 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793394318833)
+         1793394325.547 12353 12353 I NSPROBE : NSPROBE|env|start|auto=false
+         1793394326.196 12353 12353 I NSPROBE : NSPROBE|lab|connected|ok
+         1793394331.206 12353 12353 I NSPROBE : NSPROBE|lab|cmd|state
+         1793394331.220 12353 12353 I NSPROBE : NSPROBE|lab|state.result|called
+         1793394332.761 12353 12353 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793394332.780 12353 12353 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793394340.357 12353 12353 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394340.362 12353 12353 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394343.563 12353 12353 I NSPROBE : NSPROBE|lab|cmd|route
+         1793394344.198 12353 12353 I NSPROBE : NSPROBE|lab|route.result|called
+         1793394370.264 12353 12353 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394370.316 12353 12353 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394385.103 12353 12353 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394385.121 12353 12353 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394400.596 12353 12353 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394400.617 12353 12353 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394421.897 12353 12353 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793394421.904 12353 12353 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793394422.082 12353 12353 I NSPROBE : NSPROBE|lab|cmd|state
+         1793394422.086 12353 12353 I NSPROBE : NSPROBE|lab|state.result|called
+         1793394422.602 12353 12353 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793394422.626 12353 12353 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793394426.908 12353 12353 I NSPROBE : NSPROBE|lab|cmd|cancel
+         1793394426.920 12353 12353 I NSPROBE : NSPROBE|lab|cancel.result|called
+         1793394430.115 12353 12353 I NSPROBE : NSPROBE|lab|cmd|state
+         1793394430.124 12353 12353 I NSPROBE : NSPROBE|lab|state.result|called

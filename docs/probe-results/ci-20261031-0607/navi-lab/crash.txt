@@ -1,0 +1,58 @@
+--------- beginning of crash
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: FATAL EXCEPTION: DefaultDispatcher-worker-3
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: Process: ai.umos.inputmethod, PID: 6960
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: java.lang.IllegalArgumentException: Failed requirement.
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at u1.d.invokeSuspend(Unknown Source:64)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at u1.d.invoke(Unknown Source:15)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invokeSuspend(Unknown Source:36)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:2)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:1)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at c5.b.b(Unknown Source:7)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at kotlinx.coroutines.i.c(Unknown Source:53)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at kotlinx.coroutines.g.d(Unknown Source:0)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s.invokeSuspend(Unknown Source:74)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:1)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:2)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.C.e(Unknown Source:95)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k.B(Unknown Source:10)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k.u(Unknown Source:179)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k.j(Unknown Source:0)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at androidx.datastore.core.k$g.invokeSuspend(Unknown Source:12)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at kotlin.coroutines.jvm.internal.a.resumeWith(Unknown Source:10)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at kotlinx.coroutines.V.run(Unknown Source:128)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at kotlinx.coroutines.internal.l$a.run(Unknown Source:3)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at d5.k.run(Unknown Source:2)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at d5.a.F(Unknown Source:0)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at d5.a$c.d(Unknown Source:14)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at d5.a$c.p(Unknown Source:28)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	at d5.a$c.run(Unknown Source:0)
+10-30 14:00:15.110  6960  7090 E AndroidRuntime: 	Suppressed: kotlinx.coroutines.internal.h: [I0{Cancelling}@cb38dbd, Dispatchers.IO]
+10-30 14:00:56.965   162   162 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 162 (binder:162_B), pid 162 (binder:162_B)
+10-30 14:00:57.439  7714  7714 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-30 14:00:57.439  7714  7714 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+10-30 14:00:57.439  7714  7714 F DEBUG   : Revision: '0'
+10-30 14:00:57.439  7714  7714 F DEBUG   : ABI: 'x86_64'
+10-30 14:00:57.439  7714  7714 F DEBUG   : Timestamp: 2026-10-30 14:00:57.294659384-0700
+10-30 14:00:57.439  7714  7714 F DEBUG   : Process uptime: 215s
+10-30 14:00:57.439  7714  7714 F DEBUG   : Cmdline: /system/bin/carwatchdogd
+10-30 14:00:57.439  7714  7714 F DEBUG   : pid: 162, tid: 162, name: binder:162_B  >>> /system/bin/carwatchdogd <<<
+10-30 14:00:57.439  7714  7714 F DEBUG   : uid: 1000
+10-30 14:00:57.439  7714  7714 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+10-30 14:00:57.439  7714  7714 F DEBUG   : Cause: null pointer dereference
+10-30 14:00:57.439  7714  7714 F DEBUG   :     rax 00007c75c4eb1890  rbx 00007ffc89b2ae58  rcx 56586331ad689aa5  rdx 0000000000000001
+10-30 14:00:57.439  7714  7714 F DEBUG   :     r8  424f0000000a8009  r9  0000000000000000  r10 0000000000000000  r11 0000000000000206
+10-30 14:00:57.439  7714  7714 F DEBUG   :     r12 00007c7504ea97f0  r13 00007ffc89b2af00  r14 00007c7634ea59b0  r15 00007c7634ea5ae0
+10-30 14:00:57.439  7714  7714 F DEBUG   :     rdi 00007c7634ea5ae0  rsi 0000000000000000
+10-30 14:00:57.439  7714  7714 F DEBUG   :     rbp 0000000000000000  rsp 00007ffc89b2aa30  rip 00005a512492c8a5
+10-30 14:00:57.439  7714  7714 F DEBUG   : 8 total frames
+10-30 14:00:57.439  7714  7714 F DEBUG   : backtrace:
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #00 pc 000000000009e8a5  /system/bin/carwatchdogd (android::automotive::watchdog::WatchdogProcessService::subscribeToVhalHeartBeat()+293) (BuildId: d3909dd7e2827b4ad4d229fc4ef0ae67)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #01 pc 000000000009e1db  /system/bin/carwatchdogd (android::automotive::watchdog::WatchdogProcessService::connectToVhal()+411) (BuildId: d3909dd7e2827b4ad4d229fc4ef0ae67)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #02 pc 000000000009cea7  /system/bin/carwatchdogd (android::automotive::watchdog::WatchdogProcessService::updateVhal(aidl::android::hardware::automotive::vehicle::VehiclePropValue const&)+55) (BuildId: d3909dd7e2827b4ad4d229fc4ef0ae67)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #03 pc 000000000009bc91  /system/bin/carwatchdogd (android::automotive::watchdog::WatchdogProcessService::reportWatchdogAliveToVhal()+385) (BuildId: d3909dd7e2827b4ad4d229fc4ef0ae67)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #04 pc 0000000000017d10  /system/lib64/libutils.so (android::Looper::pollInner(int)+432) (BuildId: 4f198de420dfd0c0b9d739c952e67b31)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #05 pc 0000000000018550  /system/lib64/libutils.so (android::Looper::pollAll(int, int*, int*, void**)+320) (BuildId: 4f198de420dfd0c0b9d739c952e67b31)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #06 pc 00000000000352c5  /system/bin/carwatchdogd (main+213) (BuildId: d3909dd7e2827b4ad4d229fc4ef0ae67)
+10-30 14:00:57.439  7714  7714 F DEBUG   :       #07 pc 00000000000529ef  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+95) (BuildId: fa337969c798946280caa45e2d71a2e7)
+10-30 14:01:23.860   172   172 F libc    : crash_dump helper failed to exec, or was killed
+10-30 14:01:24.008   185   185 F libc    : crash_dump helper failed to exec, or was killed

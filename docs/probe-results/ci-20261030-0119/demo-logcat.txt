@@ -1,0 +1,26 @@
+--------- beginning of main
+10-29 09:17:02.320 I/NextStop( 1876): NS|UX|restricted=true
+10-29 09:17:02.880 I/NextStop( 1876): NS|RESTORE|done=0/5
+10-29 09:17:02.887 I/NextStop( 1876): NS|START|mode=DEMO navi=true sources=demo-signal
+10-29 09:17:03.235 I/NextStop( 1876): NS|EFFECT|NAVIGATE_TO|index=0
+10-29 09:17:10.532 I/NextStop( 1876): NS|NAV|Requested
+10-29 09:17:10.634 I/NextStop( 1876): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793290630634)
+10-29 09:17:12.683 I/NextStop( 1876): NS|SIGNAL|OdometerUpdated(km=1000.0, atMillis=1793290632681)
+10-29 09:17:14.877 I/NextStop( 1876): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793290634877)
+10-29 09:17:14.880 I/NextStop( 1876): NS|EFFECT|PARKED|index=0
+10-29 09:17:17.116 I/NextStop( 1876): NS|SIGNAL|DoorChanged(open=true, atMillis=1793290637116)
+10-29 09:17:19.695 I/NextStop( 1876): NS|SIGNAL|DoorChanged(open=false, atMillis=1793290639695)
+10-29 09:17:25.222 I/NextStop( 1876): NS|SIGNAL|OdometerUpdated(km=1001.4000244140625, atMillis=1793290645217)
+10-29 09:17:26.567 I/NextStop( 1876): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793290646567)
+10-29 09:17:26.571 I/NextStop( 1876): NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=11690
+10-29 09:17:26.571 I/NextStop( 1876): NS|EFFECT|NAVIGATE_TO|index=1
+10-29 09:17:28.157 I/NextStop( 1876): NS|NAV|Requested
+10-29 09:17:39.625 I/NextStop( 1876): NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793290659624)
+10-29 09:17:39.626 I/NextStop( 1876): NS|EFFECT|PARKED|index=1
+10-29 09:17:41.211 I/NextStop( 1876): NS|SIGNAL|DoorChanged(open=true, atMillis=1793290661211)
+10-29 09:17:42.308 I/NextStop( 1876): NS|SIGNAL|DoorChanged(open=false, atMillis=1793290662308)
+10-29 09:17:43.715 I/NextStop( 1876): NS|SIGNAL|OdometerUpdated(km=1002.7999877929688, atMillis=1793290663715)
+10-29 09:17:45.387 I/NextStop( 1876): NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793290665387)
+10-29 09:17:45.387 I/NextStop( 1876): NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=5763
+10-29 09:17:45.387 I/NextStop( 1876): NS|EFFECT|NAVIGATE_TO|index=2
+10-29 09:17:46.964 I/NextStop( 1876): NS|NAV|Requested

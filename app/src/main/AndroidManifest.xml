@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+
+    <!-- Pleos Vehicle SDK: 공식 문서 'Declaring permission' 표 기준, 쓰는 도메인만 선언
+         Door → CAR_DOORS, Odometer(DrivingMode·Brake와 같은 군) → CAR_DRIVE -->
+    <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+
+    <!-- Pleos NaviHelper SDK: 공식 문서 기준
+         NAVI_ROUTE → get*Info()(최근 목적지·즐겨찾기·목적지 확인), NAVI_ROUTE_SEARCH → requestRoute()·cancelRoute() -->
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <!-- NAVI_CUSTOM_MAP → requestNavigationScreen()(배송지 추가: 내비 장소 검색 화면 열기) -->
+    <uses-permission android:name="pleos.car.permission.NAVI_CUSTOM_MAP" />
+
+    <!-- AAOS Car API: GEAR_SELECTION(CAR_POWERTRAIN). 주행 제한(CarUxRestrictions)은 권한 없이 읽힌다.
+         CAR_MILEAGE(PERF_ODOMETER)·CAR_DRIVING_STATE는 Pleos 이미지에서 서드파티에 부여되지 않아 뺐다
+         (에뮬레이터 실측 2026-10-30, docs/probe-results/ci-20261030-0023/permissions.txt). 주행거리는 Pleos Odometer만 쓴다. -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+
+    <!-- 앱이 내비 뒤에 있을 때 1건 완료를 한 줄 알림으로(CompletionNotifier) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- 운행 중에만 도는 포그라운드 서비스(RunService): 내비가 앞에 있는 동안 프로세스가 종료돼 신호를 놓치는 것을 막는다 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- 실측 화면에서 Vehicle Service 버전 확인용 -->
+    <queries>
+        <package android:name="ai.pleos.playground.service.vehicle" />
+    </queries>
+
+    <application
+        android:name=".NextStopApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NextStop">
+
+        <activity
+            android:name=".drive.DriveActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 주행 중에도 표시 가능한 화면(CarUxRestrictions를 스스로 지킨다) -->
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+        </activity>
+
+        <service
+            android:name=".drive.RunService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps a delivery run listening to vehicle gear and door signals while the navigation app is in front" />
+        </service>
+
+        <!-- 실측 화면: 실측 스크립트가 adb로 실행. 정차 중 개발용이므로 distractionOptimized 아님 -->
+        <activity
+            android:name=".probe.ProbeActivity"
+            android:exported="true"
+            android:label="@string/probe_name" />
+    </application>
+</manifest>

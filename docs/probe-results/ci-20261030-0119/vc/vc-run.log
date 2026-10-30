@@ -1,0 +1,20 @@
+
+added 1 package in 4s
+Performing Streamed Install
+Success
+8088
+Starting: Intent { cmp=app.nextstop/.drive.DriveActivity (has extras) }
+inventory: 80 items
+1 gear:D: card=Gear clicked=D requests=+49
+2 odo:+2: card=- clicked=value 0→2 requests=+48
+3 gear:P: card=Gear clicked=P requests=+50
+4 door:open: card=Door clicked=Open requests=+69
+5 door:close: card=Door clicked=Closed requests=+79
+6 gear:D: card=Gear clicked=D requests=+48
+7 odo:+2: card=- clicked=value 0→2 requests=+44
+8 gear:P: card=Gear clicked=P requests=+46
+9 door:open: card=Door clicked=Open requests=+67
+10 door:close: card=Door clicked=Closed requests=+74
+11 gear:D: card=Gear clicked=D requests=+49
+vc-drive exit 0
+/sdcard/vc.mp4: 1 file pulled, 0 skipped. 0.9 MB/s (239682 bytes in 0.260s)

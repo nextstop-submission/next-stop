@@ -1,0 +1,15 @@
+1793392643889 그래픽: guest / GLES: Google (Google Inc.), Android Emulator OpenGL ES Translator (Google SwiftShader), OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
+1793392648423 내비 준비 대기 180초 (내비 PID 5714)
+1793392683347 30초: 내비 PID 5714 / 맨 앞 ai.umos.drivingview/.DrivingViewActivity
+1793392720135 60초: 내비 PID 7519 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity
+1793392763046 90초: 내비 PID 7519 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity
+1793392799978 120초: 내비 PID 7519 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity
+1793392838362 150초: 내비 PID 7519 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity
+1793392876199 180초: 내비 PID 7519 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity
+1793392892357 내비 PID 7519
+1793392892598 주행 화면: 목록 비우고 '내비에서 찾기'(서울역)
+1793392953473 검색 뒤 맨 앞 화면: app.nextstop/.drive.DriveActivity / 내비 PID 7519
+1793392977023 경로 요청 → 37.416321,127.094681 (약 400m 북쪽)
+1793393019146 경로 뒤 맨 앞 화면: ai.umos.maps.android.navigation.app/.MainActivity / 내비 PID 7519
+1793393116001 목적지 좌표에 도착(geo fix) / 내비 PID 7519
+1793393147245 끝 (내비 PID 기록: 5714 7519 )

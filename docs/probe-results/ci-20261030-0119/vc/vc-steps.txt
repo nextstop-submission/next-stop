@@ -1,0 +1,12 @@
+inventory: 80 items
+1 gear:D: card=Gear clicked=D requests=+49
+2 odo:+2: card=- clicked=value 0→2 requests=+48
+3 gear:P: card=Gear clicked=P requests=+50
+4 door:open: card=Door clicked=Open requests=+69
+5 door:close: card=Door clicked=Closed requests=+79
+6 gear:D: card=Gear clicked=D requests=+48
+7 odo:+2: card=- clicked=value 0→2 requests=+44
+8 gear:P: card=Gear clicked=P requests=+46
+9 door:open: card=Door clicked=Open requests=+67
+10 door:close: card=Door clicked=Closed requests=+74
+11 gear:D: card=Gear clicked=D requests=+49
