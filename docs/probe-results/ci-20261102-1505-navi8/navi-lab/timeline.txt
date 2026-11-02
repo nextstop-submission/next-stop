@@ -1,0 +1,33 @@
+1793598900729 그래픽: guest / GLES: Google (Google Inc.), Android Emulator OpenGL ES Translator (Google SwiftShader), OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
+1793598902309 내비 준비 대기 180초
+1793598962686 60초: 내비 PID 5749 / 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793599023547 120초: 내비 PID 7621 / 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity 
+1793599083779 180초: 내비 PID  / 맨 앞 com.android.car.settings/.FallbackHome 
+1793599161632 내비 응답: 있음(3회째)
+1793599163136 ① 주행 화면: 목록 비우고 '내비에서 찾기'(서울역)
+1793599181828 검색 6초: 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity 
+1793599203100 검색 24초: 맨 앞 ai.umos.maps.android.navigation.app/.MainActivity 
+1793599206154 dump 1-search-ui: 요소 48개
+1793599206193 검색 결과 누르기 170 186
+1793599214154 dump 1-result-ui: 요소 5개
+1793599214188 목적지 버튼 265 1366 목적지로
+1793599316658 ① 경로 시작 0회 / 앱 질문 0회 / 취소 NS|NAV|cancelRoute by=DelayedNavigator.cancel
+1793599327300 dump 1-plan-ui: 요소 21개
+1793599327314 ① 끝: 배송지 추가 1건
+1793599330384 ② 전: 실험 도구가 경로 취소(cmd cancel)
+1793599333457 ② '내비 열어 고르기'
+1793599342316 맨 앞 app.nextstop/.drive.DriveActivity 
+1793599345182 dump 2-navi-ui: 요소 21개
+1793599345226 검색창 누르기 1073 1110
+1793599352984 dump 2-searchbox-ui: 요소 21개
+1793599372600 dump 2-typed-ui: 요소 0개
+1793599381476 ② 끝: 배송지 추가 1건
+1793599383948 dump 2-plan-ui: 요소 8개
+1793599392133 ③ 상태: naviMode=ROUTE_GUIDING
+1793599392221 ④ 전 Android 위치:  last location=null  last location=Location[gps 39.237255,-123.150032 hAcc=5.0 et=+10m1s532ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0,   last location=null 
+1793599392280 VC 기능 목록 35957바이트 · 위치 관련 "Door Position" "Longitudinal" "Position Lamp" "Position" "PositionLamp" "Publish brake position and the derived pressed status" "Publish each passenger-window position" "Publish normalized seat position" 
+1793599395461 ④ geo fix·NMEA 뒤 Android 위치:  last location=null  last location=Location[gps 37.412720,127.094680 hAcc=5.0 et=+10m4s533ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0, m  last location=null 
+1793599398527 ④ NMEA 시작점 뒤 위치: onCurrentLocationInfo|at=37.412721,127.094681
+1793599479625 ④ 끝: 위치 onCurrentLocationInfo|at=37.412721,127.094681 / Android  last location=null  last location=Location[gps 37.416320,127.094680 hAcc=5.0 et=+11m27s690ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0,   last location=null  / 도착 이벤트 0건
+1793599513135 ④b VC 속도 40 30초 뒤: 위치 onCurrentLocationInfo|at=37.412721,127.094681 / VC {"gear":{"bridge_ready":false,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse","Neutral","Drive"],"actual":null},"controls":{"spee / 도착 이벤트 0건
+1793599519831 끝

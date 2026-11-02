@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# 내비 실험(실측) 7회차 — guest 그래픽(커밋 메시지 [gpu-guest])에서 사람이 고르는 단계까지 잰다
+# 내비 실험(실측) 8회차 — guest 그래픽(커밋 메시지 [gpu-guest])
+#  7회차(ci-20261102-1407): '내비에서 찾기' → 검색 결과 목록 → '목적지로' → onRouteStarted(서울역 KTX)까지 됐으나
+#   onDestinationChanged가 오지 않아 앱이 목적지를 묻지 않았고, 경로 시작이 36초 늦게 와 그사이 ② 시작의 실험 도구 cancel이 경로를 지웠다.
+#   → 앱: 대기 중이면 onRouteStarted에서도 목적지를 묻는다(RunStore), cancelRoute마다 부른 쪽 로그(NS|NAV|cancelRoute by=).
+#   → 이 스크립트: ①에서 배송지가 들어오거나 90초가 지날 때까지 기다린 뒤 넘어간다. 실험 도구의 cancel은 표시를 남긴다.
+#   → ④ 위치가 안 움직였다: NMEA 외에 geo fix(경도 먼저), Android 위치(dumpsys location), Virtual Console 기능 목록·속도를 함께 남긴다.
 #  6회차(guest): 내비가 NaviHelper 요청에 한 번도 답하지 않았다(5b와 같은 설정 — CI 내비 기동이 회차마다 다르다).
 #  → 3분 대기 뒤에도 내비가 '상태' 요청에 답할 때까지 다시 연결하며 최대 6분 기다린 다음 진행한다.
 #  5b회차(guest): 내비가 3분 안에 준비를 끝냈다('어디로 갈까요?'). 경로 요청 → onRouteStarted(이름·1.9km·8분)·ROUTE_DRIVE,
@@ -70,11 +75,17 @@ if [ -n "$xy" ]; then
   b=$(python3 "$HERE/ui-nodes.py" tap-any "$OUT/1-result-ui.xml" "$BTN")
   [ -n "$b" ] && { mark "목적지 버튼 $b"; set -- $b; "$adb" shell input tap "$1" "$2"; sleep 8; shot 1-dest-set; }
 fi
-drive; sleep 6; shot 1-back
+# 앱은 뒤에 둔 채로 기다린다 — 경로 시작(CI에서 30초 넘게 걸림) → 앱이 목적지를 물어 배송지로 받고 경로를 취소하는지
+for i in $(seq 1 30); do
+  [ "$(added)" -gt 0 ] && break
+  sleep 3
+done
+mark "① 경로 시작 $(grep -c 'NS|NAV|RouteStarted' "$OUT/lab-log.txt")회 / 앱 질문 $(grep -c 'NS|PLACE|route-started' "$OUT/lab-log.txt")회 / 취소 $(grep -o 'NS|NAV|cancelRoute by=[^ ]*' "$OUT/lab-log.txt" | tail -1)"
+drive; sleep 6; shot 1-back; dump 1-plan-ui
 mark "① 끝: 배송지 추가 $(added)건"
 
 # ---------- ② '내비 열어 고르기' → 내비 검색창 → 영문 입력
-lab_ui; sleep 3; lab --es cmd cancel; sleep 3
+lab_ui; sleep 3; mark "② 전: 실험 도구가 경로 취소(cmd cancel)"; lab --es cmd cancel; sleep 3
 mark "② '내비 열어 고르기'"
 drive --ez pick true; sleep 8; shot 2-navi; mark "맨 앞 $(top)"
 dump 2-navi-ui
@@ -100,20 +111,34 @@ mark "③ 상태: $(grep -o 'naviMode=[A-Z_]*' "$OUT/lab-log.txt" | tail -1)"
 # ---------- ④ 경로 → 체크섬 맞춘 NMEA로 이동 → 도착 이벤트
 lat0=37.412721; lng0=127.094681
 lat1=$(python3 -c "print(f'{$lat0+0.0036:.6f}')")
-for k in 1 2 3; do nmea_to "$lat0" "$lng0"; sleep 1; done
+osloc() { "$adb" shell dumpsys location 2>/dev/null | grep -iE 'last location|Location\[' | head -3 | tr -s ' ' | cut -c1-160 | tr '\n' ' '; }
+mark "④ 전 Android 위치: $(osloc)"
+# Virtual Console 기능 목록(48개 · 7도메인)에 위치·GNSS가 있는지 — 있으면 다음 회차에 그 길로 옮긴다
+"$adb" forward tcp:8088 tcp:8088 >/dev/null 2>&1
+curl -s -m 10 http://127.0.0.1:8088/vehicle/catalog > "$OUT/vc-catalog.json" 2>/dev/null
+mark "VC 기능 목록 $(wc -c < "$OUT/vc-catalog.json")바이트 · 위치 관련 $(grep -oiE '"[^"]*(locat|gnss|gps|latit|longit|position)[^"]*"' "$OUT/vc-catalog.json" | sort -u | head -8 | tr '\n' ' ')"
+for k in 1 2 3; do nmea_to "$lat0" "$lng0"; "$adb" emu geo fix "$lng0" "$lat0" >/dev/null 2>&1; sleep 1; done
+mark "④ geo fix·NMEA 뒤 Android 위치: $(osloc)"
 lab --es cmd loc; sleep 3
 mark "④ NMEA 시작점 뒤 위치: $(grep -o 'onCurrentLocationInfo|at=[-0-9.,]*' "$OUT/lab-log.txt" | tail -1)"
 lab --es cmd route --es lat "$lat1" --es lng "$lng0" --es name 실측도착지
 sleep 12; shot 4-route
 for i in $(seq 1 30); do
   la=$(python3 -c "print(f'{$lat0+0.0036*$i/30:.6f}')")
-  nmea_to "$la" "$lng0"; sleep 1
+  nmea_to "$la" "$lng0"; "$adb" emu geo fix "$lng0" "$la" >/dev/null 2>&1; sleep 1
   [ $((i % 10)) = 0 ] && { lab --es cmd loc; shot "4-move-$i"; }
 done
 for k in $(seq 1 10); do nmea_to "$lat1" "$lng0"; sleep 1; done
 sleep 5; shot 4-arrived
 lab --es cmd loc; lab --es cmd state; lab --es cmd dest; sleep 4
-mark "④ 끝: 위치 $(grep -o 'onCurrentLocationInfo|at=[-0-9.,]*' "$OUT/lab-log.txt" | tail -1) / 도착 이벤트 $(grep -c 'onDestinationArrived' "$OUT/lab-log.txt")건"
+mark "④ 끝: 위치 $(grep -o 'onCurrentLocationInfo|at=[-0-9.,]*' "$OUT/lab-log.txt" | tail -1) / Android $(osloc) / 도착 이벤트 $(grep -c 'onDestinationArrived' "$OUT/lab-log.txt")건"
+# 내비가 Android 위치가 아니라 차량 속도로 위치를 추정하는지: Virtual Console로 D + 속도 40km/h 30초
+curl -s -m 5 -X PUT 'http://127.0.0.1:8088/vehicle/gear?gear=Drive' >/dev/null
+for s in $(seq 1 10); do curl -s -m 5 -X PUT 'http://127.0.0.1:8088/vehicle/controls?speed=40&accelerator=30&brake=0' >/dev/null; sleep 3; done
+lab --es cmd loc; sleep 3
+mark "④b VC 속도 40 30초 뒤: 위치 $(grep -o 'onCurrentLocationInfo|at=[-0-9.,]*' "$OUT/lab-log.txt" | tail -1) / VC $(curl -s -m 5 http://127.0.0.1:8088/vehicle/state | cut -c1-200) / 도착 이벤트 $(grep -c 'onDestinationArrived' "$OUT/lab-log.txt")건"
+curl -s -m 5 -X PUT 'http://127.0.0.1:8088/vehicle/controls?speed=0&accelerator=0&brake=50' >/dev/null
+curl -s -m 5 -X PUT 'http://127.0.0.1:8088/vehicle/gear?gear=Park' >/dev/null
 lab --es cmd cancel; sleep 3; lab --es cmd state; sleep 3
 
 "$adb" logcat -d -b crash > "$OUT/crash.txt" 2>/dev/null

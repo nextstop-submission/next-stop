@@ -1,0 +1,21 @@
+다음집 · 오늘의 배송|||android.widget.TextView|false|[64,48][1216,84]|app.nextstop
+최적 동선 26.9km · 입력 순서보다 0.0km 짧음 (최적해)|||android.widget.TextView|false|[64,100][736,136]|app.nextstop
+운행 시작|||android.widget.Button|true|[64,164][244,248]|app.nextstop
+실측 화면|||android.widget.Button|true|[256,164][436,248]|app.nextstop
+1. 서울역 KTX|||android.widget.TextView|false|[64,290][235,326]|app.nextstop
+삭제|||android.widget.Button|true|[247,276][405,340]|app.nextstop
+순서: 자동 최적화|||android.widget.Button|true|[64,356][293,440]|app.nextstop
+모두 지우기|||android.widget.Button|true|[305,356][485,440]|app.nextstop
+배송지 추가 — 주소·건물 이름으로 내비에서 찾기|||android.widget.TextView|false|[64,472][482,498]|app.nextstop
+예: 다솜동 3구역, 서울역|||android.widget.EditText|true|[64,525][484,579]|app.nextstop
+내비에서 찾기|||android.widget.Button|true|[496,510][690,594]|app.nextstop
+내비 열어 고르기|||android.widget.Button|true|[64,606][286,690]|app.nextstop
+내비에서 정한 목적지를 돌아올 때 받아 옵니다|||android.widget.TextView|false|[298,635][689,661]|app.nextstop
+내비에서 배송지 가져오기|||android.widget.TextView|false|[64,722][283,748]|app.nextstop
+최근 목적지|||android.widget.Button|true|[64,760][244,844]|app.nextstop
+즐겨찾기|||android.widget.Button|true|[256,760][436,844]|app.nextstop
+샘플|||android.widget.Button|true|[448,760][628,844]|app.nextstop
+음성 안내(선택)|||android.widget.TextView|false|[64,893][199,919]|app.nextstop
+음성 끔|||android.widget.Button|true|[215,864][395,948]|app.nextstop
+P에서 문을 열고 닫은 뒤 D를 넣으면 1건 완료로 기록하고 다음 배송지를 내비에 보냅니다.|||android.widget.TextView|false|[64,972][820,998]|app.nextstop
+차량 신호 · 기어 P · 문 닫힘 · 0.0km|||android.widget.TextView|false|[2203,20][2528,46]|app.nextstop

@@ -75,5 +75,7 @@ naviHelper.cancelRoute()
 ## 앱 설계상 결정
 
 - **도착 판정에 `onDestinationArrived`를 쓰지 않는다.** 에뮬레이터 위치가 움직이지 않고, 배송 완료의 기준은 '정차·하차·출발'이다.
+- 내비는 Android GPS 위치를 쓰지 않는다: `geo fix`·NMEA로 Android 위치(`dumpsys location`)는 37.412720 → 37.416320으로 옮겨졌지만 `onCurrentLocationInfo`는 37.412721 그대로였다. Virtual Console 기능 목록(`/vehicle/catalog`)에도 위치·GNSS가 없다 ✅ 실측(CI 8회차 `ci-20261102-1505-navi8`).
+- 장소 검색 결과에서 '목적지로'를 누르면 `onDestinationChanged` 없이 곧장 `onRouteStarted`가 온다(7·8회차 두 번 모두). 그래서 앱은 검색 대기 중이면 `onRouteStarted`에서도 `getDestinationInfo`를 묻는다 → 8회차에 배송지로 들어옴 ✅ 실측.
 - 로그에는 위치·주소가 담긴 객체를 남기지 않는다(실측 결과가 저장소에 커밋되므로).
 - requestRoute가 내비 화면을 앞으로 띄운다(앱 화면을 덮고 목적지 이름을 보여 줌) ✅ 실측(2026-10-30, `probe-results/20261030-auto-host/demo-3-next.png`) → 앱은 완료 확인 화면이 끝난 뒤(1.5초) 목적지를 보낸다.

@@ -24,6 +24,7 @@ import ai.pleos.playground.navi.data.WaypointInfo
 import ai.pleos.playground.navi.helper.NaviHelper
 import ai.pleos.playground.navi.helper.listener.NaviHelperEventListener
 import android.content.Context
+import android.util.Log
 import app.nextstop.core.model.DestinationCandidate
 import app.nextstop.core.model.Stop
 import app.nextstop.core.nav.NavEvent
@@ -133,6 +134,9 @@ class PleosNavigator(context: Context) : Navigator {
     }
 
     override fun cancel() {
+        // 누가 경로를 취소했는지 실측에서 가리려고 부른 쪽을 남긴다(내비 7회차: 취소 주체를 기록만으로 못 가렸다)
+        val by = Throwable().stackTrace.drop(1).take(2).joinToString(" < ") { "${it.className.substringAfterLast('.')}.${it.methodName}" }
+        Log.i("NextStop", "NS|NAV|cancelRoute by=$by connected=${connection == Connection.CONNECTED}")
         if (connection == Connection.CONNECTED) runCatching { helper?.cancelRoute() }
     }
 
@@ -159,6 +163,12 @@ class PleosNavigator(context: Context) : Navigator {
 
     /** 내비 목적지가 바뀌었다(검색 결과를 목적지로 정함, 또는 다른 앱·사람이 바꿈). */
     var onDestinationChanged: (() -> Unit)? = null
+
+    /**
+     * 내비 경로 안내가 시작됐다. 검색 결과에서 '목적지로'를 누르면 [onDestinationChanged] 없이 이것만 온다
+     * (CI 내비 7회차 `ci-20261102-1407`: onRouteStarted(서울역 KTX) → onDestinationChanged 0회).
+     */
+    var onRouteStarted: (() -> Unit)? = null
 
     /** [requestDestinationInfo] 결과. 목적지가 없으면 좌표가 0일 수 있다(호출 쪽이 거른다). */
     var onDestination: ((DestinationCandidate) -> Unit)? = null
@@ -220,6 +230,7 @@ class PleosNavigator(context: Context) : Navigator {
 
         override fun onRouteStarted(routeStartInfo: RouteStartInfo) {
             raw("onRouteStarted"); emit(NavEvent.RouteStarted(currentStopId))
+            onMain { onRouteStarted?.invoke() }
         }
 
         @Deprecated("Deprecated by NaviHelperEventListener")

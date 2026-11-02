@@ -1,0 +1,25 @@
+1793594796909 그래픽: guest / GLES: Google (Google Inc.), Android Emulator OpenGL ES Translator (Google SwiftShader), OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
+1793594799750 내비 준비 대기 180초
+1793594861174 60초: 내비 PID 5558 / 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793594921839 120초: 내비 PID 5558 / 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793594982927 180초: 내비 PID 5558 / 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793595006758 내비 응답: 있음(1회째)
+1793595010228 ① 주행 화면: 목록 비우고 '내비에서 찾기'(서울역)
+1793595035698 검색 6초: 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793595068593 검색 24초: 맨 앞 ai.umos.drivingview/.DrivingViewActivity ai.umos.homescreen/.HomeActivity ai.umos.maps.android.navigation.app/.MainActivity 
+1793595076544 dump 1-search-ui: 요소 40개
+1793595076633 검색 결과 누르기 1023 276
+1793595089913 dump 1-result-ui: 요소 5개
+1793595090243 목적지 버튼 1118 1226 목적지로
+1793595116874 ① 끝: 배송지 추가 0건
+1793595259679 ② '내비 열어 고르기'
+1793595421487 맨 앞 
+1793595421522 dump 2-navi-ui: 요소 0개
+1793595421544 검색창 누르기 1073 1110
+1793595425584 dump 2-searchbox-ui: 요소 0개
+1793595437629 dump 2-typed-ui: 요소 0개
+1793595445677 ② 끝: 배송지 추가 0건
+1793595445709 dump 2-plan-ui: 요소 0개
+1793595453730 ③ 상태: naviMode=SAFE_GUIDING
+1793595459813 ④ NMEA 시작점 뒤 위치: onCurrentLocationInfo|at=37.412721,127.094681
+1793595521957 ④ 끝: 위치 onCurrentLocationInfo|at=37.412721,127.094681 / 도착 이벤트 0건

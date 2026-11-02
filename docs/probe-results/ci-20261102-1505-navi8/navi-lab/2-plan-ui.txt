@@ -1,0 +1,8 @@
+다음 배송지|||android.widget.TextView|false|[64,501][2496,535]|app.nextstop
+서울역 KTX|||android.widget.TextView|false|[64,543][557,667]|app.nextstop
+남은 1건|||android.widget.TextView|false|[64,687][237,750]|app.nextstop
+1/1번째|||android.widget.TextView|false|[64,770][156,806]|app.nextstop
+완료|||android.widget.Button|true|[64,1316][244,1400]|app.nextstop
+나중에|||android.widget.Button|true|[260,1316][440,1400]|app.nextstop
+건너뛰기|||android.widget.Button|true|[456,1316][636,1400]|app.nextstop
+차량 신호 · 기어 P · 문 닫힘 · 0.0km|||android.widget.TextView|false|[2203,20][2528,46]|app.nextstop

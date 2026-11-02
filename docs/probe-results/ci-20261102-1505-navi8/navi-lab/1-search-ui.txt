@@ -1,0 +1,48 @@
+내 위치로|||android.widget.TextView|false|[1251,1349][1354,1383]|ai.umos.maps.android.navigation.app
+1|||android.widget.TextView|false|[48,171][92,213]|ai.umos.maps.android.navigation.app
+서울역 KTX|||android.widget.TextView|false|[104,169][236,203]|ai.umos.maps.android.navigation.app
+KTX정차역|||android.widget.TextView|false|[241,173][348,202]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,211][176,245]|ai.umos.maps.android.navigation.app
+서울특별시 용산구 한강대로 405|||android.widget.TextView|false|[192,211][504,245]|ai.umos.maps.android.navigation.app
+주차|||android.widget.TextView|false|[112,255][154,284]|ai.umos.maps.android.navigation.app
+2|||android.widget.TextView|false|[48,353][92,395]|ai.umos.maps.android.navigation.app
+서울역 1호선|||android.widget.TextView|false|[104,351][245,385]|ai.umos.maps.android.navigation.app
+지하철,전철|||android.widget.TextView|false|[251,355][363,384]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,393][176,427]|ai.umos.maps.android.navigation.app
+서울특별시 중구 봉래동2가 122-25|||android.widget.TextView|false|[192,393][504,427]|ai.umos.maps.android.navigation.app
+3|||android.widget.TextView|false|[48,494][92,536]|ai.umos.maps.android.navigation.app
+서울역서부출입구|||android.widget.TextView|false|[104,492][296,526]|ai.umos.maps.android.navigation.app
+기차역|||android.widget.TextView|false|[302,496][365,525]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,534][176,568]|ai.umos.maps.android.navigation.app
+서울특별시 용산구 동자동 43-205|||android.widget.TextView|false|[192,534][504,568]|ai.umos.maps.android.navigation.app
+4|||android.widget.TextView|false|[48,635][92,677]|ai.umos.maps.android.navigation.app
+서울역제1주차장|||android.widget.TextView|false|[104,633][286,667]|ai.umos.maps.android.navigation.app
+주차장|||android.widget.TextView|false|[292,637][355,666]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,675][176,709]|ai.umos.maps.android.navigation.app
+서울특별시 용산구 청파로 378|||android.widget.TextView|false|[192,675][504,709]|ai.umos.maps.android.navigation.app
+영업 중|||android.widget.TextView|false|[112,719][181,748]|ai.umos.maps.android.navigation.app
+5|||android.widget.TextView|false|[48,817][92,859]|ai.umos.maps.android.navigation.app
+서울역 15번출구|||android.widget.TextView|false|[104,815][286,849]|ai.umos.maps.android.navigation.app
+지하철출구번호|||android.widget.TextView|false|[292,819][439,848]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,857][176,891]|ai.umos.maps.android.navigation.app
+서울특별시 용산구 청파로 378|||android.widget.TextView|false|[192,857][504,891]|ai.umos.maps.android.navigation.app
+6|||android.widget.TextView|false|[48,958][92,1000]|ai.umos.maps.android.navigation.app
+서울역주차장|||android.widget.TextView|false|[104,956][248,990]|ai.umos.maps.android.navigation.app
+주차장|||android.widget.TextView|false|[254,960][317,989]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,998][176,1032]|ai.umos.maps.android.navigation.app
+서울특별시 중구 한강대로 405|||android.widget.TextView|false|[192,998][504,1032]|ai.umos.maps.android.navigation.app
+7|||android.widget.TextView|false|[48,1099][92,1141]|ai.umos.maps.android.navigation.app
+서울역 1번출구|||android.widget.TextView|false|[104,1097][269,1131]|ai.umos.maps.android.navigation.app
+지하철출구번호|||android.widget.TextView|false|[275,1101][422,1130]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,1139][176,1173]|ai.umos.maps.android.navigation.app
+서울특별시 중구 한강대로 405|||android.widget.TextView|false|[192,1139][504,1173]|ai.umos.maps.android.navigation.app
+8|||android.widget.TextView|false|[48,1240][92,1282]|ai.umos.maps.android.navigation.app
+롯데마트 제타플렉스서울역|||android.widget.TextView|false|[104,1238][399,1272]|ai.umos.maps.android.navigation.app
+점|||android.widget.TextView|false|[104,1272][128,1306]|ai.umos.maps.android.navigation.app
+슈퍼,마트|||android.widget.TextView|false|[134,1276][225,1305]|ai.umos.maps.android.navigation.app
+19km|||android.widget.TextView|false|[104,1314][176,1348]|ai.umos.maps.android.navigation.app
+서울특별시 중구 한강대로 405|||android.widget.TextView|false|[192,1314][504,1348]|ai.umos.maps.android.navigation.app
+영업 중|||android.widget.TextView|false|[112,1358][181,1387]|ai.umos.maps.android.navigation.app
+주차|||android.widget.TextView|false|[203,1358][245,1387]|ai.umos.maps.android.navigation.app
+서울역|||android.widget.EditText|true|[48,50][488,122]|ai.umos.maps.android.navigation.app
+지우기|||android.widget.TextView|false|[421,72][484,101]|ai.umos.maps.android.navigation.app

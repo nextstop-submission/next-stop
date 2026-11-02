@@ -54,6 +54,14 @@ B의 쓸모 있는 부분은 이미 있다. 폰 지도 앱에서 '차로 보내�
 | 내비 목적지가 바뀌면 앱이 배송지로 받는가 | ✅ '내비에서 찾기'로 대기 중일 때 내비 목적지가 '실측도착지'(37.416321,127.094681)로 바뀌자, 앱이 그 좌표·이름을 받아 배송지 1곳을 더함(`NS|PLACE|Added stops=1`). 목적지를 바꾼 것은 사람이 아니라 실험 도구의 경로 요청이다 | 같은 폴더 `lab-log.txt` |
 | 받은 뒤 경로 취소 | 확인 필요 — 받은 뒤에도 내비가 ROUTE_GUIDING으로 남음 → 6회차에서 다시 본다 | 같은 폴더 |
 | 같은 `guest` 설정 재현(6회차) | 내비가 NaviHelper 요청(상태·위치)에 한 번도 답하지 않음 → CI 내비 기동은 회차마다 다르다. 7회차부터 응답할 때까지 기다린 뒤 진행 | CI 6회차 `ci-20261031-0607/navi-lab` |
-| 내비에서 고른 곳이 배송지로 들어오는지 | 노트북 에뮬레이터(지도·경로가 그려지는 환경)에서 `scripts/probe/navi-lab.ps1 -Phase place` | 대기 |
+| 7회차(`guest`, 11/2): '내비에서 찾기'(서울역) | ✅ 내비가 첫 연결에 응답. **Pleos 내비가 검색 결과 목록을 띄움**(서울역 KTX·서울역 1호선·서울역서부출입구… 거리·주소 포함). 첫 결과 → 상세 → '목적지로' → `onRouteStarted(name=서울역 KTX, distance=22000, duration=3060)` ✅ | CI 7회차 `ci-20261102-1407/navi-lab` `1-search-ui.txt`·`1-result-ui.txt`·`lab-log.txt` |
+| 7회차: 고른 곳이 배송지로 들어오는가 | ❌ 0건. `onDestinationChanged`는 오지 않았고, 경로 시작 0.6초 뒤 `onRouteCancelled` → 그 뒤 목적지 정보는 빈 값(0,0). 취소를 앱이 했는지 내비가 했는지는 이 기록으로 못 가림 → 앱이 대기 중이면 `onRouteStarted`에서도 목적지를 묻고, `cancel()` 호출마다 로그를 남긴 뒤 8회차 | 같은 폴더 |
+| 7회차: '내비 열어 고르기' | 측정 못 함 — 내비 화면 읽기(uiautomator dump)가 요소 0개 | 같은 폴더 |
+| 7회차: 도착 이벤트 | ❌ 0건 — 체크섬 맞춘 NMEA로도 내비 위치가 시작점(37.412721,127.094681)에서 움직이지 않음 | 같은 폴더 `timeline.txt` |
+| 7회차 뒤 앱 보완 | 대기 중이면 `onRouteStarted`에서도 `getDestinationInfo`를 묻는다(`RunStore`). `cancelRoute`마다 부른 쪽을 로그로(`NS|NAV|cancelRoute by=`). 7회차 취소는 실험 도구가 ② 시작에 보낸 `cancel`이었을 가능성이 컸다(경로 시작이 36초 늦게 와 ①이 끝난 뒤) → 스크립트는 ①에서 배송지가 들어오거나 90초가 지날 때까지 기다린다 | 커밋 `4fdc193` |
+| **8회차(11/2): 고른 곳이 배송지로 들어오는가** | ✅ **들어옴.** 검색 결과 → '목적지로' → `onRouteStarted(서울역 KTX)` → 앱 `NS|PLACE|route-started → ask destination` → `onDestinationInfo(서울역 KTX, POI ID 있음)` → `NS|PLACE|Added stops=1` → 앱이 경로 취소(`by=…RunStore.acceptPlace`) → 내비 `FREE_DRIVE`. 계획 화면에 '1. 서울역 KTX'. 이번에도 `onDestinationChanged`는 오지 않았다 — 결과를 고르면 내비는 바로 경로를 시작한다 | CI 8회차 `ci-20261102-1505-navi8/navi-lab` `lab-log.txt`·`1-plan-ui.txt` |
+| 8회차: '내비 열어 고르기' | 측정 못 함 — 요청 뒤 맨 앞이 내비가 아니라 앱이었고, 스크립트의 검색창 누르기가 앱의 '운행 시작'을 눌러 운행이 시작됐다(실험 도구 탓, 앱 오류 아님) | 같은 폴더 `timeline.txt` |
+| 8회차: 도착 이벤트 | ❌ 0건, 원인 좁힘 — `geo fix`(경도 먼저)·체크섬 맞춘 NMEA로 **Android 위치는 옮겨졌지만**(37.412720 → 37.416320) 내비의 현재 위치(`onCurrentLocationInfo`)는 37.412721에 그대로 → 내비는 Android GPS 위치를 쓰지 않는다. Virtual Console 기능 목록(`vc-catalog.json`)에도 위치·GNSS 항목이 없다. 속도로 위치를 추정하는지는 그때 Virtual Console 연결이 끊겨(`bridge_ready=false`) 못 쟀다. → 에뮬레이터에서 도착 이벤트를 만들 길은 지금 없다. 설계는 처음부터 도착 이벤트에 기대지 않는다(완료 = P·문·D) | 같은 폴더 |
+| 내비에서 고른 곳이 배송지로 들어오는지(노트북) | 8회차로 CI에서 확인돼 노트북 실측은 필요 없어짐 | — |
 
 CI(GitHub Actions)의 내비는 그래픽 없이 돌아 지도를 그리지 못한다. 그래서 '사람이 검색 결과를 고르는' 마지막 고리는 노트북 에뮬레이터에서 잰다.

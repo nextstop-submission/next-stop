@@ -1,0 +1,264 @@
+--------- beginning of crash
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: FATAL EXCEPTION: DefaultDispatcher-worker-4
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: Process: ai.umos.inputmethod, PID: 5655
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: java.lang.IllegalArgumentException: Failed requirement.
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at u1.d.invokeSuspend(Unknown Source:64)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at u1.d.invoke(Unknown Source:15)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invokeSuspend(Unknown Source:36)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:2)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:1)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at c5.b.b(Unknown Source:7)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at kotlinx.coroutines.i.c(Unknown Source:53)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at kotlinx.coroutines.g.d(Unknown Source:0)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s.invokeSuspend(Unknown Source:74)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:1)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:2)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.C.e(Unknown Source:95)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k.B(Unknown Source:10)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k.u(Unknown Source:179)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k.j(Unknown Source:0)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at androidx.datastore.core.k$g.invokeSuspend(Unknown Source:12)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at kotlin.coroutines.jvm.internal.a.resumeWith(Unknown Source:10)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at kotlinx.coroutines.V.run(Unknown Source:128)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at kotlinx.coroutines.internal.l$a.run(Unknown Source:3)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at d5.k.run(Unknown Source:2)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at d5.a.F(Unknown Source:0)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at d5.a$c.d(Unknown Source:14)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at d5.a$c.p(Unknown Source:28)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	at d5.a$c.run(Unknown Source:0)
+11-01 21:55:09.735  5655  5715 E AndroidRuntime: 	Suppressed: kotlinx.coroutines.internal.h: [I0{Cancelling}@4b2fbfa, Dispatchers.IO]
+11-01 21:56:54.580   802  5733 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xec834857 in tid 5733 (binder:802_1E), pid 802 (system_server)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: FATAL EXCEPTION: DefaultDispatcher-worker-2
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: Process: ai.umos.inputmethod, PID: 7541
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: java.lang.IllegalArgumentException: Failed requirement.
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at u1.d.invokeSuspend(Unknown Source:64)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at u1.d.invoke(Unknown Source:15)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invokeSuspend(Unknown Source:36)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:2)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s$a.invoke(SourceFile:1)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at c5.b.b(Unknown Source:7)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at kotlinx.coroutines.i.c(Unknown Source:53)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at kotlinx.coroutines.g.d(Unknown Source:0)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s.invokeSuspend(Unknown Source:74)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:1)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$s.invoke(SourceFile:2)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.C.e(Unknown Source:95)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k.B(Unknown Source:10)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k.u(Unknown Source:179)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k.j(Unknown Source:0)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at androidx.datastore.core.k$g.invokeSuspend(Unknown Source:12)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at kotlin.coroutines.jvm.internal.a.resumeWith(Unknown Source:10)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at kotlinx.coroutines.V.run(Unknown Source:128)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at kotlinx.coroutines.internal.l$a.run(Unknown Source:3)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at d5.k.run(Unknown Source:2)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at d5.a.F(Unknown Source:0)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at d5.a$c.d(Unknown Source:14)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at d5.a$c.p(Unknown Source:28)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	at d5.a$c.run(Unknown Source:0)
+11-01 21:56:56.529  7541  7697 E AndroidRuntime: 	Suppressed: kotlinx.coroutines.internal.h: [I0{Cancelling}@80d8e25, Dispatchers.IO]
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: Process: ai.umos.mediaapp, PID: 7884
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: java.lang.RuntimeException: Unable to create service ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4684)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleCreateService(Unknown Source:0)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2269)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at b5.c.<init>(Unknown Source:54)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at b5.i.a(Unknown Source:20)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at E2.c0.<init>(SourceFile:26)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at d0.f.k(Unknown Source:14)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at d0.e.get(Unknown Source:321)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at B7.a.get(Unknown Source:13)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.e(Unknown Source:19)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.onCreate(Unknown Source:0)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4671)
+11-01 21:57:09.103  7884  7884 E AndroidRuntime: 	... 9 more
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: Process: ai.umos.mediaapp, PID: 7957
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: java.lang.RuntimeException: Unable to create service ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4684)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleCreateService(Unknown Source:0)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2269)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object android.car.Car.getCarManager(java.lang.String)' on a null object reference
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at b5.c.<init>(Unknown Source:54)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at b5.i.a(Unknown Source:20)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at E2.c0.<init>(SourceFile:26)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at d0.f.k(Unknown Source:14)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at d0.e.get(Unknown Source:321)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at B7.a.get(Unknown Source:13)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.e(Unknown Source:19)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at ai.umos.mediaapp.miniapp.ui.MiniAppUpdateService.onCreate(Unknown Source:0)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	at android.app.ActivityThread.handleCreateService(ActivityThread.java:4671)
+11-01 21:57:10.498  7957  7957 E AndroidRuntime: 	... 9 more
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: Process: ai.umos.vehiclecontrol, PID: 7999
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: java.lang.RuntimeException: Unable to get provider ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider: java.lang.NullPointerException: createCar(context) must not be null
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7787)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:7293)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7000)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2241)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: Caused by: java.lang.NullPointerException: createCar(context) must not be null
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.vehiclePropertyRepository(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:17)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.getVehiclePreferenceUseCase(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:7)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider.onCreate(VehiclePreferenceContentProvider.kt:22)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7782)
+11-01 21:57:10.619  7999  7999 E AndroidRuntime: 	... 11 more
+11-01 21:57:11.597   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:57:12.564  7899  7899 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-01 21:57:12.564  7899  7899 F DEBUG   : Build fingerprint: 'Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys'
+11-01 21:57:12.564  7899  7899 F DEBUG   : Revision: '0'
+11-01 21:57:12.564  7899  7899 F DEBUG   : ABI: 'x86_64'
+11-01 21:57:12.564  7899  7899 F DEBUG   : Timestamp: 2026-11-01 21:56:58.126024401-0800
+11-01 21:57:12.564  7899  7899 F DEBUG   : Process uptime: 211s
+11-01 21:57:12.564  7899  7899 F DEBUG   : Cmdline: system_server
+11-01 21:57:12.564  7899  7899 F DEBUG   : pid: 802, tid: 5733, name: binder:802_1E  >>> system_server <<<
+11-01 21:57:12.564  7899  7899 F DEBUG   : uid: 1000
+11-01 21:57:12.564  7899  7899 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x00000000ec834857
+11-01 21:57:12.564  7899  7899 F DEBUG   :     rax 00007b4d81df5090  rbx 00007b4d81df5090  rcx 00007b4cf2b663a0  rdx 00000000712146c0
+11-01 21:57:12.564  7899  7899 F DEBUG   :     r8  1d11000000008001  r9  0000000000000001  r10 00000000707f6400  r11 0000000000000246
+11-01 21:57:12.564  7899  7899 F DEBUG   :     r12 00000000ec834853  r13 00007b4cf2b663a0  r14 00007b4cf2b66288  r15 00000000712146c0
+11-01 21:57:12.564  7899  7899 F DEBUG   :     rdi 00007b4df5c0e9d0  rsi 00007b4d81df5090
+11-01 21:57:12.564  7899  7899 F DEBUG   :     rbp 00007b4cf2b66260  rsp 00007b4cf2b661b0  rip 00007b4d81ff21ea
+11-01 21:57:12.564  7899  7899 F DEBUG   : 17 total frames
+11-01 21:57:12.564  7899  7899 F DEBUG   : backtrace:
+11-01 21:57:12.564  7899  7899 F DEBUG   :       #00 pc 00000000007f21ea  /apex/com.android.art/lib64/libart.so (art::JValue art::InvokeVirtualOrInterfaceWithVarArgs<art::ArtMethod*>(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, art::ArtMethod*, __va_list_tag*)+106) (BuildId: b6dc79e02101ea00827a35a55ab6597a)
+11-01 21:57:12.564  7899  7899 F DEBUG   :       #01 pc 0000000000614c10  /apex/com.android.art/lib64/libart.so (art::JNI<false>::CallVoidMethodV(_JNIEnv*, _jobject*, _jmethodID*, __va_list_tag*)+704) (BuildId: b6dc79e02101ea00827a35a55ab6597a)
+11-01 21:57:12.564  7899  7899 F DEBUG   :       #02 pc 00000000000de574  /system/lib64/libandroid_runtime.so (_JNIEnv::CallVoidMethod(_jobject*, _jmethodID*, ...)+164) (BuildId: a45dd2eaf610d163bb078d4e35cf2b12)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #03 pc 0000000000160889  /system/lib64/libandroid_runtime.so (android::TransactionCommittedListenerWrapper::callback()+73) (BuildId: a45dd2eaf610d163bb078d4e35cf2b12)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #04 pc 00000000001607ea  /system/lib64/libandroid_runtime.so (android::TransactionCommittedListenerWrapper::transactionCallbackThunk(void*, long, android::sp<android::Fence> const&, std::__1::vector<android::SurfaceControlStats, std::__1::allocator<android::SurfaceControlStats> > const&)+26) (BuildId: a45dd2eaf610d163bb078d4e35cf2b12)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #05 pc 000000000010a83e  /system/lib64/libgui.so (std::__1::__function::__func<std::__1::__bind<std::__1::function<void (void*, long, android::sp<android::Fence> const&, std::__1::vector<android::SurfaceControlStats, std::__1::allocator<android::SurfaceControlStats> > const&)>&, void*&, std::__1::placeholders::__ph<1> const&, std::__1::placeholders::__ph<2> const&, std::__1::placeholders::__ph<3> const&>, std::__1::allocator<std::__1::__bind<std::__1::function<void (void*, long, android::sp<android::Fence> const&, std::__1::vector<android::SurfaceControlStats, std::__1::allocator<android::SurfaceControlStats> > const&)>&, void*&, std::__1::placeholders::__ph<1> const&, std::__1::placeholders::__ph<2> const&, std::__1::placeholders::__ph<3> const&> >, void (long, android::sp<android::Fence> const&, std::__1::vector<android::SurfaceControlStats, std::__1::allocator<android::SurfaceControlStats> > const&)>::operator()(long&&, android::sp<android::Fence> const&, std::__1::vector<android::SurfaceControlStats, std::__1::allocator<android::SurfaceControlStats> > const&)+62) (BuildId: eea407499292aad57c02fc8495165ee9)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #06 pc 00000000000f62d1  /system/lib64/libgui.so (android::TransactionCompletedListener::onTransactionCompleted(android::ListenerStats)+3857) (BuildId: eea407499292aad57c02fc8495165ee9)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #07 pc 00000000000d4b59  /system/lib64/libgui.so (android::BnTransactionCompletedListener::onTransact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+393) (BuildId: eea407499292aad57c02fc8495165ee9)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #08 pc 00000000000752ce  /system/lib64/libbinder.so (android::BBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+238) (BuildId: 03953aee9b44f2d039463aaa5076fb83)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #09 pc 000000000005fa27  /system/lib64/libbinder.so (android::IPCThreadState::executeCommand(int)+1239) (BuildId: 03953aee9b44f2d039463aaa5076fb83)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #10 pc 000000000005f48c  /system/lib64/libbinder.so (android::IPCThreadState::getAndExecuteCommand()+156) (BuildId: 03953aee9b44f2d039463aaa5076fb83)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #11 pc 000000000005ff3f  /system/lib64/libbinder.so (android::IPCThreadState::joinThreadPool(bool)+111) (BuildId: 03953aee9b44f2d039463aaa5076fb83)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #12 pc 0000000000069a97  /system/lib64/libbinder.so (android::PoolThread::threadLoop()+23) (BuildId: 03953aee9b44f2d039463aaa5076fb83)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #13 pc 0000000000013b14  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+324) (BuildId: 4f198de420dfd0c0b9d739c952e67b31)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #14 pc 00000000000ec6b2  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::javaThreadShell(void*)+146) (BuildId: a45dd2eaf610d163bb078d4e35cf2b12)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #15 pc 00000000000cd06a  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+58) (BuildId: fa337969c798946280caa45e2d71a2e7)
+11-01 21:57:12.565  7899  7899 F DEBUG   :       #16 pc 0000000000062d88  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+56) (BuildId: fa337969c798946280caa45e2d71a2e7)
+11-01 21:57:13.784  2818  3263 E AndroidRuntime: FATAL EXCEPTION: fg
+11-01 21:57:13.784  2818  3263 E AndroidRuntime: Process: com.android.providers.media.module, PID: 2818
+11-01 21:57:13.784  2818  3263 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:13.842  3563  4001 E AndroidRuntime: FATAL EXCEPTION: fg
+11-01 21:57:13.842  3563  4001 E AndroidRuntime: Process: com.android.providers.media.module, PID: 3563
+11-01 21:57:13.842  3563  4001 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:13.942  4053  4505 E AndroidRuntime: FATAL EXCEPTION: pool-3-thread-1
+11-01 21:57:13.942  4053  4505 E AndroidRuntime: Process: ai.umos.drivingview, PID: 4053
+11-01 21:57:13.942  4053  4505 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:13.985  7923  7923 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:57:13.985  7923  7923 E AndroidRuntime: Process: com.android.systemui, PID: 7923
+11-01 21:57:13.985  7923  7923 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:13.999  7750  8171 E AndroidRuntime: FATAL EXCEPTION: CarTelemetryService
+11-01 21:57:13.999  7750  8171 E AndroidRuntime: Process: com.android.car, PID: 7750
+11-01 21:57:13.999  7750  8171 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:14.026  8287  8287 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:57:14.026  8287  8287 E AndroidRuntime: Process: ai.umos.vehiclecontrol, PID: 8287
+11-01 21:57:14.026  8287  8287 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 21:57:42.298   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:57:57.810   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:58:03.681   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:58:03.760   186   186 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: Process: com.android.systemui, PID: 8842
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method 'java.util.List android.car.CarOccupantZoneManager.getAllOccupantZones()' on a null object reference
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.input.DisplayInputSinkController.initPassengerDisplays(DisplayInputSinkController.java:202)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.input.DisplayInputSinkController.-$$Nest$minitPassengerDisplays(DisplayInputSinkController.java:0)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.input.DisplayInputSinkController$3.onConnected(DisplayInputSinkController.java:195)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.CarServiceProvider.lambda$new$0(CarServiceProvider.java:65)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.CarServiceProvider.$r8$lambda$SrKOtOdh1sH_x-4-F-oaP0i4hK0(CarServiceProvider.java:0)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.systemui.car.CarServiceProvider$$ExternalSyntheticLambda0.onLifecycleChanged(R8$$SyntheticClass:0)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.car.Car$3.onServiceConnected(Car.java:1725)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.app.LoadedApk$ServiceDispatcher.doConnected(LoadedApk.java:2198)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.app.LoadedApk$ServiceDispatcher$RunConnection.run(LoadedApk.java:2231)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:958)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-01 21:58:05.825  8842  8842 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-01 21:58:05.847   186   186 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: Process: ai.umos.vehiclecontrol, PID: 10323
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: java.lang.RuntimeException: Unable to get provider ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider: java.lang.NullPointerException: createCar(context) must not be null
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7787)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:7293)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7000)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2241)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: Caused by: java.lang.NullPointerException: createCar(context) must not be null
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.vehiclePropertyRepository(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:17)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at ai.umos.vehiclecontrol.DaggerVehicleControlApplication_HiltComponents_SingletonC.getVehiclePreferenceUseCase(DaggerVehicleControlApplication_HiltComponents_SingletonC.java:7)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at ai.umos.vehiclecontrol.provider.VehiclePreferenceContentProvider.onCreate(VehiclePreferenceContentProvider.kt:22)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	at android.app.ActivityThread.installProvider(ActivityThread.java:7782)
+11-01 21:58:06.210 10323 10323 E AndroidRuntime: 	... 11 more
+11-01 21:58:07.804   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-01 21:58:07.848   186   186 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: PID: 29977
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.CharSequence android.view.accessibility.AccessibilityNodeInfo.getContentDescription()' on a null object reference
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.childNafCheck(AccessibilityNodeInfoDumper.java:296)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.nafCheck(AccessibilityNodeInfoDumper.java:276)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:200)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:225)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:225)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:225)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:225)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpNodeRec(AccessibilityNodeInfoDumper.java:225)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.uiautomator.core.AccessibilityNodeInfoDumper.dumpWindowToFile(AccessibilityNodeInfoDumper.java:96)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.commands.uiautomator.DumpCommand.run(DumpCommand.java:111)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+11-01 22:02:52.150 29977 29977 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:359)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: Error reporting crash
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:584)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:443)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:378)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:147)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5251)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5248)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:43)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5239)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:160)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+11-01 22:02:52.161 29977 29977 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)

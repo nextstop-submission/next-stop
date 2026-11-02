@@ -1,0 +1,5 @@
+내 위치로|||android.widget.TextView|false|[1665,1209][1768,1243]|ai.umos.maps.android.navigation.app
+서울역 KTX KTX정차역|||android.widget.TextView|false|[901,998][1433,1036]|ai.umos.maps.android.navigation.app
+서울특별시 용산구 한강대로 405|||android.widget.TextView|false|[948,1060][1308,1094]|ai.umos.maps.android.navigation.app
+1544-7788|||android.widget.TextView|false|[948,1106][1089,1140]|ai.umos.maps.android.navigation.app
+목적지로|||android.widget.TextView|false|[1070,1209][1166,1243]|ai.umos.maps.android.navigation.app

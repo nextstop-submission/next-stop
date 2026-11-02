@@ -193,6 +193,13 @@ object RunStore : VehicleEventListener {
         pleosNavigator?.let { nav ->
             // 검색 결과를 목적지로 정하면 목적지가 바뀐다 → 좌표·POI를 묻는다
             nav.onDestinationChanged = { if (placeCapture.armed && run == null) nav.requestDestinationInfo() }
+            // 결과에서 '목적지로'를 누르면 목적지 변경 알림 없이 경로 안내만 시작된다 → 그때도 묻는다(받은 뒤 경로는 acceptPlace가 취소)
+            nav.onRouteStarted = {
+                if (placeCapture.armed && run == null) {
+                    Log.i(TAG, "NS|PLACE|route-started → ask destination")
+                    nav.requestDestinationInfo()
+                }
+            }
             nav.onDestination = { c -> if (run == null) acceptPlace(c) }
         }
         // 모드가 바뀌어 내비·신호가 새로 만들어졌으면 진행 중 운행을 새 내비에 다시 묶고,
