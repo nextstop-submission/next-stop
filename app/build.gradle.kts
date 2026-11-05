@@ -28,6 +28,9 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            // 서명 키는 일부러 빌드 환경의 debug 키로 둔다: 공개(익명) 저장소에 비공개 키·암호를 넣을 수 없고,
+            // CI에 비밀값으로 두면 심사위원이 같은 APK를 재현 빌드할 수 없다. 마켓 배포 때는 비공개 키를 저장소 밖(로컬·CI 비밀값)에서 주입한다.
+            // 실측 화면·외부 시연 신호 같은 개발용 장치는 서명과 무관하게 release에서 빠지거나 막혀 있다(debug 소스셋·DUMP 권한).
             signingConfig = signingConfigs.getByName("debug")
         }
     }

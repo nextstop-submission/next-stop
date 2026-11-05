@@ -14,18 +14,24 @@ import app.nextstop.core.display.CompletionCue
 import app.nextstop.core.display.DriveDisplay
 
 /**
- * 앱이 뒤에 있을 때 1건 완료를 헤드업 알림 한 줄로 알린다.
+ * 앱이 뒤에 있을 때 1건 완료를 알림 목록에 한 줄로 남긴다.
  *
- * 에뮬레이터 실측(2026-10-30): 목적지를 넘기면 Pleos 내비가 앞으로 나와 앱 화면을 덮는다 → 완료 확인 화면이 보이지 않는다.
- * 그래서 앱이 화면에 없을 때만 표준 Android 알림(움직임 없는 짧은 글자)으로 "✓ n/N 완료 · 다음 집"을 띄운다.
+ * 에뮬레이터 실측(2026-10-30): 목적지를 넘기면 Pleos 내비가 앞으로 나와 앱 화면을 덮는다 → 앱 화면으로는 완료를 볼 수 없다.
+ *
+ * 중요도는 IMPORTANCE_LOW(헤드업·소리·진동 없음, 상태 표시줄 아이콘과 알림 목록에만)다(심사 지적 A2·A4).
+ * 완료는 정의상 D를 넣는 순간, 즉 출발하는 순간에 일어난다. 이때 내비 지도 위에 헤드업 카드가 8초 겹치면
+ * '주행 중 1~2초 안에 파악·시선 끌지 않기' 원칙과 어긋난다. 완료 사실은 운행 중 상시 알림(RunService, 역시 LOW)의
+ * 'n/N' 글자와 선택 기능인 음성으로도 전달되므로, 끼어드는 알림은 쓰지 않는다.
+ * 알림 채널 중요도는 한 번 만들면 앱이 바꿀 수 없어 새 채널 id를 쓰고 옛 HIGH 채널은 지운다.
  */
 internal class CompletionNotifier(private val context: Context) {
 
     private val manager = context.getSystemService(NotificationManager::class.java)
 
     init {
+        manager?.deleteNotificationChannel(OLD_HIGH_CHANNEL)
         manager?.createNotificationChannel(
-            NotificationChannel(CHANNEL, "배송 완료", NotificationManager.IMPORTANCE_HIGH).apply {
+            NotificationChannel(CHANNEL, "배송 완료", NotificationManager.IMPORTANCE_LOW).apply {
                 description = "문 닫고 D를 넣어 1건이 완료됐을 때 한 줄로 알립니다"
                 setSound(null, null)
                 enableVibration(false)
@@ -83,9 +89,11 @@ internal class CompletionNotifier(private val context: Context) {
     }
 
     companion object {
-        const val PLACE_NOTIFICATION_ID = 2
-        const val CHANNEL = "checkpoint"
+        /** 알림 id는 앱 안에서 겹치지 않게: 1 = 완료, 2 = 운행 중 상시 알림([RunService.NOTIFICATION_ID]), 3 = 배송지 추가. */
         const val NOTIFICATION_ID = 1
+        const val PLACE_NOTIFICATION_ID = 3
+        const val CHANNEL = "checkpoint-quiet"
+        private const val OLD_HIGH_CHANNEL = "checkpoint"
         /** 한 번 보고 지나갈 길이(설계 원칙: 1~2초 안에 파악). 시스템이 헤드업을 내린 뒤에도 알림 목록에 잠깐 남는다. */
         const val TIMEOUT_MS = 8_000L
     }

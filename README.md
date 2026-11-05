@@ -3,33 +3,33 @@
 **자기 차로 택배 부업을 하는 사람을 위한 Pleos Connect 차량용 배송 보조 앱.**
 문 닫고 D를 넣으면 1건 완료, 다음 집이 내비에 뜬다.
 
+## 심사위원용 3단계
+
+1. **영상으로 보기** — 실제 신호 녹화(67초, 6배속·자막만 추가): [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4). Pleos Connect 공식 에뮬레이터에서 Virtual Console로 기어·문을 바꾸면 자동 완료된다.
+2. **기록으로 보기** — 실측·리허설 67회를 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
+3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 83 + 화면 15). 설치: `adb install -r apk/next-stop-release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
+
 | 문제 | 다음집 |
 |---|---|
-| 배송지를 내비에 하나하나 찾아 넣는다 | Pleos 내비의 **최근 목적지·즐겨찾기를 배송지로 한 번에 가져오기**(같은 건물은 합쳐 개수로) |
-| 배송지 순서를 머릿속으로 짠다 | 출발 전 정차 상태에서 동선 최적화(입력 순서 대비 단축 거리 표시) |
-| 매번 내비에 주소를 다시 넣는다 | 다음 배송지 1곳씩 Pleos 내비로 자동 전달 |
-| 배송 완료를 폰으로 따로 체크한다 | **기어 P → 운전석 문 열림·닫힘 → 기어 D** 를 1건 완료로 자동 기록 |
-| 하루 끝나고 얼마 벌었는지 모른다 | 계기판 주행거리로 연료비를 빼고 **시간당 실수익** (보조: 업무용 차량 운행기록 내보내기) |
-| 주행 중 화면 조작이 위험하다 | 주행 중엔 큰 글자 2줄(다음 집·남은 건수)만, 버튼 없음. 플랫폼 주행 제한 중에는 움직이는 연출도 하지 않음 |
-| 시동을 끄면 진행 상황이 날아갈까 걱정 | 운행 상태를 기기에 저장해 앱이 다시 켜져도 그 집부터 이어감 |
+| 하루 끝나고 실제로 얼마 남았는지 모른다 | 차가 기록한 건수·시간·**계기판 주행거리**로 연료비를 뺀 순수익·시간당 실수익 |
+| 배송 기록을 손으로 따로 남긴다 | **기어 P → 1열 문 열림·닫힘 → 기어 D**를 1건 완료로 자동 기록(조수석 하차·동승 배송 포함, 설정으로 운전석만) |
+| 운행 중 다음 주소를 폰·내비에 다시 넣는다 | 배송지는 출발 전 정차 중 한 번에(내비 장소 검색·최근 목적지·즐겨찾기), 운행 중에는 D 순간 다음 배송지를 Pleos 내비로 전달 |
+| 배송지 순서를 머릿속으로 짠다 | 출발 전 동선 최적화(11곳까지 최적해, 그 이상 근사), 출발점은 목록 첫 곳 — 위치 권한 0 |
+| 주행 중 화면 조작이 위험하다 | 주행 제한 중엔 어떤 화면이든 큰 글자 2줄, 버튼 0개, 화면 전환 0회. 정산은 정차(P)에서만 |
+| 잘못 센 정차(편의점·부재) | 다음 정차(P) 때 1탭 되돌리기 — 기록·정산까지 |
+| 시동을 끄면 진행 상황이 날아갈까 걱정 | 운행 상태를 기기에 저장해 그 집부터 이어감. 정차 중 헤드유닛 재시작은 문 1회로 인정 |
 
-**▶ 시연 영상(최종본, 85초, 내레이션·음악):** [`docs/demo/video/nextstop-demo.mp4`](docs/demo/video/nextstop-demo.mp4) — 장면표 [`docs/demo/storyboard.md`](docs/demo/storyboard.md). 아래 원본은 실제 신호 동작 기록이다.
-
-**▶ 실제 동작 원본(67초, Pleos Connect 공식 에뮬레이터 v2.1.0):** [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4) — Virtual Console로 기어·운전석 문을 바꾸면 AAOS 기어·Pleos Door 신호로 3건이 자동 완료된다(실측 기록 [`docs/probe-results/ci-20261030-0347`](docs/probe-results/ci-20261030-0347)).
-
-위치 신호 없이 **차량 신호만으로** 완료를 판정하므로 지하주차장·아파트 단지 안에서도 동작한다.
-신호 대기 같은 잠깐 정차(문을 열지 않음), 출발지 상차(운행 시작 전 P·문), 문 열린 채 출발은 완료로 치지 않는다.
+위치 신호 없이 **차량 신호만으로** 완료를 판정하므로 지하주차장·아파트 단지 안에서도 같은 방식으로 동작한다. 신호가 애매한 경우(신호 대기, 출발지 상차, 신호 순서 엇갈림, 창문 전달 등)의 동작은 [`docs/stop-entry.md`](docs/stop-entry.md)와 `core/src/test`의 `SignalOrderTest`·`CheckpointMachineTest`에 있다.
 
 ## 화면
 
-JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 그린 스냅샷. CI가 매 게시마다 다시 만든다.
-완료 장면은 **주행 제한 중에 보이는 정적 확인 화면**이다(Pleos 설계 원칙: 주행 중 움직이는 이미지 금지). 정차 상태로 확인될 때만 플래시·카운트 상승·카드 슬라이드 애니메이션으로 재생된다.
+JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 그린 스냅샷(`DriveScreensTest`). 주행 중 화면 오른쪽 끝의 작은 손잡이는 시연 신호 모드에서만 보이는 '시연 전용' 조작이다.
 
 | 계획(동선 최적화) | 주행 중(2줄) | 정차·완료 대기 |
 |---|---|---|
 | ![](docs/screens/01-plan.png) | ![](docs/screens/02-driving.png) | ![](docs/screens/03-parked-ready.png) |
-| **D → 1건 완료** | 다음 집 등장 | 정산 |
-| ![](docs/screens/04-completion-flash.png) | ![](docs/screens/06-next-stop.png) | ![](docs/screens/07-settlement.png) |
+| **D → 1건 완료, 다음 집** | 마지막 건 뒤 주행 중 | 정차(P) 후 정산 |
+| ![](docs/screens/06-next-stop.png) | ![](docs/screens/07-finished-driving.png) | ![](docs/screens/07-settlement.png) |
 
 ## 실행 방법
 
@@ -46,19 +46,17 @@ JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-**제출 APK: [`apk/NextStop_다음집_release.apk`](apk/NextStop_다음집_release.apk)** (release 빌드, 심사 설치용 디버그 키 서명 · 해시 `apk/NextStop_다음집_release.apk.sha256`).
+제출용 release APK는 `apk/` 폴더에 둔다(`./gradlew :app:assembleRelease`). 디버그 키로 서명한다 — 공개 익명 저장소에 비공개 키를 넣을 수 없고, 심사위원이 같은 빌드를 재현할 수 있어야 해서다. Pleos 차량 권한은 normal 등급이라 설치만으로 허용된다(`-g`는 알림 권한만 미리 허용).
 
-```bash
-adb install -r -g apk/NextStop_다음집_release.apk
-```
+adb 시연 신호는 보내는 쪽이 `android.permission.DUMP`를 가져야 받는다(adb shell은 가짐, 일반 앱은 못 가짐).
 
 ### 실행 모드
 
 | 모드 | 실행 | 신호 원천 |
 |---|---|---|
 | 차량 신호(기본) | 런처에서 '다음집' | Pleos Door + AAOS 기어 + Odometer (Virtual Console로 조작) |
-| 시연 신호 | `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo` | 화면 시연 패널 또는 adb 브로드캐스트 |
-| 실측 화면 | `adb shell am start -n app.nextstop/.probe.ProbeActivity --ez auto true` | 모든 SDK 호출 결과를 logcat `NSPROBE`에 기록 |
+| 시연 신호 | `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo` | 화면 시연 패널(주행 중엔 '시연 전용' 손잡이로 접힘), 키보드 P·O·C·D, adb 브로드캐스트 |
+| 실측 화면(debug 빌드만) | `adb shell am start -n app.nextstop/.probe.ProbeActivity --ez auto true` | 모든 SDK 호출 결과를 logcat `NSPROBE`에 기록. release APK에는 없다 |
 
 adb로 차량 신호 흉내 내기(시연 신호 모드):
 
@@ -73,11 +71,11 @@ adb shell am broadcast -a app.nextstop.SIGNAL -p app.nextstop --es gear D
 
 | 구분 | 내용 |
 |---|---|
-| 단위 테스트 | `core/` 순수 Kotlin 72개(동선 최적해 검증, 체크포인트 오탐 방지, 기어 원천 중재, 배송지 가져오기·직접 추가, 운행 저장·복원, 정산·운행기록·계기판 값 튐 방어) — `./gradlew -Pnextstop.coreOnly=true :core:test` |
-| 화면 테스트 | Robolectric로 실제 화면 렌더링(시연 흐름 7장면), 주행 중 버튼 숨김, 앱 재시작 후 이어서 완료, 내비가 앱을 덮은 동안 완료 알림, 배송지 편집(삭제·순서 고정)이 앱 재시작 뒤에도 남음 |
-| CI | GitHub Actions: core·화면 테스트 + Pleos SDK를 받아 debug/release APK 빌드 |
+| 단위 테스트 | `core/` 순수 Kotlin 83개 — 동선 최적해, 체크포인트 판정(신호 순서 엇갈림·되돌리기·시동 끔·1열 문 묶음 `SignalOrderTest`), 기어 원천 중재, 배송지 가져오기·직접 추가, 운행 저장·복원, 정산·계기판 값 튐 방어 |
+| 화면 테스트 | Robolectric 15개(+ 영상 장면 생성용 1개는 `-Dnextstop.video`일 때만) — 주행 제한 중 모든 화면 '2줄·버튼 0'(`DrivingRestrictionTest`), 정산은 P에서만, 앱 재시작 뒤 이어서 완료, 새 운행 때 배송지 정보 삭제, 완료 알림이 헤드업으로 뜨지 않음 |
+| CI | GitHub Actions(`.github/workflows/`): `build`(core·화면 테스트 + debug/release APK), `emulator`(공식 에뮬레이터 실측·리허설, 결과를 `docs/probe-results/`에 커밋) |
 | 에뮬레이터 실측 | 같은 스크립트를 두 곳에서: 노트북 `scripts/probe/run-probe.cmd`(Windows), GitHub Actions `emulator` 워크플로(Linux 러너에서 Pleos 공식 이미지를 창 없이 띄움 — `run-probe.ps1 -Headless`). 결과는 `docs/probe-results/` |
-| 시연 영상 | 최종본 `docs/demo/video/nextstop-demo.mp4`(85초, 내레이션·음악, 장면표 `docs/demo/storyboard.md`) · 에뮬레이터 실제 신호 녹화(CI `emulator` 워크플로의 Virtual Console 조작, 자막본 `docs/demo/video/nextstop-emulator-real-signals.mp4`) · 노트북 녹화(`scripts/demo/demo.ps1 -Record`) · 예비본: 화면 테스트 장면 + 자막(`video` 워크플로) |
+| 시연 영상 | 에뮬레이터 실제 신호 녹화(`emulator` 워크플로의 Virtual Console 조작, 6배속·자막 추가본 `docs/demo/video/nextstop-emulator-real-signals.mp4`) · 노트북 녹화(`scripts/demo/demo.ps1 -Record`) |
 | 대상 이미지 | Pleos Connect Emulator(Android 14, 2560×1440) |
 
 ## SDK 사용 내역

@@ -44,13 +44,21 @@ class RunService : Service() {
 
     companion object {
         private const val CHANNEL = "run"
-        private const val NOTIFICATION_ID = 2
+        internal const val NOTIFICATION_ID = 2
 
-        /** @return 시작 요청이 받아들여졌는가(테스트·로그용). */
-        fun start(context: Context): Boolean =
-            runCatching { context.startForegroundService(Intent(context, RunService::class.java)) }
+        /**
+         * 운행 시작·복원은 앱 화면이 앞에 있을 때 일어나므로 일반 startService로 띄우고 onStartCommand에서 포그라운드로 올린다.
+         * startForegroundService는 '10초 안에 startForeground' 기한이 있어, 기기가 바쁠 때 기한을 넘기면 앱이 강제 종료된다
+         * (11/5 CI 리허설 ci-20261105-2052-030d1c9: ForegroundServiceDidNotStartInTimeException). 뒤에서 불려 일반 시작이 막히면 그때만 쓴다.
+         * @return 시작 요청이 받아들여졌는가(테스트·로그용).
+         */
+        fun start(context: Context): Boolean {
+            val intent = Intent(context, RunService::class.java)
+            return runCatching { context.startService(intent) }
+                .recoverCatching { context.startForegroundService(intent) }
                 .onFailure { Log.w(RunStore.TAG, "NS|SERVICE|not started ${it::class.simpleName}: ${it.message}") }
                 .isSuccess
+        }
 
         fun stop(context: Context) {
             context.stopService(Intent(context, RunService::class.java))

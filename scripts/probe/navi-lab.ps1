@@ -15,7 +15,7 @@
            onRoutingCompleted·onRouteStarted·onDestinationArrived·onNavigationStatus가 오는지 기록한다.
   place  : 주행 화면의 '내비에서 찾기'(서울역)를 스크립트로 누른 뒤, 사람이 내비 검색 결과 하나를 목적지로 정할 때까지
            -PickSeconds 초 기다린다. 검색 화면이 안 뜨면 '내비 열어 고르기'로 다시 연다(내비에서 직접 검색해 목적지로 정하면 된다).
-           배송지가 추가됐는지(NS|PLACE|Added) 기록한다. Claude Code가 돌릴 때는 이 명령을 백그라운드로 띄우고,
+           배송지가 추가됐는지(NS|PLACE|Added) 기록한다. 자동화 도구로 돌릴 때는 이 명령을 백그라운드로 띄우고,
            shots 폴더의 화면을 보며 adb shell input tap 으로 고르면 된다.
 
   결과는 docs\probe-results\<시각>-navi-lab-<phase>\ 에 저장된다(SUMMARY.md, 로그, 화면). 사용자 이름·폴더 경로는 <user>로 바꾼다.

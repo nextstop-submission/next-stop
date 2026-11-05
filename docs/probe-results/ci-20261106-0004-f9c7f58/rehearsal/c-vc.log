@@ -1,0 +1,26 @@
+bridge_ready after 3s (−1 = never)
+inventory: 80 items
+1 gear:D: at=1793890545753 via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+2 odo:+2: at=1793890568573 via=- clicked=odometer 2km → 200 sent=[/vehicle/odometer?traveled_distance_km=2] state: gear=[object Object] door_fl=0
+3 gear:P: at=1793890584529 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+4 door:open: at=1793890608526 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+5 door:close: at=1793890638391 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+6 gear:D: at=1793890664550 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+7 odo:+2: at=1793890689366 via=- clicked=odometer 4km → 200 sent=[/vehicle/odometer?traveled_distance_km=4] state: gear=[object Object] door_fl=0
+8 gear:P: at=1793890704878 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+9 door:open: at=1793890728338 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+10 door:close: at=1793890755184 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+11 gear:D: at=1793890783587 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=null
+12 gear:P: at=1793890809043 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+13 gear:D: at=1793890834066 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+14 odo:+2: at=1793890853590 via=- clicked=odometer 6km → 200 sent=[/vehicle/odometer?traveled_distance_km=6] state: gear=[object Object] door_fl=0
+15 gear:P: at=1793890868712 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+16 door:open: at=1793890892244 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+17 door:close: at=1793890922347 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+18 gear:D: at=1793890950380 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=0
+19 odo:+2: at=1793890977112 via=- clicked=odometer 8km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=8] state: gear=[object Object] door_fl=0
+20 gear:P: at=1793890992725 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+21 door:open: at=1793891016606 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1

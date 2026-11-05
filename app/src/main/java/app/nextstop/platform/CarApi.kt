@@ -7,6 +7,7 @@ import android.car.drivingstate.CarUxRestrictionsManager
 import android.car.hardware.CarPropertyValue
 import android.car.hardware.property.CarPropertyManager
 import android.content.Context
+import android.util.Log
 import app.nextstop.core.vehicle.Gear
 import app.nextstop.core.vehicle.VehicleEvent
 import app.nextstop.core.vehicle.VehicleEventListener
@@ -41,6 +42,9 @@ class CarConnection(context: Context) {
         runCatching { car?.disconnect() }
         car = null
     }
+
+    /** 붙은 Car가 쓸모없을 때(관리자를 못 얻음) 다음 호출에서 새로 만들게 한다. */
+    fun reset() = release()
 }
 
 /** AAOS VehicleGear 값 → 앱 기어. 수동 1~9단은 전진(DRIVE)으로 본다. */
@@ -54,8 +58,12 @@ fun gearFromAaos(value: Int): Gear = when (value) {
 }
 
 /**
- * 기어 = AAOS CarPropertyManager GEAR_SELECTION (Pleos 공개 SDK 카탈로그에 기어 없음 → 표준 AAOS 사용).
+ * 기어 = AAOS CarPropertyManager GEAR_SELECTION (Pleos SDK의 Gear는 2.3.2에서 deprecated, 경고가 GEAR_SELECTION을 안내).
  * 권한 android.car.permission.CAR_POWERTRAIN.
+ *
+ * 콜백만 믿지 않는다: 11/4 CI 리허설(ci-20261104-0206)에서 Virtual Console의 P·D 변경 콜백이 앱에 끝내 오지 않은 일이 있었다.
+ * [refresh]는 현재 값을 직접 읽는다(RunStore가 2초마다 부름). 콜백과 직접 읽기는 VHAL 시각(timestamp)으로 줄 세워
+ * 늦게 온 옛 값이 새 값을 덮지 않게 하고, 값이 바뀐 때만 보낸다.
  */
 class CarGearSource(
     private val connection: CarConnection,
@@ -63,13 +71,13 @@ class CarGearSource(
 ) : VehicleSignalSource {
     override val name = "aaos-gear"
 
-    private var sink: VehicleEventListener? = null
-    private var manager: CarPropertyManager? = null
+    @Volatile private var sink: VehicleEventListener? = null
+    @Volatile private var manager: CarPropertyManager? = null
 
     private val callback = object : CarPropertyManager.CarPropertyEventCallback {
         override fun onChangeEvent(value: CarPropertyValue<*>) {
             if (value.propertyId != propertyId) return
-            (value.value as? Int)?.let { sink?.onVehicleEvent(VehicleEvent.GearChanged(gearFromAaos(it), now())) }
+            deliver(value, polled = false)
         }
 
         override fun onErrorEvent(propId: Int, zone: Int) {
@@ -79,24 +87,62 @@ class CarGearSource(
 
     override fun start(listener: VehicleEventListener) {
         sink = MainThreadListener(listener)
+        if (!attach()) reportError("CarPropertyManager unavailable: ${connection.error?.message} (2초마다 다시 붙음)")
+    }
+
+    /**
+     * Car 서비스에 붙는다. 앱 프로세스가 기기 부하로 다시 시작될 때 Car 서비스가 아직 준비 안 돼 실패할 수 있다
+     * (11/5 CI 리허설 ci-20261105-2214-3c89fb0: 재시작 뒤 기어를 끝내 못 받아 C 0/5). 실패하면 [refresh](2초마다)가 다시 붙는다.
+     */
+    @Synchronized
+    private fun attach(): Boolean {
+        if (manager != null) return true
         val pm = connection.propertyManager()
         if (pm == null) {
-            reportError("CarPropertyManager unavailable: ${connection.error?.message}")
-            return
+            connection.reset()
+            return false
         }
-        manager = pm
-        try {
+        return try {
             val ok = pm.registerCallback(callback, propertyId, CarPropertyManager.SENSOR_RATE_ONCHANGE)
-            if (!ok) reportError("registerCallback returned false")
+            if (ok) {
+                manager = pm
+                Log.i("NextStop", "NS|GEAR|attached")
+            }
+            ok
         } catch (e: Exception) {
             reportError(e.message ?: e.javaClass.simpleName)
+            false
         }
+    }
+
+    private var lastTs = Long.MIN_VALUE
+    private var lastValue: Int? = null
+
+    private fun deliver(value: CarPropertyValue<*>, polled: Boolean) {
+        val v = value.value as? Int ?: return
+        val emit = synchronized(this) {
+            if (value.timestamp < lastTs) return // 늦게 온 옛 값
+            lastTs = value.timestamp
+            val changed = v != lastValue
+            lastValue = v
+            changed
+        }
+        if (!emit) return
+        if (polled) Log.i("NextStop", "NS|POLL|gear=${gearFromAaos(v)} (콜백보다 먼저 직접 읽음)")
+        sink?.onVehicleEvent(VehicleEvent.GearChanged(gearFromAaos(v), now()))
+    }
+
+    override fun refresh() {
+        if (sink == null) return
+        val pm = manager ?: run { attach(); manager } ?: return
+        runCatching { pm.getProperty<Int>(propertyId, 0) }.getOrNull()?.let { deliver(it, polled = true) }
     }
 
     override fun stop() {
         runCatching { manager?.unregisterCallback(callback) }
         manager = null
         sink = null
+        synchronized(this) { lastTs = Long.MIN_VALUE; lastValue = null }
     }
 
     private fun reportError(message: String) {

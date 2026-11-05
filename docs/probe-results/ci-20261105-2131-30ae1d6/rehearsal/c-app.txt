@@ -1,0 +1,229 @@
+--------- beginning of main
+         1793881071.442  7808  7808 I NextStop: NS|UX|restricted=false
+         1793881075.410  7808  7808 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793881075.412  7808  7808 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793881076.683  7808  7808 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881076683)
+         1793881079.922  7808  7808 I NextStop: NS|POLL|door open=false (콜백보다 먼저 직접 읽음)
+         1793881079.922  7808  7808 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881079922)
+         1793881083.283  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881083256)
+         1793881083.682  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881083421)
+         1793881087.235  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881087235)
+         1793881091.518  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881091512)
+         1793881095.065  7808  7808 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793881095.106  7808  7808 I NextStop: NS|NAV|Requested
+         1793881095.109  7808  7808 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793881096.730  7808  7808 I NextStop: NS|SERVICE|foreground
+         1793881096.978  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881096039)
+         1793881098.350  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881098348)
+         1793881103.482  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881103482)
+         1793881107.324  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881107319)
+         1793881112.264  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881112264)
+         1793881116.391  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881116366)
+         1793881119.625  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881119623)
+         1793881124.973  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881124973)
+         1793881129.515  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881128321)
+         1793881131.828  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881131816)
+         1793881135.787  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881135778)
+         1793881138.573  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881138573)
+         1793881142.568  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881142568)
+         1793881146.461  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881146461)
+         1793881151.341  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881151339)
+         1793881151.540  7808  7808 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881151540)
+         1793881151.643  7808  7808 I NextStop: NS|UX|restricted=true
+         1793881155.046  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881155046)
+         1793881158.276  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881158276)
+         1793881162.488  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881162487)
+         1793881167.922  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793881167636)
+         1793881169.608  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881169579)
+         1793881173.247  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881173246)
+         1793881178.081  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881178081)
+         1793881181.468  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881181468)
+         1793881185.862  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881185862)
+         1793881188.978  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881188977)
+         1793881194.219  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881194219)
+         1793881197.507  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881197504)
+         1793881201.241  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881201241)
+         1793881205.854  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881205854)
+         1793881209.123  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881208989)
+         1793881212.327  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881212327)
+         1793881214.006  7808  7808 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881214006)
+         1793881215.459  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881215459)
+         1793881219.219  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881219085)
+         1793881222.754  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881222754)
+         1793881226.265  7808  7808 I NextStop: NS|SIGNAL|OdometerUpdated(km=2.0, atMillis=1793881226265)
+         1793881282.852 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881282.916 12223 12223 I NextStop: NS|RESTORE|done=0/5
+         1793881284.553 12223 12223 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793881286.138 12223 12223 I NextStop: NS|SERVICE|foreground
+         1793881286.242 12223 12223 I NextStop: NS|NAV|Requested
+         1793881286.247 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881286247)
+         1793881288.277 12223 12223 I NextStop: NS|POLL|door open=false (콜백보다 먼저 직접 읽음)
+         1793881288.284 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881288284)
+         1793881288.285 12223 12223 I NextStop: NS|EFFECT|IGNORED|DOOR_UNCHANGED
+         1793881288.310 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881287324)
+         1793881288.311 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881287338)
+         1793881291.295 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881291295)
+         1793881295.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881295233)
+         1793881299.253 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881299253)
+         1793881300.276 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881300.293 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881300292)
+         1793881300.295 12223 12223 I NextStop: NS|EFFECT|PARKED|index=0
+         1793881303.242 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881303242)
+         1793881306.262 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881306261)
+         1793881310.718 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881310239)
+         1793881314.284 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881314262)
+         1793881319.247 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881319247)
+         1793881320.205 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881320205)
+         1793881322.276 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881322273)
+         1793881327.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881327235)
+         1793881331.287 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881331287)
+         1793881335.244 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881335242)
+         1793881338.887 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881338886)
+         1793881339.255 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881339255)
+         1793881344.234 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881344234)
+         1793881347.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881347239)
+         1793881350.264 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881350264)
+         1793881354.272 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881354271)
+         1793881355.816 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881355816)
+         1793881355.891 12223 12223 I NextStop: NS|NAV|Requested
+         1793881355.911 12223 12223 I NextStop: NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=55524
+         1793881355.911 12223 12223 I NextStop: NS|EFFECT|NAVIGATE_TO|index=1
+         1793881356.038 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881358.244 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881358244)
+         1793881362.242 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881362242)
+         1793881366.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881366240)
+         1793881366.557 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881366557)
+         1793881366.557 12223 12223 I NextStop: NS|EFFECT|PARKED|index=1
+         1793881366.631 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881369.249 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881369248)
+         1793881372.275 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881372275)
+         1793881376.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881376235)
+         1793881377.523 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881377523)
+         1793881377.523 12223 12223 I NextStop: NS|EFFECT|IGNORED|DEPARTED_WITHOUT_DOOR_CYCLE
+         1793881377.677 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881380.234 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881380234)
+         1793881383.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881383240)
+         1793881387.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=4.0, atMillis=1793881387238)
+         1793881390.234 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881390233)
+         1793881393.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881393238)
+         1793881396.245 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881396245)
+         1793881400.241 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881400241)
+         1793881403.084 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881403084)
+         1793881403.084 12223 12223 I NextStop: NS|EFFECT|PARKED|index=1
+         1793881403.413 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881404.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881404233)
+         1793881408.250 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881408249)
+         1793881412.271 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881412270)
+         1793881415.235 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881415235)
+         1793881416.237 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881416237)
+         1793881421.247 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881421246)
+         1793881425.243 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881425243)
+         1793881428.367 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881428364)
+         1793881429.817 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881429817)
+         1793881432.246 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881432246)
+         1793881437.270 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881437270)
+         1793881440.298 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881440297)
+         1793881443.184 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881443184)
+         1793881443.191 12223 12223 I NextStop: NS|NAV|Requested
+         1793881443.203 12223 12223 I NextStop: NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=40100
+         1793881443.203 12223 12223 I NextStop: NS|EFFECT|NAVIGATE_TO|index=2
+         1793881443.253 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881445.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881445235)
+         1793881449.257 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=6.0, atMillis=1793881449254)
+         1793881453.257 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881453251)
+         1793881456.254 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881456254)
+         1793881461.234 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881461233)
+         1793881462.444 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881462444)
+         1793881462.444 12223 12223 I NextStop: NS|EFFECT|PARKED|index=2
+         1793881462.510 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881464.262 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881464250)
+         1793881469.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881469235)
+         1793881473.258 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881473258)
+         1793881474.692 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881474692)
+         1793881477.247 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881477247)
+         1793881480.258 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881480258)
+         1793881485.249 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881485249)
+         1793881489.284 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881489284)
+         1793881489.364 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881489364)
+         1793881493.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881493240)
+         1793881497.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881497234)
+         1793881500.247 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881500247)
+         1793881502.345 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881502340)
+         1793881502.359 12223 12223 I NextStop: NS|NAV|Requested
+         1793881502.371 12223 12223 I NextStop: NS|EFFECT|STOP_COMPLETED|index=2 trigger=GEAR_DRIVE doorCycles=1 dwellMs=39896
+         1793881502.372 12223 12223 I NextStop: NS|EFFECT|NAVIGATE_TO|index=3
+         1793881502.449 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881505.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881505238)
+         1793881509.241 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=8.0, atMillis=1793881509238)
+         1793881513.245 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881513245)
+         1793881516.260 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881516259)
+         1793881520.251 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881520251)
+         1793881523.232 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881523.265 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881523265)
+         1793881523.266 12223 12223 I NextStop: NS|EFFECT|PARKED|index=3
+         1793881524.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881524236)
+         1793881527.241 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881527241)
+         1793881531.241 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881531241)
+         1793881534.266 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881534266)
+         1793881536.138 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881536138)
+         1793881539.246 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881539240)
+         1793881543.261 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881543261)
+         1793881547.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881547233)
+         1793881550.249 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881550245)
+         1793881550.888 12223 12223 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881550885)
+         1793881554.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881554239)
+         1793881559.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881559233)
+         1793881563.279 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881563277)
+         1793881564.539 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881564539)
+         1793881564.554 12223 12223 I NextStop: NS|NAV|Requested
+         1793881564.569 12223 12223 I NextStop: NS|EFFECT|STOP_COMPLETED|index=3 trigger=GEAR_DRIVE doorCycles=1 dwellMs=41274
+         1793881564.570 12223 12223 I NextStop: NS|EFFECT|NAVIGATE_TO|index=4
+         1793881564.727 12223 12223 I NextStop: NS|UX|restricted=true
+         1793881567.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881567237)
+         1793881571.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881571239)
+         1793881575.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881575234)
+         1793881575.659 12223 12223 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881575659)
+         1793881575.661 12223 12223 I NextStop: NS|EFFECT|PARKED|index=4
+         1793881575.711 12223 12223 I NextStop: NS|UX|restricted=false
+         1793881579.260 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881579259)
+         1793881583.242 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881583242)
+         1793881587.234 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881587233)
+         1793881591.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881591233)
+         1793881594.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881594236)
+         1793881598.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881598234)
+         1793881602.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881602235)
+         1793881606.241 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881606240)
+         1793881611.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881611236)
+         1793881615.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881615233)
+         1793881618.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881618240)
+         1793881623.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881623233)
+         1793881627.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881627237)
+         1793881631.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881631233)
+         1793881635.237 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881635237)
+         1793881638.256 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881638255)
+         1793881643.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881643237)
+         1793881647.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881647233)
+         1793881651.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881651237)
+         1793881656.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881656235)
+         1793881659.242 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881659241)
+         1793881664.238 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881664237)
+         1793881668.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881668233)
+         1793881671.246 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881671246)
+         1793881675.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881675236)
+         1793881679.250 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881679242)
+         1793881684.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881684233)
+         1793881688.239 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881688239)
+         1793881692.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881692233)
+         1793881696.242 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881696241)
+         1793881700.244 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881700238)
+         1793881703.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881703238)
+         1793881707.237 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881707237)
+         1793881711.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881711236)
+         1793881716.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881716233)
+         1793881720.243 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881720242)
+         1793881724.233 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881724233)
+         1793881727.243 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881727240)
+         1793881731.236 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881731233)
+         1793881734.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881734238)
+         1793881739.235 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881739233)
+         1793881742.240 12223 12223 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881742240)

@@ -33,18 +33,10 @@ class DriveScreensTest {
 
     private val outDir = File(System.getProperty("nextstop.screens") ?: "build/screens").also { it.mkdirs() }
 
-    @org.junit.Before
-    fun staticCompletionScene() {
-        // Robolectric의 애니메이터는 즉시 끝나 프레임을 찍을 수 없다. 완료 장면은 정적 경로로 확정적으로 그린다
-        // (애니메이션 경로는 에뮬레이터 실측 스크린샷 demo-2-transition.png로 확인).
-        CompletionOverlay.forceStatic = true
-    }
-
     @After
     fun tearDown() {
         RunStore.resetRun()
         RunStore.shutdown()
-        CompletionOverlay.forceStatic = false
     }
 
     private fun shot(activity: DriveActivity, name: String) {
@@ -65,7 +57,7 @@ class DriveScreensTest {
     private fun now() = System.currentTimeMillis()
 
     @Test
-    fun `demo flow renders plan, drive, completion transition and settlement`() {
+    fun `demo flow renders plan, drive, completion without a screen change, and settlement after P`() {
         val intent = Intent().putExtra(DriveActivity.EXTRA_MODE, "demo").putExtra(DriveActivity.EXTRA_NAVI, false)
         val controller = Robolectric.buildActivity(DriveActivity::class.java, intent).setup()
         val activity = controller.get()
@@ -83,21 +75,9 @@ class DriveScreensTest {
         shot(activity, "03-parked-ready")
 
         send(VehicleEvent.GearChanged(Gear.DRIVE, now()))
-        val overlay = activity.window.decorView.findViewWithTag<CompletionOverlay>(DriveActivity.TAG_OVERLAY)
-        val st = RunStore.snapshot()
-        assertEquals(
-            "D 직후 완료 연출 시작 (delivered=${st?.delivered} phase=${st?.phase} gear=${RunStore.lastGear} door=${RunStore.doorOpen})",
-            View.VISIBLE,
-            overlay.visibility,
-        )
-        idle(Duration.ofMillis(420))
-        assertEquals(View.VISIBLE, overlay.visibility)
-        assertTrue("완료 화면은 불투명해야 한다", overlay.alpha > 0.99f)
-        shot(activity, "04-completion-flash")
-        idle(Duration.ofSeconds(3))
-        assertEquals("연출이 끝나면 사라진다", View.GONE, overlay.visibility)
-        shot(activity, "06-next-stop")
+        // 출발 순간: 전면 연출·지연 없이 같은 2줄 카드의 글자와 진행 막대만 바뀐다(심사 지적 A2)
         assertEquals(1, RunStore.snapshot()!!.delivered)
+        shot(activity, "06-next-stop")
 
         // 문을 열지 않은 정차는 완료가 아니다
         send(VehicleEvent.GearChanged(Gear.PARK, now()))
@@ -115,6 +95,9 @@ class DriveScreensTest {
         val snap = RunStore.snapshot()!!
         assertTrue(snap.isFinished)
         assertEquals(5, snap.delivered)
+        shot(activity, "07-finished-driving")
+        // 정산은 P(주행 제한 해제)에서만
+        send(VehicleEvent.GearChanged(Gear.PARK, now()))
         shot(activity, "07-settlement")
         controller.pause().stop().destroy()
     }

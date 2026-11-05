@@ -33,6 +33,16 @@ class RouteOptimizer(
         if (keepOrder) RoutePlan(start, stops, estimateKm(start, stops), exact = false, keptOrder = true)
         else optimize(start, stops)
 
+    /**
+     * 출발점 좌표 없이(위치 권한 0, 고정 좌표 0) 짠다: 목록의 첫 배송지(사용자가 '출발'로 고른 곳)에서 시작해 나머지를 정한다.
+     * 배송지가 없으면 null.
+     */
+    fun planFromFirst(stops: List<Stop>, keepOrder: Boolean): RoutePlan? {
+        val first = stops.firstOrNull() ?: return null
+        val rest = plan(first.location, stops.drop(1), keepOrder)
+        return rest.copy(orderedStops = listOf(first) + rest.orderedStops)
+    }
+
     /** 현재 순서를 그대로 둘 때의 추정 거리(최적화 전후 비교용). */
     fun estimateKm(start: LatLng, orderedStops: List<Stop>): Double {
         var prev = start

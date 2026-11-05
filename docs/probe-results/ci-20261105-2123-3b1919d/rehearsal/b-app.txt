@@ -1,0 +1,82 @@
+--------- beginning of main
+         1793881218.549  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218490)
+         1793881218.630  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218494)
+         1793881218.680  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218494)
+         1793881218.688  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218494)
+         1793881218.690  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218494)
+         1793881218.694  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218506)
+         1793881218.700  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218509)
+         1793881218.714  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218517)
+         1793881218.718  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218517)
+         1793881218.726  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218518)
+         1793881218.730  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218520)
+         1793881218.765  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218520)
+         1793881218.774  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218535)
+         1793881218.792  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218536)
+         1793881218.805  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218536)
+         1793881218.811  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218536)
+         1793881218.812  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218536)
+         1793881219.151  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218537)
+         1793881219.276  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218542)
+         1793881219.277  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218542)
+         1793881219.278  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881218542)
+         1793881225.175  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881219472)
+         1793881225.453  7737  7737 I NextStop: NS|NAV|cancelRoute by=RunStore.shutdown < RunStore.ensureStarted connected=true
+         1793881225.604  7737  7737 I NextStop: NS|UX|restricted=true
+         1793881226.044  7737  7737 I NextStop: NS|RESTORE|done=5/5
+         1793881226.058  7737  7737 I NextStop: NS|START|mode=DEMO navi=true sources=demo-signal
+         1793881226.517  7737  7737 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793881226.575  7737  7737 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793881226.583  7737  7737 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793881226.622  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793881224788)
+         1793881227.190  7737  7737 I NextStop: NS|POLL|door open=false (콜백보다 먼저 직접 읽음)
+         1793881227.456  7737  7737 I NextStop: NS|NAV|Requested
+         1793881227.517  7737  7737 I NextStop: NS|SERVICE|foreground
+         1793881229.426  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881229426)
+         1793881233.034  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=12002.0, atMillis=1793881233034)
+         1793881236.188  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881236188)
+         1793881236.194  7737  7737 I NextStop: NS|EFFECT|PARKED|index=0
+         1793881239.676  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881239676)
+         1793881243.231  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881243231)
+         1793881249.092  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881249092)
+         1793881249.241  7737  7737 I NextStop: NS|NAV|Requested
+         1793881249.429  7737  7737 I NextStop: NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=12904
+         1793881249.445  7737  7737 I NextStop: NS|EFFECT|NAVIGATE_TO|index=1
+         1793881256.626  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=12004.0, atMillis=1793881256626)
+         1793881260.820  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881260820)
+         1793881260.828  7737  7737 I NextStop: NS|EFFECT|PARKED|index=1
+         1793881266.262  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881266262)
+         1793881269.679  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881269679)
+         1793881272.941  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881272941)
+         1793881272.944  7737  7737 I NextStop: NS|NAV|Requested
+         1793881272.944  7737  7737 I NextStop: NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=12121
+         1793881272.944  7737  7737 I NextStop: NS|EFFECT|NAVIGATE_TO|index=2
+         1793881279.382  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=12006.0, atMillis=1793881279380)
+         1793881282.935  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881282935)
+         1793881282.936  7737  7737 I NextStop: NS|EFFECT|PARKED|index=2
+         1793881286.825  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881286824)
+         1793881290.436  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881290436)
+         1793881294.091  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881294091)
+         1793881294.092  7737  7737 I NextStop: NS|NAV|Requested
+         1793881294.092  7737  7737 I NextStop: NS|EFFECT|STOP_COMPLETED|index=2 trigger=GEAR_DRIVE doorCycles=1 dwellMs=11156
+         1793881294.092  7737  7737 I NextStop: NS|EFFECT|NAVIGATE_TO|index=3
+         1793881300.122  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=12008.0, atMillis=1793881300122)
+         1793881303.742  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881303742)
+         1793881303.743  7737  7737 I NextStop: NS|EFFECT|PARKED|index=3
+         1793881307.483  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881307483)
+         1793881312.677  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881312677)
+         1793881316.391  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881316391)
+         1793881316.423  7737  7737 I NextStop: NS|NAV|Requested
+         1793881316.423  7737  7737 I NextStop: NS|EFFECT|STOP_COMPLETED|index=3 trigger=GEAR_DRIVE doorCycles=1 dwellMs=12649
+         1793881316.423  7737  7737 I NextStop: NS|EFFECT|NAVIGATE_TO|index=4
+         1793881324.320  7737  7737 I NextStop: NS|SIGNAL|OdometerUpdated(km=12010.0, atMillis=1793881324320)
+         1793881327.626  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881327626)
+         1793881327.627  7737  7737 I NextStop: NS|EFFECT|PARKED|index=4
+         1793881331.203  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793881331203)
+         1793881334.497  7737  7737 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793881334497)
+         1793881338.621  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793881338621)
+         1793881338.621  7737  7737 I NextStop: NS|NAV|cancelRoute by=DeliveryRun.handleEffect < DeliveryRun.apply connected=true
+         1793881338.624  7737  7737 I NextStop: NS|EFFECT|STOP_COMPLETED|index=4 trigger=GEAR_DRIVE doorCycles=1 dwellMs=10995
+         1793881338.624  7737  7737 I NextStop: NS|EFFECT|ALL_DONE|done
+         1793881350.546  7737  7737 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793881350546)
+         1793881350.546  7737  7737 I NextStop: NS|EFFECT|IGNORED|ALREADY_FINISHED

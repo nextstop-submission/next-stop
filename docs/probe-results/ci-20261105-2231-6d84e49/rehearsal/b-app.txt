@@ -1,0 +1,17 @@
+--------- beginning of main
+         1793885465.504  5173  5173 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793885465489)
+         1793885469.652  5173  5173 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793885469652)
+         1793885473.521  5173  5173 I NextStop: NS|NAV|cancelRoute by=RunStore.shutdown < RunStore.ensureStarted connected=true
+         1793885473.756  5173  5173 I NextStop: NS|UX|restricted=true
+         1793885473.831  5173  5173 I NextStop: NS|RESTORE|done=5/5
+         1793885473.849  5173  5173 I NextStop: NS|START|mode=DEMO navi=true sources=demo-signal
+         1793885473.865  5173  5173 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793885473.904  5173  5173 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793885473.911  5173  5173 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793885473.975  5173  5173 I NextStop: NS|NAV|Requested
+         1793885474.400  5173  5173 I NextStop: NS|SERVICE|foreground
+         1793885476.644  5173  5173 I NextStop: NS|SIGNAL|OdometerUpdated(km=12000.0, atMillis=1793885476642)
+         1793885480.289  5173  5173 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793885480289)
+         1793885483.802  5173  5173 I NextStop: NS|SIGNAL|OdometerUpdated(km=12002.0, atMillis=1793885483800)
+         1793885487.561  5173  5173 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793885487534)
+         1793885487.570  5173  5173 I NextStop: NS|EFFECT|PARKED|index=0

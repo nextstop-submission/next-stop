@@ -1,0 +1,141 @@
+1793876824947 C 0:00 계획 화면 띄움
+1793876843128 C 계획 앱이 맨 앞(3번째 확인)
+1793876847336 C 0:40 '운행 시작' 누름
+1793876894688 C 운행 시작 탭 1
+1793876898741 C 운행 시작 확인(첫 목적지 전달)
+1793876913439 C 시작 직후 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793876913901 C 시작 top=ai.umos.maps.android.navigation.app/.MainActivity → 앱으로 복귀
+1793876922999 C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째
+1793876981768 C step 1 top=
+1793876981784 C step 1 → 앱으로 복귀
+1793877005142 C step 2 top=
+1793877005166 C step 2 → 앱으로 복귀
+1793877030394 C step 3 top=
+1793877030410 C step 3 → 앱으로 복귀
+1793877059852 C step 4 top=
+1793877059934 C step 4 → 앱으로 복귀
+1793877086180 C step 5 top=
+1793877086193 C step 5 → 앱으로 복귀
+1793877110293 C step 6 top=
+1793877110308 C step 6 → 앱으로 복귀
+1793877129159 C step 7 top=
+1793877129171 C step 7 → 앱으로 복귀
+1793877157620 C step 8 top=
+1793877157666 C step 8 → 앱으로 복귀
+1793877183202 C step 9 top=
+1793877183217 C step 9 → 앱으로 복귀
+1793877211222 C step 10 top=
+1793877211396 C step 10 → 앱으로 복귀
+1793877236365 C step 11 top=
+1793877236380 C step 11 → 앱으로 복귀
+1793877263136 C step 12 top=
+1793877263152 C step 12 → 앱으로 복귀
+1793877288240 C step 13 top=
+1793877288259 C step 13 → 앱으로 복귀
+1793877307226 C step 14 top=
+1793877307415 C step 14 → 앱으로 복귀
+1793877332704 C step 15 top=
+1793877332722 C step 15 → 앱으로 복귀
+1793877360347 C step 16 top=
+1793877360361 C step 16 → 앱으로 복귀
+1793877382237 C step 17 top=
+1793877382252 C step 17 → 앱으로 복귀
+1793877411747 C step 18 top=ai.umos.drivingview/.DrivingViewActivity
+1793877411763 C step 18 → 앱으로 복귀
+1793877433210 C step 19 top=app.nextstop/.drive.DriveActivity
+1793877463941 C step 20 top=app.nextstop/.drive.DriveActivity
+1793877494511 C step 21 top=app.nextstop/.drive.DriveActivity
+1793877527767 C step 22 top=app.nextstop/.drive.DriveActivity
+1793877555583 C step 23 top=app.nextstop/.drive.DriveActivity
+1793877575886 C step 24 top=app.nextstop/.drive.DriveActivity
+1793877604472 C step 25 top=app.nextstop/.drive.DriveActivity
+1793877633356 C step 26 top=app.nextstop/.drive.DriveActivity
+1793877663469 C step 27 top=app.nextstop/.drive.DriveActivity
+1793877691533 C step 28 top=app.nextstop/.drive.DriveActivity
+1793877720271 C step 29 top=app.nextstop/.drive.DriveActivity
+1793877723392 C VC 끝 exit=0
+1793877814512 C 운행 끝 기록=0
+1793877825231 C 정산 화면 top=app.nextstop/.drive.DriveActivity
+1793877956593 C 앱 복귀 횟수=19
+1793877956751 C 신호 지연: 짝 0/24
+1793877956805 C 1차 기기 정지(무응답 17단계) → 재부팅 뒤 C 다시
+1793878066696 C 재부팅 끝 boot=1
+1793878086368 C 0:00 계획 화면 띄움
+1793878099366 C 계획 앱이 맨 앞(3번째 확인)
+1793878103227 C 0:40 '운행 시작' 누름
+1793878114380 C 운행 시작 버튼 못 찾음 1
+1793878128725 C 재시도 전 앱이 맨 앞(4번째 확인)
+1793878152885 C 운행 시작 탭 2
+1793878156942 C 운행 시작 확인(첫 목적지 전달)
+1793878171606 C 시작 직후 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793878171876 C 시작 top=ai.umos.maps.android.navigation.app/.MainActivity → 앱으로 복귀
+1793878182995 C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째
+1793878337502 C step 1 top=
+1793878337514 C step 1 → 앱으로 복귀
+1793878352329 C step 2 top=
+1793878352353 C step 2 → 앱으로 복귀
+1793878372846 C step 3 top=
+1793878372861 C step 3 → 앱으로 복귀
+1793878392858 C step 4 top=
+1793878392875 C step 4 → 앱으로 복귀
+1793878414919 C step 5 top=
+1793878414939 C step 5 → 앱으로 복귀
+1793878433671 C step 6 top=
+1793878433688 C step 6 → 앱으로 복귀
+1793878447954 C step 7 top=
+1793878447966 C step 7 → 앱으로 복귀
+1793878466891 C step 8 top=
+1793878466911 C step 8 → 앱으로 복귀
+1793878488745 C step 9 top=
+1793878488758 C step 9 → 앱으로 복귀
+1793878509571 C step 10 top=
+1793878509580 C step 10 → 앱으로 복귀
+1793878528202 C step 11 top=
+1793878528116 C step 11 → 앱으로 복귀
+1793878549965 C step 12 top=
+1793878549213 C step 12 → 앱으로 복귀
+1793878566383 C step 13 top=
+1793878566395 C step 13 → 앱으로 복귀
+1793878580782 C step 14 top=
+1793878580796 C step 14 → 앱으로 복귀
+1793878601646 C step 15 top=
+1793878601666 C step 15 → 앱으로 복귀
+1793878621252 C step 16 top=
+1793878621273 C step 16 → 앱으로 복귀
+1793878640539 C step 17 top=
+1793878640556 C step 17 → 앱으로 복귀
+1793878659305 C step 18 top=
+1793878659322 C step 18 → 앱으로 복귀
+1793878674144 C step 19 top=
+1793878674275 C step 19 → 앱으로 복귀
+1793878693987 C step 20 top=
+1793878694604 C step 20 → 앱으로 복귀
+1793878715128 C step 21 top=
+1793878715258 C step 21 → 앱으로 복귀
+1793878735968 C step 22 top=
+1793878735988 C step 22 → 앱으로 복귀
+1793878755327 C step 23 top=
+1793878755345 C step 23 → 앱으로 복귀
+1793878769532 C step 24 top=
+1793878769547 C step 24 → 앱으로 복귀
+1793878789765 C step 25 top=
+1793878789782 C step 25 → 앱으로 복귀
+1793878809704 C step 26 top=
+1793878809725 C step 26 → 앱으로 복귀
+1793878830879 C step 27 top=
+1793878830104 C step 27 → 앱으로 복귀
+1793878848975 C step 28 top=
+1793878848986 C step 28 → 앱으로 복귀
+1793878867850 C step 29 top=
+1793878867916 C step 29 → 앱으로 복귀
+1793878872177 C VC 끝 exit=0
+1793878962548 C 운행 끝 기록=0
+1793878967621 C 정산 top= → 앱으로 복귀
+1793878973656 C 정산 화면 top=
+1793879067430 C 앱 복귀 횟수=50
+1793879067480 C 신호 지연: 짝 0/24
+1793879067512 B 전 car_service 살아 있음
+1793879067579 B 시작: demo.ps1 -Launch -Stops 5 -GapSec 3
+1793879167554 B demo.ps1 끝 exit=0 top=
+1793879173704 B 정산 top= → 앱으로 복귀
+1793879201696 B 앱 복귀 횟수=1

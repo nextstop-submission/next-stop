@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.Gravity
+import android.view.KeyEvent
 import android.text.InputType
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -18,6 +19,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import app.nextstop.BuildConfig
 import app.nextstop.core.checkpoint.CheckpointEffect
 import app.nextstop.core.checkpoint.CompletionTrigger
 import app.nextstop.core.display.DriveDisplay
@@ -32,7 +34,6 @@ import app.nextstop.core.vehicle.Gear
 import app.nextstop.core.vehicle.VehicleEvent
 import app.nextstop.platform.BroadcastSignalSource
 import app.nextstop.probe.AdbArg
-import app.nextstop.probe.ProbeActivity
 import java.io.File
 import java.time.ZoneId
 import java.util.Locale
@@ -40,12 +41,18 @@ import java.util.Locale
 /**
  * 메인 화면. 계획(정차) → 운행(주행 중 2줄) → 정산(정차) 세 장면을 한 액티비티에서 바꿔 보여 준다.
  *
+ * 주행 제한(CarUxRestrictions, 또는 기어가 P가 아님) 중에는 어떤 장면이든 '큰 글자 2줄, 버튼 0개'만 보인다(심사 지적 A1·A3·A5):
+ * 운행 전 = 안내 한 줄, 운행 중 = 다음 집·남은 건수, 끝난 뒤 = '오늘 배송 끝'·완료 건수. 정산·계획 화면은 P에서만 열린다.
+ * 완료 순간에는 화면을 갈아엎는 연출 없이 진행 막대와 두 줄 글자만 바뀐다(선택 기능인 음성 한 마디는 그대로).
+ *
  * 실행 옵션(adb):
  *   --es mode demo      목 신호만(시연 패널 + adb 브로드캐스트)
  *   --ez navi false     NaviHelper 대신 기록용 목 내비
  *   --ez reset true     진행 중 운행 초기화
  *   --ez autostart true 바로 운행 시작(스크립트용, 기어 상관없음)
  *   --ez panel true     차량 신호 모드에서도 시연 패널 표시(디버그 빌드)
+ *   --ez sample true    가상 샘플 배송지로 채움(디버그 빌드, CI 리허설·실측용)
+ *   --el door_before_park_ms N / --el door_after_depart_ms N   신호 순서 역전 보정 창(ms)
  */
 class DriveActivity : Activity() {
 
@@ -53,6 +60,8 @@ class DriveActivity : Activity() {
     private lateinit var planView: View
     private lateinit var driveView: View
     private lateinit var settleView: ScrollView
+    /** 주행 제한 중 운행 전 화면: 안내 한 줄. */
+    private lateinit var restrictedNotice: TextView
 
     // 계획 화면
     private lateinit var planSketch: RouteSketchView
@@ -60,18 +69,24 @@ class DriveActivity : Activity() {
     private lateinit var planRows: LinearLayout
     private lateinit var placeInput: EditText
     private lateinit var orderToggle: android.widget.Button
+    private lateinit var sampleButton: android.widget.Button
+    private lateinit var doorToggle: android.widget.Button
 
     // 운행 화면
     private lateinit var card: LinearLayout
+    private lateinit var cardCaption: TextView
     private lateinit var headline: TextView
     private lateinit var subline: TextView
     private lateinit var detail: TextView
     private lateinit var hint: TextView
     private lateinit var progress: ProgressSegments
     private lateinit var parkedActions: LinearLayout
+    private lateinit var undoButton: android.widget.Button
     private lateinit var statusLine: TextView
-    private lateinit var overlay: CompletionOverlay
     private lateinit var demoPanel: LinearLayout
+    /** 주행 제한 중 시연 패널 대신 가장자리에 남기는 '시연 전용' 손잡이. 누르면 패널을 한 번 펼친다. */
+    private lateinit var demoHandle: View
+    private var demoExpanded = false
 
     // 정산 화면
     private lateinit var settleBody: LinearLayout
@@ -79,14 +94,16 @@ class DriveActivity : Activity() {
     private var tts: TextToSpeech? = null
     private var ttsReady = false
     private var lastSnapshot: RunSnapshot? = null
-    private var animating = false
 
     private val runListener = RunListener { snap, effects -> onRun(snap, effects) }
     private val signalListener: () -> Unit = { render() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        startWith(intent)
+        // 프로세스가 종료된 뒤 화면이 다시 만들어질 때(savedInstanceState 있음)는 처음 실행 인텐트의 일회성 옵션
+        // (reset·autostart·sample 등)을 다시 적용하지 않는다. 11/5 CI 리허설 ci-20261105-2350-6f1a4f0에서
+        // 내비가 앞에 있는 동안 앱이 종료된 뒤 다시 열리며 처음 인텐트의 reset이 또 적용돼, 복원한 운행이 지워졌다(C 0/5).
+        startWith(intent, launchOptions = savedInstanceState == null)
         buildUi()
         setContentView(root)
         if (Prefs.voice(this)) startTts()
@@ -123,7 +140,7 @@ class DriveActivity : Activity() {
      * 런처 아이콘처럼 모드를 지정하지 않은 실행은 지금 모드를 그대로 둔다
      * (시연 운행 중에 앱을 다시 열어도 차량 신호 모드로 바뀌지 않게 — 에뮬레이터 실측에서 발견).
      */
-    private fun startWith(intent: Intent) {
+    private fun startWith(intent: Intent, launchOptions: Boolean = true) {
         val mode = when (intent.getStringExtra(EXTRA_MODE)) {
             "demo" -> SignalMode.DEMO
             "vehicle" -> SignalMode.VEHICLE
@@ -131,7 +148,7 @@ class DriveActivity : Activity() {
         }
         val navi = if (intent.hasExtra(EXTRA_NAVI)) intent.getBooleanExtra(EXTRA_NAVI, true) else RunStore.useNaviHelper
         RunStore.ensureStarted(this, mode, navi)
-        applyLaunchOptions(intent)
+        if (launchOptions) applyLaunchOptions(intent)
     }
 
     /**
@@ -142,6 +159,17 @@ class DriveActivity : Activity() {
     private fun applyLaunchOptions(intent: Intent) {
         if (intent.getBooleanExtra(EXTRA_RESET, false)) RunStore.resetRun()
         if (intent.getBooleanExtra(EXTRA_CLEAR_STOPS, false)) RunStore.clearStops()
+        // 순서 역전 보정 창(보정 손잡이). 다음 운행부터 적용.
+        if (intent.hasExtra(EXTRA_DOOR_BEFORE_PARK_MS) || intent.hasExtra(EXTRA_DOOR_AFTER_DEPART_MS)) {
+            Prefs.setDoorWindows(
+                this,
+                intent.getLongExtra(EXTRA_DOOR_BEFORE_PARK_MS, -1).takeIf { it >= 0 },
+                intent.getLongExtra(EXTRA_DOOR_AFTER_DEPART_MS, -1).takeIf { it >= 0 },
+            )
+            RunStore.restartSignals(this)
+        }
+        // 스크립트(CI 리허설·실측)용 가상 샘플: debug 빌드에서만. release는 시연 신호 모드에서만 샘플을 쓴다.
+        if (BuildConfig.DEBUG && intent.getBooleanExtra(EXTRA_SAMPLE, false)) RunStore.useSampleStops()
         AdbArg.text(intent.getStringExtra(EXTRA_PLACE))?.takeIf { it.isNotBlank() }?.let { kw ->
             intent.removeExtra(EXTRA_PLACE)
             if (::placeInput.isInitialized) placeInput.setText(kw)
@@ -193,37 +221,26 @@ class DriveActivity : Activity() {
     private fun onRun(snap: RunSnapshot, effects: List<CheckpointEffect>) {
         val cue = DriveDisplay.completionCue(lastSnapshot, snap, effects)
         lastSnapshot = snap
-        if (cue != null) {
-            speak(if (cue.isLast) "${cue.completedCount}건 완료. 오늘 배송 끝." else "${cue.completedCount}건 완료. 다음, ${cue.nextLabel}.")
-            animating = true
-            // 움직이는 연출은 플랫폼이 '주행 제한 아님'을 알려 줄 때만. 제한 중이거나 알 수 없으면 정적 확인 화면.
-            val motion = RunStore.uxRestricted == false
-            overlay.play(cue, if (snap.isFinished) settleView else card, motion) {
-                animating = false
-                render(animateProgress = motion)
-            }
-            return
-        }
+        // 완료 확인은 화면 전환 없이: 진행 막대 한 칸과 두 줄 글자가 바뀌는 것뿐. 음성은 선택 기능(기본 꺼짐).
+        if (cue != null) speak(if (cue.isLast) "${cue.completedCount}건 완료. 오늘 배송 끝." else "${cue.completedCount}건 완료. 다음, ${cue.nextLabel}.")
         if (effects.any { it is CheckpointEffect.StopDeferred }) speak("나중에 다시 들릅니다. 다음, ${snap.currentStop?.label}.")
         render()
     }
 
-    private fun render(animateProgress: Boolean = false) {
-        if (animating) {
-            // 연출 중에는 카드 내용을 바꾸지 않는다(onReveal에서 한 번에 바꿈).
-            // 다만 그사이 주행 제한이 켜지면 움직임을 즉시 멈추고 정적 확인으로 바꾼다.
-            if (RunStore.uxRestricted != false && overlay.isMoving) overlay.stopMotion()
-            renderStatus()
-            return
-        }
+    private fun render() {
         val snap = RunStore.snapshot()
-        planView.visibility = if (snap == null) View.VISIBLE else View.GONE
-        driveView.visibility = if (snap != null && !snap.isFinished) View.VISIBLE else View.GONE
-        settleView.visibility = if (snap?.isFinished == true) View.VISIBLE else View.GONE
+        val restricted = RunStore.restricted
+        val showPlan = snap == null && !restricted
+        val showSettle = snap?.isFinished == true && !restricted
+        val showDrive = snap != null && !showSettle
+        planView.visibility = if (showPlan) View.VISIBLE else View.GONE
+        restrictedNotice.visibility = if (snap == null && restricted) View.VISIBLE else View.GONE
+        driveView.visibility = if (showDrive) View.VISIBLE else View.GONE
+        settleView.visibility = if (showSettle) View.VISIBLE else View.GONE
         when {
-            snap == null -> renderPlan()
-            snap.isFinished -> renderSettlement(snap)
-            else -> renderDrive(snap, animateProgress)
+            showPlan -> renderPlan()
+            showSettle -> renderSettlement(snap!!)
+            showDrive -> renderDrive(snap!!)
         }
         renderStatus()
     }
@@ -232,17 +249,22 @@ class DriveActivity : Activity() {
         val plan = RunStore.plan
         planSketch.set(RunStore.depot, RunStore.inputStops, plan.orderedStops)
         val saved = RunStore.inputOrderKm - plan.estimatedKm
-        planSummary.text = "최적 동선 ${km(plan.estimatedKm)} · 입력 순서보다 ${km(saved.coerceAtLeast(0.0))} 짧음" +
+        // 출발점은 좌표가 아니라 사용자가 고른 첫 배송지(위치 권한 0). 시연 샘플만 샘플 출발점.
+        val from = if (RunStore.sampleOrigin) "출발: 시연 샘플 출발점" else "출발: ${plan.orderedStops.firstOrNull()?.label?.let(DriveDisplay::shorten)}"
+        planSummary.text = "$from · 최적 동선 ${km(plan.estimatedKm)} · 입력 순서보다 ${km(saved.coerceAtLeast(0.0))} 짧음" +
             if (plan.exact) " (최적해)" else " (근사해)"
-        if (plan.keptOrder) planSummary.text = "입력 순서 고정 · ${km(plan.estimatedKm)}"
+        if (plan.keptOrder) planSummary.text = "$from · 입력 순서 고정 · ${km(plan.estimatedKm)}"
         if (plan.orderedStops.isEmpty()) planSummary.text = "배송지를 추가하세요"
         orderToggle.text = if (RunStore.keepOrder) "순서: 입력대로 고정" else "순서: 자동 최적화"
+        sampleButton.visibility = if (RunStore.mode == SignalMode.DEMO) View.VISIBLE else View.GONE
+        doorToggle.text = if (Prefs.frontDoors(this)) "완료 문: 1열 모두" else "완료 문: 운전석만"
         planRows.removeAllViews()
         plan.orderedStops.forEachIndexed { i, s ->
             val name = label(30f).apply {
                 text = "${i + 1}. ${s.label}" + if (s.parcels > 1) "  (${s.parcels}개)" else ""
             }
             val r = row(name, spacingDp = 12f)
+            if (i > 0 && !RunStore.keepOrder) r.addView(smallPill("출발") { RunStore.makeStart(s.id); render() })
             if (RunStore.keepOrder && i > 0) r.addView(smallPill("▲") { RunStore.moveStopUp(s.id); render() })
             r.addView(smallPill("삭제") { RunStore.removeStop(s.id); render() })
             planRows.addView(r, lp(top = 8f))
@@ -273,9 +295,11 @@ class DriveActivity : Activity() {
         render()
     }
 
-    private fun renderDrive(snap: RunSnapshot, animateProgress: Boolean) {
+    private fun renderDrive(snap: RunSnapshot) {
         val restricted = RunStore.restricted
         val c = DriveDisplay.card(snap, restricted)
+        // 주행 중에는 두 줄(다음 집·남은 건수)만: 머리 설명 글자도 숨긴다
+        cardCaption.visibility = if (snap.isFinished || restricted) View.GONE else View.VISIBLE
         headline.text = c.headline
         subline.text = c.subline
         detail.text = c.detail.orEmpty()
@@ -283,9 +307,12 @@ class DriveActivity : Activity() {
         hint.text = c.hint.orEmpty()
         hint.visibility = if (c.hint == null) View.GONE else View.VISIBLE
         hint.setTextColor(if (snap.readyToComplete) Palette.ACCENT else Palette.WARN)
-        progress.set(snap.done, snap.total, animateProgress)
+        progress.set(snap.done, snap.total, false)
         // 주행 중(UX 제한)에는 조작 버튼을 숨긴다.
-        parkedActions.visibility = if (restricted) View.GONE else View.VISIBLE
+        parkedActions.visibility = if (restricted || snap.isFinished) View.GONE else View.VISIBLE
+        val last = snap.lastRecord
+        undoButton.visibility = if (last != null) View.VISIBLE else View.GONE
+        undoButton.text = "되돌리기: ${last?.stop?.label?.let(DriveDisplay::shorten).orEmpty()}"
     }
 
     private fun renderStatus() {
@@ -300,9 +327,36 @@ class DriveActivity : Activity() {
         val door = if (RunStore.doorOpen) "문 열림" else "문 닫힘"
         val odo = RunStore.lastOdometerKm?.let { " · ${km(it)}" }.orEmpty()
         statusLine.text = "$modeText · 기어 $gear · $door$odo"
+        val restricted = RunStore.restricted
+        // 상태 줄은 개발·시연용 정보. 주행 중에는 숨기고(세 번째 줄 금지), release 차량 신호 모드에서는 보이지 않는다.
+        val statusAllowed = BuildConfig.DEBUG || RunStore.mode == SignalMode.DEMO
+        statusLine.visibility = if (statusAllowed && !restricted) View.VISIBLE else View.GONE
         val running = RunStore.snapshot()?.let { !it.isFinished } == true
-        val panelAllowed = RunStore.demoSource != null && (RunStore.mode == SignalMode.DEMO || intent.getBooleanExtra(EXTRA_PANEL, false))
-        demoPanel.visibility = if (panelAllowed && running) View.VISIBLE else View.GONE
+        val panelAllowed = demoPanelAllowed() && running
+        if (!restricted) demoExpanded = false
+        demoPanel.visibility = if (panelAllowed && (!restricted || demoExpanded)) View.VISIBLE else View.GONE
+        demoHandle.visibility = if (panelAllowed && restricted && !demoExpanded) View.VISIBLE else View.GONE
+    }
+
+    private fun demoPanelAllowed() =
+        RunStore.demoSource != null && (RunStore.mode == SignalMode.DEMO || intent.getBooleanExtra(EXTRA_PANEL, false))
+
+    /**
+     * 시연 신호 키보드 입력(노트북 시연용, 화면에 버튼이 필요 없음): P · O(문 열기) · C(문 닫기) · D.
+     * 시연 패널이 허용된 경우에만 듣는다.
+     */
+    override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
+        if (!demoPanelAllowed()) return super.onKeyUp(keyCode, event)
+        val t = RunStore.clock.nowMillis()
+        val e = when (keyCode) {
+            KeyEvent.KEYCODE_P -> VehicleEvent.GearChanged(Gear.PARK, t)
+            KeyEvent.KEYCODE_D -> VehicleEvent.GearChanged(Gear.DRIVE, t)
+            KeyEvent.KEYCODE_O -> VehicleEvent.DoorChanged(true, t)
+            KeyEvent.KEYCODE_C -> VehicleEvent.DoorChanged(false, t)
+            else -> return super.onKeyUp(keyCode, event)
+        }
+        RunStore.demoSource?.inject(e)
+        return true
     }
 
     private fun renderSettlement(snap: RunSnapshot) {
@@ -322,6 +376,8 @@ class DriveActivity : Activity() {
             pill("새 운행", filled = true) { RunStore.resetRun(); lastSnapshot = null; render() },
             // 보조 기능: 업무용 차량 운행기록 형식으로 내보내기
             pill("운행기록 내보내기") { saveTripLog(snap) },
+            // 마지막 건이 잘못 센 것(편의점·부재 등)이면 되돌려 운행을 다시 연다
+            pill("마지막 건 되돌리기") { RunStore.undoLast(); render() },
         ), lp(top = 32f))
         // 가정값은 정차 중 이 자리에서 바꿔 볼 수 있다(내 단가·연비로 다시 계산).
         val p = RunStore.settlementParams
@@ -384,20 +440,34 @@ class DriveActivity : Activity() {
             settleBody = column().apply { setPadding(dp(64f), dp(48f), dp(64f), dp(48f)) }
             addView(settleBody)
         }
-        overlay = CompletionOverlay(this).apply { tag = TAG_OVERLAY }
+        restrictedNotice = label(52f, Palette.TEXT, bold = true).apply {
+            text = "정차 후 배송지를 준비하세요"
+            gravity = Gravity.CENTER
+            tag = TAG_RESTRICTED_NOTICE
+        }
         demoPanel = buildDemoPanel()
+        demoHandle = label(18f, Palette.SUB).apply {
+            text = "시연\n전용\n‹"
+            gravity = Gravity.CENTER
+            tag = TAG_DEMO_HANDLE
+            setPadding(dp(10f), dp(18f), dp(10f), dp(18f))
+            background = roundedBg(Palette.CARD, dp(12f).toFloat())
+            isClickable = true
+            setOnClickListener { demoExpanded = true; renderStatus() }
+        }
         statusLine = label(22f, Palette.SUB)
 
         root.addView(planView, FrameLayout.LayoutParams(-1, -1))
         root.addView(driveView, FrameLayout.LayoutParams(-1, -1))
         root.addView(settleView, FrameLayout.LayoutParams(-1, -1))
+        root.addView(restrictedNotice, FrameLayout.LayoutParams(-1, -1))
         root.addView(statusLine, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.END).apply {
             topMargin = dp(20f); marginEnd = dp(32f)
         })
         root.addView(demoPanel, FrameLayout.LayoutParams(-2, -2, Gravity.CENTER_VERTICAL or Gravity.END).apply {
             marginEnd = dp(32f)
         })
-        root.addView(overlay, FrameLayout.LayoutParams(-1, -1))
+        root.addView(demoHandle, FrameLayout.LayoutParams(-2, -2, Gravity.CENTER_VERTICAL or Gravity.END))
     }
 
     private fun buildPlan(): View {
@@ -415,13 +485,23 @@ class DriveActivity : Activity() {
                     }
                     render()
                 },
-                pill("실측 화면") { startActivity(Intent(this@DriveActivity, ProbeActivity::class.java)) },
                 spacingDp = 12f,
-            ), lp(top = 28f))
+            ).apply {
+                // 실측 화면은 debug 빌드에만 있다(release에는 화면도 버튼도 없음).
+                if (BuildConfig.DEBUG) addView(pill("실측 화면") {
+                    startActivity(Intent().setClassName(this@DriveActivity, "app.nextstop.probe.ProbeActivity"))
+                }.apply { layoutParams = LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(12f) } })
+            }, lp(top = 28f))
             planRows = column()
             addView(planRows, lp(top = 20f))
             orderToggle = pill("순서: 자동 최적화") { RunStore.setKeepOrder(!RunStore.keepOrder); render() }
             addView(row(orderToggle, pill("모두 지우기") { RunStore.clearStops(); render() }, spacingDp = 12f), lp(top = 16f))
+            doorToggle = pill("완료 문: 1열 모두") {
+                Prefs.setFrontDoors(this@DriveActivity, !Prefs.frontDoors(this@DriveActivity))
+                RunStore.restartSignals(this@DriveActivity)
+                render()
+            }
+            addView(row(doorToggle, label(22f, Palette.SUB).apply { text = "조수석 하차·동승 배송도 세려면 1열 모두" }, spacingDp = 12f), lp(top = 16f))
             addView(label(22f, Palette.SUB).apply { text = "배송지 추가 — 주소·건물 이름으로 내비에서 찾기" }, lp(top = 32f))
             placeInput = EditText(this@DriveActivity).apply {
                 hint = "예: 다솜동 3구역, 서울역"
@@ -447,7 +527,7 @@ class DriveActivity : Activity() {
             addView(row(
                 pill("최근 목적지") { importStops("recent") },
                 pill("즐겨찾기") { importStops("bookmark") },
-                pill("샘플") { RunStore.useSampleStops(); render() },
+                pill("샘플") { RunStore.useSampleStops(); render() }.also { sampleButton = it },
                 spacingDp = 12f,
             ), lp(top = 12f))
             addView(row(label(22f, Palette.SUB).apply { text = "음성 안내(선택)" }, voiceToggle(), spacingDp = 16f), lp(top = 20f))
@@ -472,9 +552,10 @@ class DriveActivity : Activity() {
         detail = label(30f, Palette.SUB)
         hint = label(34f, Palette.WARN, bold = true)
         progress = ProgressSegments(this)
+        cardCaption = label(28f, Palette.SUB).apply { text = "다음 배송지" }
         card = column().apply {
             gravity = Gravity.CENTER_VERTICAL
-            addView(label(28f, Palette.SUB).apply { text = "다음 배송지" })
+            addView(cardCaption)
             addView(headline, lp(top = 8f))
             addView(subline, lp(top = 20f))
             addView(detail, lp(top = 20f))
@@ -484,6 +565,8 @@ class DriveActivity : Activity() {
             pill("완료") { RunStore.run?.completeManually() },
             pill("나중에") { RunStore.run?.deferCurrent() },
             pill("건너뛰기") { RunStore.run?.skipCurrent() },
+            // 방금 센 1건이 배송이 아니었으면(편의점·화장실·부재인데 문 닫고 출발 등) 정차 중 1탭으로 되돌린다.
+            pill("되돌리기") { RunStore.undoLast() }.also { undoButton = it; it.tag = TAG_UNDO },
         ).apply { tag = TAG_PARKED_ACTIONS }
         return column().apply {
             setPadding(dp(64f), dp(64f), dp(64f), dp(40f))
@@ -493,15 +576,25 @@ class DriveActivity : Activity() {
         }
     }
 
-    /** Virtual Console이 안 될 때 시연용으로 차량 조작을 대신하는 버튼. 목 신호 경로와 동일. */
+    /**
+     * Virtual Console이 안 될 때 시연용으로 차량 조작을 대신하는 버튼. 목 신호 경로와 동일.
+     * 주행 제한 중에는 접혀 '시연 전용' 손잡이만 가장자리에 남는다(2줄 카드 영역에 버튼 0개). 손잡이를 누르면 한 번 펼쳐지고,
+     * 신호를 하나 보내면 다시 접힌다. 화면을 만지지 않으려면 키보드 P·O·C·D나 adb 방송을 쓴다.
+     * 손잡이로 고른 이유: 노트북 PT에서 발표자가 키보드·adb를 못 쓰는 상황(마우스만)에도 신호를 넣을 수단이 남고,
+     * '시연 전용' 표시로 제품 화면의 버튼이 아님이 보인다.
+     */
     private fun buildDemoPanel(): LinearLayout {
-        fun send(e: VehicleEvent) = RunStore.demoSource?.inject(e)
+        fun send(e: VehicleEvent) {
+            RunStore.demoSource?.inject(e)
+            demoExpanded = false
+            renderStatus()
+        }
         fun t() = RunStore.clock.nowMillis()
         return column().apply {
             tag = TAG_DEMO_PANEL
             setPadding(dp(20f), dp(16f), dp(20f), dp(20f))
             background = roundedBg(Palette.CARD, dp(24f).toFloat())
-            addView(label(18f, Palette.SUB).apply { text = "시연 신호 (차량 조작 대신)" })
+            addView(label(18f, Palette.SUB).apply { text = "시연 전용 신호 (차량 조작 대신)" })
             listOf(
                 pill("P") { send(VehicleEvent.GearChanged(Gear.PARK, t())) },
                 pill("문 열기") { send(VehicleEvent.DoorChanged(true, t())) },
@@ -510,7 +603,7 @@ class DriveActivity : Activity() {
             ).forEach { b ->
                 addView(b, LinearLayout.LayoutParams(dp(240f), -2).apply { topMargin = dp(12f) })
             }
-            addView(label(14f, Palette.SUB).apply { text = "adb: ${BroadcastSignalSource.ACTION}" }, lp(top = 12f))
+            addView(label(14f, Palette.SUB).apply { text = "키보드 P·O·C·D · adb: ${BroadcastSignalSource.ACTION}" }, lp(top = 12f))
         }
     }
 
@@ -548,8 +641,13 @@ class DriveActivity : Activity() {
         const val EXTRA_PICK = "pick"
         const val EXTRA_RESET = "reset"
         const val EXTRA_AUTOSTART = "autostart"
+        const val EXTRA_SAMPLE = "sample"
+        const val EXTRA_DOOR_BEFORE_PARK_MS = "door_before_park_ms"
+        const val EXTRA_DOOR_AFTER_DEPART_MS = "door_after_depart_ms"
         const val TAG_PARKED_ACTIONS = "parkedActions"
-        const val TAG_OVERLAY = "completionOverlay"
+        const val TAG_UNDO = "undo"
+        const val TAG_RESTRICTED_NOTICE = "restrictedNotice"
         const val TAG_DEMO_PANEL = "demoPanel"
+        const val TAG_DEMO_HANDLE = "demoHandle"
     }
 }

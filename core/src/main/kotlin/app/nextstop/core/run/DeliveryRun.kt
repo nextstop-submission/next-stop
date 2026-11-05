@@ -61,6 +61,8 @@ data class RunSnapshot(
             else -> null
         }
     val isParked: Boolean get() = phase is CheckpointPhase.Parked
+    /** 정차 중 '되돌리기'로 취소할 수 있는 마지막 기록. */
+    val lastRecord: StopRecord? get() = records.lastOrNull()
     val isFinished: Boolean get() = phase is CheckpointPhase.Finished
 }
 
@@ -78,6 +80,8 @@ class DeliveryRun(
     private val navigator: Navigator,
     private val clock: Clock,
     private val config: CheckpointConfig = CheckpointConfig(),
+    /** 아직 D를 못 본 구간에서 계기판이 이만큼(km) 늘면 차가 움직인 것으로 본다([CheckpointInput.Moved]). */
+    private val movedKm: Double = DEFAULT_MOVED_KM,
 ) : VehicleEventListener {
 
     private val stops = plannedStops.toMutableList()
@@ -89,6 +93,8 @@ class DeliveryRun(
     private var odometerLastKm: Double? = null
     private var lastLegOdometerKm: Double? = null
     private val sourceErrors = ArrayDeque<String>()
+    /** D를 못 본 구간의 계기판 기준값. */
+    private var unarmedRefKm: Double? = null
     private val listeners = mutableListOf<RunListener>()
 
     /** 저장용 상태. [restore]로 같은 운행을 다시 만든다. */
@@ -152,6 +158,12 @@ class DeliveryRun(
 
     fun skipCurrent() = apply(CheckpointInput.Skip(clock.nowMillis()))
 
+    /** 방금 센 1건을 되돌린다(정산·기록에서 빠지고 그 집이 다시 현재 배송지). */
+    fun undoLast() = apply(CheckpointInput.Undo(clock.nowMillis()))
+
+    /** 정차 중 헤드유닛이 재부팅된 뒤 복원됐을 때 호출한다. */
+    fun powerCycled() = apply(CheckpointInput.PowerCycled(clock.nowMillis()))
+
     override fun onVehicleEvent(event: VehicleEvent) {
         when (event) {
             is VehicleEvent.GearChanged -> apply(CheckpointInput.GearInput(event.gear, event.atMillis))
@@ -169,12 +181,27 @@ class DeliveryRun(
         if (!km.isFinite() || km < 0) return
         val last = odometerLastKm
         if (last != null && km < last) return // 역행 값은 버린다(센서 잡음·리셋)
+        val p = state.phase
+        var moved = false
+        if (startedAt != null && p is CheckpointPhase.EnRoute && !p.armed) {
+            // 기준값이 없으면 직전 값(복원 직후면 저장돼 있던 값)을 기준으로 삼는다.
+            val ref = unarmedRefKm ?: last ?: km
+            unarmedRefKm = ref
+            moved = km - ref >= movedKm
+        } else {
+            unarmedRefKm = null
+        }
         if (startedAt != null && odometerStartKm == null) {
             odometerStartKm = km
             lastLegOdometerKm = km
         }
         odometerLastKm = km
-        notifyListeners(emptyList())
+        if (moved) {
+            unarmedRefKm = null
+            apply(CheckpointInput.Moved(clock.nowMillis()))
+        } else {
+            notifyListeners(emptyList())
+        }
     }
 
     private fun apply(input: CheckpointInput) {
@@ -197,6 +224,12 @@ class DeliveryRun(
                 finishedAt = effect.atMillis
                 navigator.cancel()
             }
+            is CheckpointEffect.StopUndone -> {
+                records.removeLastOrNull()
+                lastLegOdometerKm = records.lastOrNull()?.odometerAtDepartureKm ?: odometerStartKm
+                finishedAt = null
+            }
+            is CheckpointEffect.DoorCycleCredited,
             is CheckpointEffect.Parked,
             is CheckpointEffect.StopDeferred,
             is CheckpointEffect.Ignored -> Unit
@@ -217,6 +250,7 @@ class DeliveryRun(
 
     companion object {
         private const val MAX_ERRORS = 5
+        const val DEFAULT_MOVED_KM = 0.5
 
         fun restore(m: RunMemento, navigator: Navigator, clock: Clock, config: CheckpointConfig = CheckpointConfig()): DeliveryRun =
             DeliveryRun(m.stops, navigator, clock, config).also { r ->

@@ -1,0 +1,48 @@
+1793879739286 C 0:00 계획 화면 띄움
+1793879776126 C 계획 앱이 맨 앞(4번째 확인)
+1793879785944 C 0:40 '운행 시작' 누름
+1793879807330 C 운행 시작 버튼 못 찾음 1
+1793879820133 C 재시도 전 앱이 맨 앞(3번째 확인)
+1793879844346 C 운행 시작 탭 2
+1793879848723 C 운행 시작 확인(첫 목적지 전달)
+1793879858805 C 시작 직후 top=app.nextstop/.drive.DriveActivity
+1793879865728 C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째
+1793879982376 C step 1 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793879982395 C step 1 → 앱으로 복귀
+1793880008612 C step 2 top=app.nextstop/.drive.DriveActivity
+1793880043859 C step 3 top=app.nextstop/.drive.DriveActivity
+1793880088720 C step 4 top=app.nextstop/.drive.DriveActivity
+1793880130527 C step 5 top=app.nextstop/.drive.DriveActivity
+1793880164163 C step 6 top=app.nextstop/.drive.DriveActivity
+1793880188689 C step 7 top=app.nextstop/.drive.DriveActivity
+1793880224238 C step 8 top=app.nextstop/.drive.DriveActivity
+1793880267750 C step 9 top=app.nextstop/.drive.DriveActivity
+1793880310447 C step 10 top=app.nextstop/.drive.DriveActivity
+1793880346479 C step 11 top=app.nextstop/.drive.DriveActivity
+1793880379268 C step 12 top=app.nextstop/.drive.DriveActivity
+1793880413712 C step 13 top=app.nextstop/.drive.DriveActivity
+1793880439219 C step 14 top=app.nextstop/.drive.DriveActivity
+1793880474382 C step 15 top=app.nextstop/.drive.DriveActivity
+1793880517809 C step 16 top=app.nextstop/.drive.DriveActivity
+1793880560566 C step 17 top=app.nextstop/.drive.DriveActivity
+1793880595529 C step 18 top=app.nextstop/.drive.DriveActivity
+1793880616227 C step 19 top=app.nextstop/.drive.DriveActivity
+1793880649492 C step 20 top=app.nextstop/.drive.DriveActivity
+1793880696538 C step 21 top=app.nextstop/.drive.DriveActivity
+1793880740226 C step 22 top=app.nextstop/.drive.DriveActivity
+1793880774761 C step 23 top=app.nextstop/.drive.DriveActivity
+1793880799388 C step 24 top=app.nextstop/.drive.DriveActivity
+1793880838117 C step 25 top=app.nextstop/.drive.DriveActivity
+1793880882363 C step 26 top=app.nextstop/.drive.DriveActivity
+1793880926180 C step 27 top=app.nextstop/.drive.DriveActivity
+1793880961575 C step 28 top=app.nextstop/.drive.DriveActivity
+1793881001987 C step 29 top=app.nextstop/.drive.DriveActivity
+1793881004948 C VC 끝 exit=0
+1793881095575 C 운행 끝 기록=0
+1793881108963 C 정산 화면 top=app.nextstop/.drive.DriveActivity
+1793881306147 C 앱 복귀 횟수=1
+1793881306313 C 신호 지연: 짝 19/24 · 중앙값 14882ms · 최대 16977ms · 최소 11600ms
+1793881306466 B 전 car_service 살아 있음
+1793881306832 B 시작: demo.ps1 -Launch -Stops 5 -GapSec 3
+1793881424418 B demo.ps1 끝 exit=0 top=app.nextstop/.drive.DriveActivity
+1793881458619 B 앱 복귀 횟수=0

@@ -1,0 +1,57 @@
+1793594871126 C 0:00 계획 화면 띄움
+1793594886477 C 계획 앱이 맨 앞(3번째 확인)
+1793594891272 C 0:40 '운행 시작' 누름
+1793594914241 C 운행 시작 탭 1
+1793594918292 C 운행 시작 확인(첫 목적지 전달)
+1793594928741 C 시작 직후 top=app.nextstop/.drive.DriveActivity
+1793594937279 C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째
+1793595006142 C step 1 top=
+1793595006156 C step 1 → 앱으로 복귀
+1793595025179 C step 2 top=
+1793595025191 C step 2 → 앱으로 복귀
+1793595048102 C step 3 top=
+1793595048114 C step 3 → 앱으로 복귀
+1793595071989 C step 4 top=
+1793595072671 C step 4 → 앱으로 복귀
+1793595101185 C step 5 top=app.nextstop/.drive.DriveActivity
+1793595124728 C step 6 top=ai.umos.drivingview/.DrivingViewActivity
+1793595124895 C step 6 → 앱으로 복귀
+1793595143164 C step 7 top=app.nextstop/.drive.DriveActivity
+1793595169757 C step 8 top=ai.umos.drivingview/.DrivingViewActivity
+1793595169777 C step 8 → 앱으로 복귀
+1793595199761 C step 9 top=app.nextstop/.drive.DriveActivity
+1793595226173 C step 10 top=app.nextstop/.drive.DriveActivity
+1793595248869 C step 11 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595248879 C step 11 → 앱으로 복귀
+1793595278563 C step 12 top=ai.umos.drivingview/.DrivingViewActivity
+1793595278573 C step 12 → 앱으로 복귀
+1793595305679 C step 13 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595305692 C step 13 → 앱으로 복귀
+1793595328791 C step 14 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595328800 C step 14 → 앱으로 복귀
+1793595367338 C step 15 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595367357 C step 15 → 앱으로 복귀
+1793595403472 C step 16 top=ai.umos.drivingview/.DrivingViewActivity
+1793595403495 C step 16 → 앱으로 복귀
+1793595426507 C step 17 top=app.nextstop/.drive.DriveActivity
+1793595449439 C step 18 top=app.nextstop/.drive.DriveActivity
+1793595466484 C step 19 top=app.nextstop/.drive.DriveActivity
+1793595494166 C step 20 top=app.nextstop/.drive.DriveActivity
+1793595522463 C step 21 top=app.nextstop/.drive.DriveActivity
+1793595549571 C step 22 top=app.nextstop/.drive.DriveActivity
+1793595573507 C step 23 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595573640 C step 23 → 앱으로 복귀
+1793595595646 C step 24 top=app.nextstop/.drive.DriveActivity
+1793595621720 C step 25 top=ai.umos.maps.android.navigation.app/.MainActivity
+1793595621740 C step 25 → 앱으로 복귀
+1793595656496 C step 26 top=app.nextstop/.drive.DriveActivity
+1793595676678 C step 27 top=app.nextstop/.drive.DriveActivity
+1793595703609 C step 28 top=app.nextstop/.drive.DriveActivity
+1793595736282 C step 29 top=app.nextstop/.drive.DriveActivity
+1793595739378 C VC 끝 exit=0
+1793595753459 C 정산 화면 top=app.nextstop/.drive.DriveActivity
+1793595846273 C 앱 복귀 횟수=14
+1793595846405 B 전 car_service 살아 있음
+1793595846573 B 시작: demo.ps1 -Launch -Stops 5 -GapSec 3
+1793595963176 B demo.ps1 끝 exit=0 top=app.nextstop/.drive.DriveActivity
+1793595992733 B 앱 복귀 횟수=0

@@ -1,0 +1,5 @@
+--------- beginning of crash
+11-05 02:34:15.774   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-05 02:34:16.049   184   184 F libc    : crash_dump helper failed to exec, or was killed
+11-05 02:35:25.487   172   172 F libc    : crash_dump helper failed to exec, or was killed
+11-05 02:35:25.784   184   184 F libc    : crash_dump helper failed to exec, or was killed

@@ -91,7 +91,7 @@ if ($Record) {
 
 if ($Launch) {
     $m = if ($Mode -eq 'broadcast') { 'demo' } else { 'vehicle' }
-    Shell "am start -n $pkg/.drive.DriveActivity --es mode $m --ez reset true --ez autostart true"
+    Shell "am start -n $pkg/.drive.DriveActivity --es mode $m --ez reset true --ez sample true --ez autostart true"
     Start-Sleep -Seconds 3
     if ($Mode -eq 'broadcast') { Send 'odo' }
     Drive

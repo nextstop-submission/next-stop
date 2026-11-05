@@ -1,0 +1,145 @@
+--------- beginning of main
+         1793599061.054 11648 11648 I NSPROBE : NSPROBE|env|start|auto=false
+         1793599062.891 11648 11648 I NSPROBE : NSPROBE|lab|connected|ok
+         1793599066.292 11648 11648 I NSPROBE : NSPROBE|lab|cmd|state
+         1793599066.449 11648 11648 I NSPROBE : NSPROBE|lab|state.result|called
+         1793599068.079 11648 11648 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599068.142 11648 11648 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599071.043 11648 11796 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793599071.943 11648 11821 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793599082.395 11648 11648 I NextStop: NS|UX|restricted=false
+         1793599082.704 11648 11648 I NextStop: NS|RESTORE|done=5/5
+         1793599086.971 11648 11648 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793599088.986 11648 11648 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793599088986)
+         1793599092.072 11648 11648 I NextStop: NS|PLACE|search
+         1793599092.201 11648 11648 I NextStop: NS|PLACE|script search sent=true
+         1793599093.232 11648 11796 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793599093.417 11648 11821 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793599094.201 11648 11648 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599093283)
+         1793599094.258 11648 11648 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599093287)
+         1793599096.391 11648 11648 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599096124)
+         1793599096.403 11648 11648 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599096165)
+         1793599099.987 11648 11648 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599099282)
+         1793599104.352 11648 11648 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599104351)
+         1793599109.070 11648 11648 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599108999)
+         1793599187.185 19007 19007 I NextStop: NS|UX|restricted=false
+         1793599194.232 19007 19007 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793599195.883 19007 19007 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793599195883)
+         1793599201.312 19007 19007 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599197460)
+         1793599201.323 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599197581)
+         1793599201.324 19007 19007 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599197656)
+         1793599201.330 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599197657)
+         1793599201.331 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599197844)
+         1793599201.349 19007 19007 I NextStop: NS|NAV|RouteStarted
+         1793599201.693 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599201206)
+         1793599206.200 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599206197)
+         1793599210.193 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599210190)
+         1793599215.238 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599215238)
+         1793599219.189 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599219188)
+         1793599223.199 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599223198)
+         1793599227.188 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599227185)
+         1793599231.183 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599231182)
+         1793599235.195 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599235189)
+         1793599239.187 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599239186)
+         1793599242.220 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599242219)
+         1793599246.187 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599246185)
+         1793599249.213 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599249213)
+         1793599254.213 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599254213)
+         1793599258.194 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599258194)
+         1793599262.186 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599262185)
+         1793599266.197 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599266197)
+         1793599271.184 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599271184)
+         1793599274.207 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599274206)
+         1793599278.188 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599278187)
+         1793599281.201 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599281197)
+         1793599286.201 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599286201)
+         1793599290.195 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599290195)
+         1793599294.187 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599294186)
+         1793599298.197 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599298197)
+         1793599302.189 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599302188)
+         1793599306.193 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599306193)
+         1793599311.233 19007 19007 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599311232)
+         1793599401.411  4796  4796 I NextStop: NS|UX|restricted=false
+         1793599405.129  4796  4796 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793599405.755  4796  4796 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793599405755)
+         1793599409.230  4796  4796 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599407149)
+         1793599409.271  4796  4796 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793599407696)
+         1793599409.284  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599407954)
+         1793599409.285  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599408204)
+         1793599412.183  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599412183)
+         1793599415.492  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599415492)
+         1793599417.288  4796  4796 I NSPROBE : NSPROBE|env|start|auto=false
+         1793599419.406  4796  4796 I NSPROBE : NSPROBE|lab|connected|ok
+         1793599420.612  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599419268)
+         1793599421.461  4796  4796 I NSPROBE : NSPROBE|lab|cmd|state
+         1793599421.513  4796  4796 I NSPROBE : NSPROBE|lab|state.result|called
+         1793599422.137  4796  5027 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793599422.899  4796  4796 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793599422.926  4796  4796 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793599422.990  4796  5027 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793599423.659  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599423212)
+         1793599426.714  4796  5027 I NSPROBE : NSPROBE|lab.event|onBookmarkInfo| 0.000000,0.000000 poi= HOME |  0.000000,0.000000 poi= OFFICE
+         1793599426.995  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599426434)
+         1793599430.271  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599430193)
+         1793599431.101  4796  4796 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599431.191  4796  4796 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599431.386  4796  4926 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793599433.208  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599433207)
+         1793599434.516  4796  4796 I NSPROBE : NSPROBE|lab|cmd|route
+         1793599434.624  4796  4796 I NSPROBE : NSPROBE|lab|route.result|called
+         1793599437.236  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599437236)
+         1793599441.226  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599441225)
+         1793599444.321  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599444320)
+         1793599448.414  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599448410)
+         1793599452.196  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599452195)
+         1793599457.278  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599457278)
+         1793599462.759  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599462758)
+         1793599462.782  4796  4796 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599462.805  4796  4796 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599464.269  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599464268)
+         1793599469.014  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599467402)
+         1793599471.530  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599471475)
+         1793599475.432  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599475431)
+         1793599479.285  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599479285)
+         1793599480.226  4796  4796 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599480.230  4796  4796 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599483.079  4796  4830 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|INITIALIZING
+         1793599484.400  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599483536)
+         1793599487.375  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599487212)
+         1793599491.291  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599491268)
+         1793599495.267  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599495238)
+         1793599501.028  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599501028)
+         1793599501.411  4796  4796 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599502.483  4796  4796 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599503.339  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599503339)
+         1793599507.070  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599507070)
+         1793599511.198  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599511197)
+         1793599529.840  4796  4812 I NSPROBE : NSPROBE|lab.event|onNavigationStatus|FREE_DRIVE
+         1793599529.842  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599529834)
+         1793599529.842  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599529838)
+         1793599529.965  4796  6489 I NSPROBE : NSPROBE|lab.event|onWayPointInfo|0
+         1793599529.975  4796  4796 I NSPROBE : NSPROBE|lab|cmd|loc
+         1793599529.988  4796  4813 I NSPROBE : NSPROBE|lab.event|onRecentDestinationInfo|서울역 KTX 37.553886,126.970678 poi=36khq96e4p5dcm5nqhec
+         1793599530.056  4796  4813 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793599530.057  4796  4796 I NSPROBE : NSPROBE|lab|loc.result|called
+         1793599530.064  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599529964)
+         1793599530.064  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599529964)
+         1793599530.610  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599530608)
+         1793599530.822  4796  4813 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793599530.957  4796  4796 I NSPROBE : NSPROBE|lab|cmd|state
+         1793599530.964  4796  4796 I NSPROBE : NSPROBE|lab|state.result|called
+         1793599531.726  4796  4796 I NSPROBE : NSPROBE|lab|cmd|dest
+         1793599531.734  4796  4796 I NSPROBE : NSPROBE|lab|dest.result|called
+         1793599533.127  4796  7041 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793599533.871  4796  7041 I NSPROBE : NSPROBE|lab.event|onBookmarkInfo| 0.000000,0.000000 poi= HOME |  0.000000,0.000000 poi= OFFICE
+         1793599533.888  4796  7041 I NSPROBE : NSPROBE|lab.event|onCurrentLocationInfo|at=37.412721,127.094681 heading=0.0
+         1793599533.897  4796  7041 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793599533.936  4796  6489 I NSPROBE : NSPROBE|lab.event|onDestinationInfo|name= at=0.000000,0.000000 poiId= poiSubId=null provider= remain=0m
+         1793599536.198  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599536197)
+         1793599536.422  4796  4796 I NSPROBE : NSPROBE|lab|cmd|cancel
+         1793599536.432  4796  4796 I NSPROBE : NSPROBE|lab|cancel.result|called
+         1793599539.982  4796  4796 I NSPROBE : NSPROBE|lab|cmd|state
+         1793599539.987  4796  4796 I NSPROBE : NSPROBE|lab|state.result|called
+         1793599540.202  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599540202)
+         1793599540.737  4796  7041 I NSPROBE : NSPROBE|lab.event|onRouteStateInfo|RouteStateInfo(termsAgreement=true, naviMode=SAFE_GUIDING, isRouting=false, routeOption=RECOMMENDED, remainDestinationChargingInt=0, remainWaypointChargingInt=[0, 0], trafficStatus=TrafficStatus(summary=TrafficCongestionSummary(totalCongestionDist=0.0, totalCongestionTime=60, totalCongestionAvrSpeed
+         1793599543.518  4796  4796 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793599543518)

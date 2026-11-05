@@ -9,7 +9,7 @@ sealed interface VehicleEvent {
 
     data class GearChanged(val gear: Gear, override val atMillis: Long) : VehicleEvent
 
-    /** 운전석 도어(배송 체크포인트 대상) 열림/닫힘. */
+    /** 체크포인트 대상 문(기본: 1열 운전석·조수석을 [DoorUnion]으로 묶은 값) 열림/닫힘. */
     data class DoorChanged(val open: Boolean, override val atMillis: Long) : VehicleEvent
 
     /** 누적 주행거리(km). */
@@ -31,6 +31,22 @@ interface VehicleSignalSource {
     val name: String
     fun start(listener: VehicleEventListener)
     fun stop()
+
+    /** 현재 값을 다시 읽어 보낸다(예: P 진입 때 문 상태 재조회). 지원하지 않으면 아무것도 하지 않는다. */
+    fun refresh() {}
+}
+
+/**
+ * 여러 문을 '하나라도 열려 있으면 열림'으로 묶는다. 1열 운전석·조수석을 묶으면 조수석 하차·동승자 배송도 문 사이클이 된다.
+ * 각 문의 최신 값을 기억하고, 묶은 값을 돌려준다.
+ */
+class DoorUnion {
+    private val open = HashMap<String, Boolean>()
+
+    fun update(door: String, isOpen: Boolean): Boolean {
+        open[door] = isOpen
+        return open.values.any { it }
+    }
 }
 
 /** 여러 원천(예: 도어=Pleos Door, 기어=AAOS, 주행거리=Pleos Odometer)을 하나로 합친다. */
@@ -44,6 +60,8 @@ class CompositeSignalSource(private val sources: List<VehicleSignalSource>) : Ve
     override fun stop() {
         sources.asReversed().forEach { runCatching { it.stop() } }
     }
+
+    override fun refresh() = sources.forEach { runCatching { it.refresh() } }
 }
 
 /**
@@ -110,6 +128,8 @@ class FirstGearWinsSource(
             }
         }
     }
+
+    override fun refresh() = candidates.forEach { runCatching { it.refresh() } }
 
     override fun stop() {
         candidates.forEach { runCatching { it.stop() } }

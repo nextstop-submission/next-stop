@@ -14,6 +14,32 @@ object Prefs {
         c.getSharedPreferences(FILE, Context.MODE_PRIVATE).edit().putBoolean(KEY_VOICE, on).apply()
     }
 
+    private fun p(c: Context) = c.getSharedPreferences(FILE, Context.MODE_PRIVATE)
+
+    /**
+     * 완료로 칠 문: true = 1열 운전석·조수석 중 하나라도(기본), false = 운전석만.
+     * 기본을 1열 모두로 둔 근거: 자체 후기 표본 52건 중 2인 동승 배송 3건(docs/research/후기_분석.md #2·#3·#19),
+     * 벽에 붙여 세우고 조수석으로 내리는 경우, 우핸들 차량. 조수석 문이 열리는 비배송 정차는 운전석 문이 열리는 비배송 정차와
+     * 성격이 같아(어차피 사람이 내림) 오탐을 새로 만드는 경우가 드물고, 생기면 정차 중 '되돌리기'로 고친다.
+     */
+    fun frontDoors(c: Context): Boolean = p(c).getBoolean("front_doors", true)
+    fun setFrontDoors(c: Context, on: Boolean) = p(c).edit().putBoolean("front_doors", on).apply()
+
+    /** 신호 순서 역전 보정 창(ms, 보정 손잡이). adb: `--el door_before_park_ms 60000 --el door_after_depart_ms 15000`. */
+    fun doorBeforeParkMs(c: Context, default: Long): Long = p(c).getLong("door_before_park_ms", default)
+    fun doorAfterDepartMs(c: Context, default: Long): Long = p(c).getLong("door_after_depart_ms", default)
+    fun setDoorWindows(c: Context, beforeParkMs: Long?, afterDepartMs: Long?) {
+        p(c).edit().apply {
+            beforeParkMs?.let { putLong("door_before_park_ms", it.coerceIn(0, MAX_WINDOW_MS)) }
+            afterDepartMs?.let { putLong("door_after_depart_ms", it.coerceIn(0, MAX_WINDOW_MS)) }
+        }.apply()
+    }
+    private const val MAX_WINDOW_MS = 300_000L
+
+    /** 운행 상태를 마지막으로 저장할 때의 부팅 횟수(시동 끔 → 헤드유닛 재부팅 감지). */
+    fun runBootCount(c: Context): Int = p(c).getInt("run_boot_count", -1)
+    fun setRunBootCount(c: Context, n: Int) = p(c).edit().putInt("run_boot_count", n).apply()
+
     /** 정산 가정값. 사용자가 자기 단가·연비로 바꿀 수 있다. */
     fun settlement(c: Context): SettlementParams {
         val p = c.getSharedPreferences(FILE, Context.MODE_PRIVATE)

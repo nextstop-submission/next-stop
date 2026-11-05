@@ -1,0 +1,15 @@
+--------- beginning of crash
+11-01 22:00:18.767   170   170 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:00:18.878   185   185 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:00:56.528   170   170 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:00:58.914   185   185 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:01:42.107   170   170 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:01:44.755   185   185 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:01:52.424  1101  1217 E AndroidRuntime: FATAL EXCEPTION: CarWatchdogService
+11-01 22:01:52.424  1101  1217 E AndroidRuntime: Process: com.android.car, PID: 1101
+11-01 22:01:52.424  1101  1217 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 22:01:52.589  4202  4202 E AndroidRuntime: FATAL EXCEPTION: main
+11-01 22:01:52.589  4202  4202 E AndroidRuntime: Process: ai.pleos.service.profile, PID: 4202
+11-01 22:01:52.589  4202  4202 E AndroidRuntime: DeadSystemException: The system died; earlier logs will point to the root cause
+11-01 22:02:36.275   170   170 F libc    : crash_dump helper failed to exec, or was killed
+11-01 22:02:36.298   185   185 F libc    : crash_dump helper failed to exec, or was killed

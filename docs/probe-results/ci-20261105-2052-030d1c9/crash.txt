@@ -1,0 +1,44 @@
+--------- beginning of crash
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: FATAL EXCEPTION: main
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: Process: app.nextstop, PID: 5552
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: android.app.RemoteServiceException$ForegroundServiceDidNotStartInTimeException: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{9a84cb8 u10 app.nextstop/.drive.RunService}
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.app.ActivityThread.generateForegroundServiceDidNotStartInTimeException(ActivityThread.java:2109)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2080)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mthrowRemoteServiceException(Unknown Source:0)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2374)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8194)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-05 03:29:43.294  5552  5552 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: FATAL EXCEPTION: main
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: PID: 6289
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: java.lang.RuntimeException: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@91303fe[id=-1, displayId=0, flags=0]
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:331)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at com.android.uiautomator.core.UiAutomationShellWrapper.connect(UiAutomationShellWrapper.java:31)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at com.android.commands.uiautomator.DumpCommand.run(DumpCommand.java:78)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:359)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: Caused by: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@91303fe[id=-1, displayId=0, flags=0]
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at android.app.UiAutomation.connectWithTimeout(UiAutomation.java:408)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:329)
+11-05 03:30:38.230  6289  6289 E AndroidRuntime: 	... 5 more
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: Error reporting crash
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:584)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:443)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:378)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:147)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5251)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5248)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:43)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5239)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:160)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
+11-05 03:30:38.248  6289  6289 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)

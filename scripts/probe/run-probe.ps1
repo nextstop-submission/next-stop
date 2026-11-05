@@ -10,7 +10,7 @@
 
   auto   : 사람 손 없이 끝까지 돈다(약 5~10분, 에뮬레이터 첫 부팅 제외).
   manual : 사람이 Virtual Console로 기어·문을 조작하는 동안 120초간 신호를 기록한다.
-           (Claude Code는 실행 중 출력을 실시간으로 보여 주지 못하므로, 조작 순서는 실행 전에 사람에게 알려 준다)
+           (실행 중 출력을 실시간으로 못 보는 환경이면, 조작 순서는 실행 전에 사람에게 알려 준다)
 
   결과는 docs\probe-results\<시각>\ 에 저장된다(SUMMARY.md, 로그, 스크린샷).
   저장 전에 Windows 사용자 이름·사용자 폴더 경로는 <user>로 바꾼다(익명 심사 대비).
@@ -204,7 +204,7 @@ if ($Phase -eq 'manual') {
     if (-not (Get-OnlineDevice)) { Add-Result '에뮬레이터' 'FAIL' '연결된 에뮬레이터 없음 (auto 먼저 실행)'; exit 1 }
     Adb @('logcat', '-c') | Out-Null
     # 실차 신호 모드로 운행을 새로 시작한 뒤, 실측 화면을 띄워 모든 리스너가 같이 기록되게 한다.
-    AdbShell "am start -n $Pkg/.drive.DriveActivity --es mode vehicle --ez reset true --ez autostart true" | Out-Null
+    AdbShell "am start -n $Pkg/.drive.DriveActivity --es mode vehicle --ez reset true --ez sample true --ez autostart true" | Out-Null
     Start-Sleep -Seconds 3
     AdbShell "am start -n $Pkg/.probe.ProbeActivity --ez auto true" | Out-Null
     # 리스너 등록 때 오는 초기값 이벤트를 판정에서 빼기 위해 15초 기다린 뒤 로그를 비우고 기록을 시작한다.

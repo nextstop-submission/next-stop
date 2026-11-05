@@ -1,0 +1,30 @@
+Error type 3
+Error: Activity class {app.nextstop/app.nextstop.drive.DriveActivity} does not exist.
+-> odo
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+cmd: Can't find service: activity
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D

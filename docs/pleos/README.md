@@ -36,3 +36,4 @@
 - [virtual-console.md](virtual-console.md) — 에뮬레이터 차량 신호 조작(시연 경로)
 - [aaos-car-api.md](aaos-car-api.md) — 기어(GEAR_SELECTION)·UX 제한·대체 주행거리
 - [emulator.md](emulator.md) — Pleos Connect Emulator 설치·실행 요구 사항
+- [contest-rules.md](contest-rules.md) — 공모전 규정과 SDK 공개 상태

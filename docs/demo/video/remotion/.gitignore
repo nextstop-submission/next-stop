@@ -4,3 +4,8 @@ out*.mp4
 public/*.mp3
 # AI 생성 실사 클립도 작업 폴더에서 복사해 쓴다
 public/ai_*.mp4
+# 숏폼 5차 재료: 실제 촬영 스톡(Pexels)·합성 클립·에뮬레이터 녹화 사본·효과음·음악은 작업 폴더에서 복사하거나 tools/로 다시 만든다
+public/s*.mp4
+public/emu.mp4
+public/*.wav
+public/07-settlement.png

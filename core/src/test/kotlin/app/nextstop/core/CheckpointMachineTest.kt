@@ -110,13 +110,13 @@ class CheckpointMachineTest {
     }
 
     @Test
-    fun `door events while driving are ignored`() {
+    fun `door events while driving long before parking are not counted`() {
         val d = Driver(2)
         d.gear(Gear.DRIVE)
-        assertEquals(listOf<CheckpointEffect>(CheckpointEffect.Ignored(IgnoreReason.DOOR_WHILE_MOVING)), d.door(true))
+        assertEquals(emptyList(), d.door(true))
         d.door(false)
-        d.gear(Gear.PARK)
-        // 주행 중 사이클은 이번 정차의 사이클로 치지 않는다
+        // 순서 역전 보정 창(기본 60초)보다 오래 전의 주행 중 사이클은 이번 정차의 사이클로 치지 않는다
+        d.gear(Gear.PARK, dt = CheckpointConfig.DEFAULT_DOOR_BEFORE_PARK_MILLIS + 1)
         val out = d.gear(Gear.DRIVE)
         assertTrue(CheckpointEffect.Ignored(IgnoreReason.DEPARTED_WITHOUT_DOOR_CYCLE) in out)
     }

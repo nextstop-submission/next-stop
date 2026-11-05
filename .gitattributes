@@ -6,6 +6,6 @@ gradlew text eol=lf
 *.jar binary
 *.png binary
 *.apk binary
-docs/internal/** export-ignore
-CLAUDE.md export-ignore
-docs/runbook/laptop-probe.md export-ignore
+*.sh text eol=lf
+*.py text eol=lf
+*.mjs text eol=lf

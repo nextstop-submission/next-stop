@@ -1,0 +1,46 @@
+Error type 3
+Error: Activity class {app.nextstop/app.nextstop.drive.DriveActivity} does not exist.
+-> odo
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+cmd: Can't find service: activity
+-> open
+
+Exception occurred while executing 'broadcast':
+java.lang.IllegalStateException: Cannot broadcast before boot completed
+	at com.android.server.am.ActivityManagerService.verifyBroadcastLocked(ActivityManagerService.java:15342)
+	at com.android.server.am.ActivityManagerService.broadcastIntentWithFeature(ActivityManagerService.java:15390)
+	at com.android.server.am.ActivityManagerShellCommand.runSendBroadcast(ActivityManagerShellCommand.java:928)
+	at com.android.server.am.ActivityManagerShellCommand.onCommand(ActivityManagerShellCommand.java:246)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.am.ActivityManagerService.onShellCommand(ActivityManagerService.java:9765)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.app.IActivityManager$Stub.onTransact(IActivityManager.java:5267)
+	at com.android.server.am.ActivityManagerService.onTransact(ActivityManagerService.java:2763)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D
+-> odo
+-> P
+-> open
+-> close
+-> D

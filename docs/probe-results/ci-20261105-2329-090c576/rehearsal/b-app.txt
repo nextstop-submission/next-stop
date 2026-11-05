@@ -1,0 +1,67 @@
+--------- beginning of main
+         1793888830.326  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=10.0, atMillis=1793888830325)
+         1793888830.358  7930  7930 I NextStop: NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=10.0, distanceSource=ODOMETER, energyUsed=0.9090909090909091, energyCostWon=1500, grossWon=6000, netWon=4500, elapsedMillis=227593, netPerHourWon=null, costPerParcelWon=188, avgDwellMillis=20972)
+         1793888830.793  7930  7930 I NextStop: NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=10.0, distanceSource=ODOMETER, energyUsed=0.9090909090909091, energyCostWon=1500, grossWon=6000, netWon=4500, elapsedMillis=227593, netPerHourWon=null, costPerParcelWon=188, avgDwellMillis=20972)
+         1793888832.412  7930  7930 I NextStop: NS|NAV|cancelRoute by=RunStore.shutdown < RunStore.ensureStarted connected=true
+         1793888832.487  7930  7930 I NextStop: NS|UX|restricted=false
+         1793888832.489  7930  7930 I NextStop: NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=10.0, distanceSource=ODOMETER, energyUsed=0.9090909090909091, energyCostWon=1500, grossWon=6000, netWon=4500, elapsedMillis=227593, netPerHourWon=null, costPerParcelWon=188, avgDwellMillis=20972)
+         1793888833.313  7930  7930 I NextStop: NS|RESTORE|done=5/5
+         1793888833.649  7930  7930 I NextStop: NS|START|mode=DEMO navi=true sources=demo-signal
+         1793888833.702  7930  7930 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793888834.014  7930  7930 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793888834.023  7930  7930 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793888834.250  7930  7930 I NextStop: NS|NAV|Requested
+         1793888834.299  7930  7930 I NextStop: NS|SERVICE|foreground
+         1793888835.854  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12000.0, atMillis=1793888835854)
+         1793888835.855  7930  7930 I NextStop: NS|EFFECT|PARKED|index=0
+         1793888839.350  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888839350)
+         1793888839.351  7930  7930 I NextStop: NS|EFFECT|IGNORED|DEPARTED_WITHOUT_DOOR_CYCLE
+         1793888842.966  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12002.0, atMillis=1793888842966)
+         1793888846.344  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888846344)
+         1793888846.348  7930  7930 I NextStop: NS|EFFECT|PARKED|index=0
+         1793888849.708  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793888849708)
+         1793888853.002  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793888853002)
+         1793888856.353  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888856353)
+         1793888856.360  7930  7930 I NextStop: NS|NAV|Requested
+         1793888856.397  7930  7930 I NextStop: NS|EFFECT|STOP_COMPLETED|index=0 trigger=GEAR_DRIVE doorCycles=1 dwellMs=10009
+         1793888856.398  7930  7930 I NextStop: NS|EFFECT|NAVIGATE_TO|index=1
+         1793888861.832  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12004.0, atMillis=1793888861832)
+         1793888865.200  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888865200)
+         1793888865.200  7930  7930 I NextStop: NS|EFFECT|PARKED|index=1
+         1793888869.163  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793888869158)
+         1793888872.531  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793888872531)
+         1793888875.951  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888875951)
+         1793888875.956  7930  7930 I NextStop: NS|NAV|Requested
+         1793888875.984  7930  7930 I NextStop: NS|EFFECT|STOP_COMPLETED|index=1 trigger=GEAR_DRIVE doorCycles=1 dwellMs=10751
+         1793888875.984  7930  7930 I NextStop: NS|EFFECT|NAVIGATE_TO|index=2
+         1793888881.462  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12006.0, atMillis=1793888881462)
+         1793888884.771  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888884771)
+         1793888884.771  7930  7930 I NextStop: NS|EFFECT|PARKED|index=2
+         1793888888.338  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793888888337)
+         1793888891.815  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793888891814)
+         1793888895.237  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888895235)
+         1793888895.243  7930  7930 I NextStop: NS|NAV|Requested
+         1793888895.257  7930  7930 I NextStop: NS|EFFECT|STOP_COMPLETED|index=2 trigger=GEAR_DRIVE doorCycles=1 dwellMs=10464
+         1793888895.257  7930  7930 I NextStop: NS|EFFECT|NAVIGATE_TO|index=3
+         1793888900.787  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12008.0, atMillis=1793888900787)
+         1793888904.347  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888904347)
+         1793888904.352  7930  7930 I NextStop: NS|EFFECT|PARKED|index=3
+         1793888908.117  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793888908117)
+         1793888911.586  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793888911586)
+         1793888914.866  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888914866)
+         1793888914.871  7930  7930 I NextStop: NS|NAV|Requested
+         1793888914.881  7930  7930 I NextStop: NS|EFFECT|STOP_COMPLETED|index=3 trigger=GEAR_DRIVE doorCycles=1 dwellMs=10519
+         1793888914.881  7930  7930 I NextStop: NS|EFFECT|NAVIGATE_TO|index=4
+         1793888920.302  7930  7930 I NextStop: NS|SIGNAL|OdometerUpdated(km=12010.0, atMillis=1793888920301)
+         1793888923.496  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888923496)
+         1793888923.496  7930  7930 I NextStop: NS|EFFECT|PARKED|index=4
+         1793888927.313  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=true, atMillis=1793888927313)
+         1793888931.072  7930  7930 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793888931072)
+         1793888934.597  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=DRIVE, atMillis=1793888934597)
+         1793888934.600  7930  7930 I NextStop: NS|NAV|cancelRoute by=DeliveryRun.handleEffect < DeliveryRun.apply connected=true
+         1793888934.601  7930  7930 I NextStop: NS|EFFECT|STOP_COMPLETED|index=4 trigger=GEAR_DRIVE doorCycles=1 dwellMs=11101
+         1793888934.602  7930  7930 I NextStop: NS|EFFECT|ALL_DONE|done
+         1793888945.167  7930  7930 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793888945167)
+         1793888945.168  7930  7930 I NextStop: NS|EFFECT|IGNORED|ALREADY_FINISHED
+         1793888945.173  7930  7930 I NextStop: NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=8.145644992612485, distanceSource=ESTIMATED, energyUsed=0.7405131811465896, energyCostWon=1222, grossWon=6000, netWon=4778, elapsedMillis=100574, netPerHourWon=null, costPerParcelWon=153, avgDwellMillis=10569)
+         1793888945.336  7930  7930 I NextStop: NS|SETTLE|SettlementReport(deliveredStops=5, skippedStops=0, deliveredParcels=8, distanceKm=8.145644992612485, distanceSource=ESTIMATED, energyUsed=0.7405131811465896, energyCostWon=1222, grossWon=6000, netWon=4778, elapsedMillis=100574, netPerHourWon=null, costPerParcelWon=153, avgDwellMillis=10569)

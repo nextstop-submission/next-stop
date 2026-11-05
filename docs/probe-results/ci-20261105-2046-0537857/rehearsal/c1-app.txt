@@ -1,0 +1,80 @@
+--------- beginning of main
+         1793876836.817  7423  7423 I NextStop: NS|UX|restricted=false
+         1793876844.794  7423  7423 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793876844.894  7423  7423 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793876848.389  7423  7423 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793876848389)
+         1793876864.511  7423  7423 I NextStop: NS|POLL|door open=false (콜백보다 먼저 직접 읽음)
+         1793876864.518  7423  7423 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793876864518)
+         1793876865.244  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876852946)
+         1793876866.639  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876853539)
+         1793876867.598  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876856853)
+         1793876868.007  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876860783)
+         1793876868.353  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876864507)
+         1793876870.602  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876867881)
+         1793876872.994  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876872993)
+         1793876878.775  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876878318)
+         1793876882.022  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876881634)
+         1793876886.514  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876886514)
+         1793876889.578  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876889578)
+         1793876896.377  7423  7423 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793876897.001  7423  7423 I NextStop: NS|NAV|Requested
+         1793876897.017  7423  7423 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793876900.695  7423  7423 I NextStop: NS|SERVICE|foreground
+         1793876901.774  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876897511)
+         1793876902.223  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876901763)
+         1793876907.312  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876907312)
+         1793876911.204  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876911171)
+         1793876916.405  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876916398)
+         1793876918.742  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876918742)
+         1793876921.976  7423  7423 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793876921974)
+         1793876985.201 12822 12822 I NextStop: NS|EXIT|last reason=2 importance=100 pss=55612kB desc=
+         1793876993.614 12822 12822 I NextStop: NS|UX|restricted=null
+         1793876994.591 12822 12822 I NextStop: NS|RESTORE|done=0/5
+         1793877031.050 12822 12822 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877031050)
+         1793877034.240 12822 12822 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877037.261 12822 12822 I NextStop: NS|NAV|Requested
+         1793877037.752 12822 12822 I NextStop: NS|SERVICE|foreground
+         1793877060.905 23012 23012 I NextStop: NS|EXIT|last reason=4 importance=325 pss=26821kB desc=crash
+         1793877062.214 23012 23012 I NextStop: NS|UX|restricted=false
+         1793877062.735 23012 23012 I NextStop: NS|RESTORE|done=0/5
+         1793877081.315 23012 23012 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877081315)
+         1793877095.088 23012 23012 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877098.531 23012 23012 I NextStop: NS|NAV|Requested
+         1793877098.812 23012 23012 I NextStop: NS|SERVICE|foreground
+         1793877112.205 30707 30707 I NextStop: NS|EXIT|last reason=2 importance=300 pss=32764kB desc=
+         1793877112.860 30707 30707 I NextStop: NS|UX|restricted=true
+         1793877113.266 30707 30707 I NextStop: NS|RESTORE|done=0/5
+         1793877143.989 30707 30707 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877143987)
+         1793877146.833 30707 30707 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877148.320 30707 30707 I NextStop: NS|NAV|Requested
+         1793877148.513 30707 30707 I NextStop: NS|SERVICE|foreground
+         1793877162.623  7319  7319 I NextStop: NS|EXIT|last reason=2 importance=300 pss=30597kB desc=
+         1793877164.101  7319  7319 I NextStop: NS|UX|restricted=false
+         1793877164.345  7319  7319 I NextStop: NS|RESTORE|done=0/5
+         1793877195.558  7319  7319 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877195558)
+         1793877197.165  7319  7319 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877199.323  7319  7319 I NextStop: NS|NAV|Requested
+         1793877199.349  7319  7319 I NextStop: NS|SERVICE|foreground
+         1793877211.813 15778 15778 I NextStop: NS|EXIT|last reason=2 importance=300 pss=30772kB desc=
+         1793877212.661 15778 15778 I NextStop: NS|UX|restricted=false
+         1793877213.244 15778 15778 I NextStop: NS|RESTORE|done=0/5
+         1793877231.543 15778 15778 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877231543)
+         1793877242.089 15778 15778 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877244.444 15778 15778 I NextStop: NS|NAV|Requested
+         1793877244.534 15778 15778 I NextStop: NS|SERVICE|foreground
+         1793877264.030 21288 21288 I NextStop: NS|EXIT|last reason=4 importance=325 pss=32301kB desc=crash
+         1793877272.283 21288 21288 I NextStop: NS|UX|restricted=null
+         1793877272.991 21288 21288 I NextStop: NS|RESTORE|done=0/5
+         1793877299.713 21288 21288 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877299713)
+         1793877303.912 21288 21288 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877304.946 21288 21288 I NextStop: NS|NAV|Requested
+         1793877305.111 21288 21288 I NextStop: NS|SERVICE|foreground
+         1793877308.214 25085 25085 I NextStop: NS|EXIT|last reason=4 importance=400 pss=29042kB desc=crash
+         1793877315.588 25085 25085 I NextStop: NS|UX|restricted=null
+         1793877316.414 25085 25085 I NextStop: NS|RESTORE|done=0/5
+         1793877341.629 25085 25085 I NextStop: NS|SIGNAL|SourceError(source=aaos-gear, message=CarPropertyManager unavailable: null, atMillis=1793877341629)
+         1793877344.434 25085 25085 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793877345.267 25085 25085 I NextStop: NS|NAV|Requested
+         1793877345.280 25085 25085 I NextStop: NS|SERVICE|foreground
+         1793877354.159 25085 25085 I NextStop: NS|NAV|Cancelled
+         1793877365.653 25085 25085 I NextStop: NS|NAV|RouteStarted

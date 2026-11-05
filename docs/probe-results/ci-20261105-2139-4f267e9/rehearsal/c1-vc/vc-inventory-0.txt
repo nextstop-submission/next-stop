@@ -1,0 +1,6 @@
+h1 "This site can’t be reached"
+li "Checking the connection"
+li "Checking the proxy and the firewall"
+a "Checking the proxy and the firewall"
+button[submit]#reload-button.blue-button.text-button "Reload"
+button[submit]#details-button.secondary-button.text-button "Details"

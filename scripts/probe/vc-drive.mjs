@@ -131,6 +131,8 @@ for (const step of plan) {
   const [what, value] = step.split(':');
   const before = net.length;
   let card = null; let clicked = null;
+  // 요청 시각(호스트 epoch ms). 앱 로그의 NS|SIGNAL 수신 시각과 짝지어 신호 지연을 잰다(scripts/demo/signal-latency.py).
+  const at = Date.now();
   if (what === 'gear') {
     // 실측(2026-10-30): 기어는 화면 아래 P/R/N/D 버튼(button.prnd-i) → PUT /vehicle/gear?gear=Drive|Park
     card = 'prnd';
@@ -148,6 +150,13 @@ for (const step of plan) {
       const btn = await visible(page.locator('button.door-fl'));
       if (btn) { await btn.click(); clicked = `FL door → ${want}`; }
     }
+    await page.waitForTimeout(1_000);
+    if ((await doorState()) !== want || !String(clicked).startsWith('FL door')) {
+      // VC 화면의 문 토글이 굳는 일이 있다(11/5 리허설 ci-20261105-2035: door_fl=0을 보낸 뒤에도 상태가 1에 머물고,
+      // 이후 클릭은 요청을 아예 보내지 않음) → 화면이 쓰는 같은 제어 API로 직접 보낸다(값이 같으면 차량 쪽 변화 없음).
+      const st = await page.evaluate(async (v) => (await fetch(`/vehicle/body?door_fl=${v}`, { method: 'PUT' })).status, want).catch((e) => e.message);
+      clicked = `${clicked ?? '-'} + api door_fl=${want} → ${st}`;
+    }
   } else if (what === 'odo') {
     // 이 화면에는 Odometer 버튼이 없다 → Virtual Console의 같은 제어 API로 보낸다(docs/pleos/virtual-console.md). +k면 누적
     odoKm = value.startsWith('+') ? odoKm + Number(value.slice(1)) : Number(value);
@@ -158,7 +167,7 @@ for (const step of plan) {
   await page.screenshot({ path: path.join(out, `vc-${i}-${what}-${value}.png`) });
   if (i === 1) await inventory('1');
   const sent = net.slice(before).filter((l) => l.startsWith('PUT')).map((l) => l.split(' ')[1].replace('http://127.0.0.1:8088', '')).join(' ');
-  log(`${i} ${step}: via=${card ?? '-'} clicked=${clicked ?? '-'} sent=[${sent}] state: gear=${await gearState()} door_fl=${await doorState()}`);
+  log(`${i} ${step}: at=${at} via=${card ?? '-'} clicked=${clicked ?? '-'} sent=[${sent}] state: gear=${await gearState()} door_fl=${await doorState()}`);
   if (process.env.VC_AFTER_STEP) { try { (await import('node:child_process')).execSync(process.env.VC_AFTER_STEP + ' ' + i, { stdio: 'ignore', timeout: 15000 }); } catch {} }
   // 앱 쪽에서 판정이 일어날 시간(정차·문 사이클)을 둔다
   await page.waitForTimeout(2_500);

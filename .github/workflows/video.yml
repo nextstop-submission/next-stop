@@ -1,0 +1,51 @@
+name: video
+
+# 시연 영상 예비 경로(에뮬레이터 없이): 화면 테스트가 시연 흐름 장면을 그리고, ffmpeg가 자막·제목 카드를 붙여 mp4로 만든다.
+# 실행: 커밋 메시지에 [video] 를 넣어 push 하거나, 기본 브랜치에서 수동 실행. 결과는 아티팩트 demo-video-scenes.
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  workflow_dispatch:
+
+jobs:
+  render:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[video]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: "platforms;android-35 build-tools;35.0.0 platform-tools"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Render scenes (Robolectric)
+        run: ./gradlew :app:testDebugUnitTest --tests '*DemoVideoScenesTest*' -Pnextstop.video=true --no-daemon --console=plain
+      - name: Fonts + ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk ffmpeg >/dev/null
+      - name: Encode mp4
+        run: |
+          bash scripts/demo/render-video.sh app/build/video demo-output/nextstop-demo-scenes.mp4
+          echo "::notice title=video::$(ls -la demo-output | tail -n +2 | awk '{print $5, $9}' | tr '\n' ' ')"
+      - name: Commit video to the branch (anonymous author)
+        run: |
+          mkdir -p docs/demo/video
+          cp demo-output/nextstop-demo-scenes.mp4 app/build/video/scenes.tsv docs/demo/video/
+          git config user.name "next-stop-dev"
+          git config user.email "dev@next-stop.invalid"
+          git add docs/demo/video
+          git commit -m "Update fallback demo video (${GITHUB_SHA::7})" || { echo "no change"; exit 0; }
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q && break; sleep 5; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-video-scenes
+          path: |
+            demo-output/nextstop-demo-scenes.mp4
+            app/build/video
+          retention-days: 30

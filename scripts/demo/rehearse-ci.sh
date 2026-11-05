@@ -6,6 +6,7 @@
 #
 #   scripts/demo/rehearse-ci.sh <출력 폴더>     (CI emulator 워크플로에서 커밋 메시지에 [rehearsal]일 때)
 # 출력: timeline.txt(밀리초 시각 + 장면), c-app.txt·b-app.txt(앱 로그, epoch 시각), *.png(장면 캡처), ui-*.xml,
+#       c-latency.tsv(Virtual Console 요청 시각 ↔ 앱 NS|SIGNAL 수신 시각 짝과 지연), result.txt(회차 요약 한 줄),
 #       demo-output/rehearsal-{c,b}.mp4(화면 캡처를 이어 붙인 녹화)
 set -u
 OUT="${1:?출력 폴더}"
@@ -26,7 +27,7 @@ back_to_app() {
 }
 
 cap_start() {
-  F="$TMPD/frames-$1"; mkdir -p "$F"
+  F="$TMPD/frames-$1"; rm -rf "$F"; mkdir -p "$F"
   ( while [ ! -f "$F/.stop" ]; do "$adb" exec-out screencap -p > "$F/$(now).png" 2>/dev/null; done ) &
   CAP=$!
 }
@@ -69,40 +70,71 @@ chmod +x "$HOOK"
 # ---------- C: Virtual Console 실제 신호 ----------
 if [ ! -f "$TMPD/vc-drive.mjs" ]; then (cd "$TMPD" && npm i --no-save playwright-core@1.48.2 >/dev/null 2>&1); fi
 cp scripts/probe/vc-drive.mjs "$TMPD/"
-"$adb" install -r -g app/build/outputs/apk/debug/app-debug.apk >/dev/null
-"$adb" forward tcp:8088 tcp:8088 >/dev/null
-"$adb" logcat -c
-"$adb" logcat -v epoch -s NextStop:I > "$OUT/c-app.txt" &
-LOG=$!
-cap_start c
-mark "C 0:00 계획 화면 띄움"
-"$adb" shell am start -n "$APP" --es mode vehicle --ez navi true --ez reset true >/dev/null
-sleep 5
-settle_app "C 계획"
-shot c-1-plan
-mark "C 0:40 '운행 시작' 누름"
-for try in 1 2; do
-  if tap_text "운행 시작" "start-$try"; then mark "C 운행 시작 탭 $try"; else mark "C 운행 시작 버튼 못 찾음 $try"; fi
-  sleep 4
-  run_started "$OUT/c-app.txt" && break
-  settle_app "C 재시도 전"
-done
-run_started "$OUT/c-app.txt" && mark "C 운행 시작 확인(첫 목적지 전달)" || { mark "C 탭으로 시작 안 됨 → autostart 인텐트"; "$adb" shell am start -n "$APP" --ez autostart true >/dev/null; sleep 4; }
-sleep 6; shot c-2-after-start
-mark "C 시작 직후 top=$(top)"
-back_to_app "C 시작"
-sleep 3; shot c-3-app
+# C 한 번 돌리기(기기가 멈추면 재부팅 뒤 한 번 더 부른다)
+run_c() {
+  "$adb" install -r -g app/build/outputs/apk/debug/app-debug.apk >/dev/null
+  "$adb" forward tcp:8088 tcp:8088 >/dev/null
+  "$adb" logcat -c
+  "$adb" logcat -v epoch -s NextStop:I > "$OUT/c-app.txt" &
+  LOG=$!
+  cap_start c
+  mark "C 0:00 계획 화면 띄움"
+  # 배송지는 가상 샘플(debug 빌드 전용 옵션 — 앱은 출발점 고정 좌표·샘플을 시연 모드 밖에서 쓰지 않는다)
+  "$adb" shell am start -n "$APP" --es mode vehicle --ez navi true --ez reset true --ez sample true >/dev/null
+  sleep 5
+  settle_app "C 계획"
+  shot c-1-plan
+  mark "C 0:40 '운행 시작' 누름"
+  for try in 1 2; do
+    if tap_text "운행 시작" "start-$try"; then mark "C 운행 시작 탭 $try"; else mark "C 운행 시작 버튼 못 찾음 $try"; fi
+    sleep 4
+    run_started "$OUT/c-app.txt" && break
+    settle_app "C 재시도 전"
+  done
+  run_started "$OUT/c-app.txt" && mark "C 운행 시작 확인(첫 목적지 전달)" || { mark "C 탭으로 시작 안 됨 → autostart 인텐트"; "$adb" shell am start -n "$APP" --ez autostart true >/dev/null; sleep 4; }
+  sleep 6; shot c-2-after-start
+  mark "C 시작 직후 top=$(top)"
+  back_to_app "C 시작"
+  sleep 3; shot c-3-app
 
-NEXT="odo:+2 gear:P door:open door:close gear:D"
-mark "C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째"
-(cd "$TMPD" && VC_AFTER_STEP="$HOOK" VC_BRIDGE_WAIT=240 timeout 900 node vc-drive.mjs "$OUT/c-vc" \
-  gear:D $NEXT $NEXT gear:P gear:D $NEXT $NEXT $NEXT gear:P) > "$OUT/c-vc.log" 2>&1
-mark "C VC 끝 exit=$?"
-sleep 8; back_to_app "C 정산"; sleep 3; shot c-9-settle
-mark "C 정산 화면 top=$(top)"
-cap_stop c
-kill $LOG 2>/dev/null
-mark "C 앱 복귀 횟수=$(grep -c ' C .*앱으로 복귀' "$T")"
+  NEXT="odo:+2 gear:P door:open door:close gear:D"
+  mark "C 1:00 VC 시작: 1건째 → 2건째 → 문 없는 정차 → 3~5건째"
+  # 11/4 회차 2번이 900초 제한에 걸려 마지막 집을 못 돌았다(CI 러너가 느리면 단계당 30초 넘게 걸림) → 1800초
+  (cd "$TMPD" && VC_AFTER_STEP="$HOOK" VC_BRIDGE_WAIT=240 timeout 1800 node vc-drive.mjs "$OUT/c-vc" \
+    gear:D $NEXT $NEXT gear:P gear:D $NEXT $NEXT $NEXT gear:P) > "$OUT/c-vc.log" 2>&1
+  mark "C VC 끝 exit=$?"
+  # 마지막 신호가 늦게 올 수 있다(11/2: 단계마다 수십 초, 11/5 ci-20261105-2128-e4f1f9d: VC 기어만 약 2분 늦게 도착)
+  # → 운행 끝(ALL_DONE)을 최대 240초 기다린다
+  for i in $(seq 1 80); do grep -q 'ALL_DONE' "$OUT/c-app.txt" && break; sleep 3; done
+  mark "C 운행 끝 기록=$(grep -c 'ALL_DONE' "$OUT/c-app.txt")"
+  sleep 5; back_to_app "C 정산"; sleep 3; shot c-9-settle
+  mark "C 정산 화면 top=$(top)"
+  cap_stop c
+  kill $LOG 2>/dev/null
+  mark "C 앱 복귀 횟수=$(grep -c ' C .*앱으로 복귀' "$T")"
+  LAT=$(python3 scripts/demo/signal-latency.py "$OUT/c-vc.log" "$OUT/c-app.txt" "$OUT/c-latency.tsv" 2>&1 | tail -1)
+  mark "C 신호 지연: $LAT"
+}
+
+
+# 이번 C 시도에서 맨 앞 화면을 못 읽은 단계 수(기기 프레임워크 정지 감지)
+dead_steps() { awk '/ C 0:00 /{n=0} / C step [0-9]+ top=$/{n++} END{print n+0}' "$T"; }
+run_c
+# 11/4·11/5 CI에서 VC 화면을 여는 동안 에뮬레이터 프레임워크가 멈춘 회차가 있었다(화면 검정, dumpsys 응답 없음, 앱 로그 끊김,
+# 이어서 '앱이 설치돼 있지 않음'). 앱 판정과 무관한 환경 고장이므로 재부팅 뒤 C를 한 번만 다시 돌리고, 1차 기록은 c1-*로 남긴다.
+CRETRY=0
+if [ "$(dead_steps)" -ge 5 ]; then
+  CRETRY=1
+  mark "C 1차 기기 정지(무응답 $(dead_steps)단계) → 재부팅 뒤 C 다시"
+  for f in c-app.txt c-vc.log c-latency.tsv; do [ -f "$OUT/$f" ] && mv "$OUT/$f" "$OUT/c1-${f#c-}"; done
+  [ -d "$OUT/c-vc" ] && mv "$OUT/c-vc" "$OUT/c1-vc"
+  timeout 30 "$adb" reboot || true
+  sleep 20; timeout 180 "$adb" wait-for-device
+  for i in $(seq 1 90); do [ "$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break; sleep 5; done
+  sleep 60
+  mark "C 재부팅 끝 boot=$("$adb" shell getprop sys.boot_completed | tr -d '\r')"
+  run_c
+fi
 
 # ---------- B: 시연 신호 목업(예비) ----------
 car_ok && mark "B 전 car_service 살아 있음" || mark "B 전 car_service 없음(에뮬레이터 시스템 불안정)"
@@ -113,9 +145,20 @@ cap_start b
 mark "B 시작: demo.ps1 -Launch -Stops 5 -GapSec 3"
 timeout 600 pwsh scripts/demo/demo.ps1 -Launch -Stops 5 -GapSec 3 > "$OUT/b-demo.log" 2>&1
 mark "B demo.ps1 끝 exit=$? top=$(top)"
-sleep 6; back_to_app "B 정산"; sleep 3; shot b-9-settle
+# 마지막 D 뒤에는 주행 중 2줄 화면이다. 정산은 P에서만 열리므로 P를 넣고 찍는다.
+sleep 4; "$adb" shell am broadcast -a app.nextstop.SIGNAL -p app.nextstop --es gear P >/dev/null
+sleep 2; back_to_app "B 정산"; sleep 3; shot b-9-settle
 cap_stop b
 kill $LOG 2>/dev/null
 mark "B 앱 복귀 횟수=$(grep -c ' B .*앱으로 복귀' "$T")"
-echo "::notice title=rehearsal::C STOP_COMPLETED x$(grep -c 'STOP_COMPLETED' "$OUT/c-app.txt") · B STOP_COMPLETED x$(grep -c 'STOP_COMPLETED' "$OUT/b-app.txt") · $(grep -c '앱으로 복귀' "$T") returns"
+C=$(grep -c 'STOP_COMPLETED' "$OUT/c-app.txt"); B=$(grep -c 'STOP_COMPLETED' "$OUT/b-app.txt")
+RESTARTS=$(grep -c 'NS|START|' "$OUT/c-app.txt")
+CREDIT=$(grep -c 'DOOR_CYCLE_CREDITED' "$OUT/c-app.txt")
+VCFAIL=$(grep -cE '^[0-9]+ door:.*sent=\[\]' "$OUT/c-vc.log")
+VCSTEPS=$(grep -cE '^[0-9]+ (gear|door|odo):' "$OUT/c-vc.log")
+POLL=$(grep -c 'NS|POLL|' "$OUT/c-app.txt")
+# 기기 응답 없음(맨 앞 화면을 못 읽음) = 에뮬레이터 프레임워크가 죽은 회차(11/4 0201: 화면 검정, 앱 로그 끊김) → 판정 무효로 표시
+DEAD=$(dead_steps)
+echo "C ${C}/5 · B ${B}/5 · C 재시도 ${CRETRY}(1이면 1차 기기 정지로 재부팅 뒤 2차) · VC 단계 ${VCSTEPS}/29 · 기기 무응답 단계 ${DEAD} · 앱 시작 ${RESTARTS}회(1이면 재시작 없음) · 보정 인정 ${CREDIT} · 직접 읽기로 찾은 변화 ${POLL} · VC 문 요청 안 나감 ${VCFAIL} · 신호 지연 ${LAT}" | tee "$OUT/result.txt"
+echo "::notice title=rehearsal::$(cat "$OUT/result.txt")"
 exit 0

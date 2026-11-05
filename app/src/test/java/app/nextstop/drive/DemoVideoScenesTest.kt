@@ -45,8 +45,6 @@ class DemoVideoScenesTest {
     @Before
     fun setUp() {
         assumeTrue("영상 장면은 -Dnextstop.video 가 있을 때만 만든다", outDir != null)
-        // 주행 제한 중 화면과 같은 정적 완료 장면(D를 넣는 순간 실차에서 보이는 화면)
-        CompletionOverlay.forceStatic = true
         RunStore.clock = clock
     }
 
@@ -54,7 +52,6 @@ class DemoVideoScenesTest {
     fun tearDown() {
         RunStore.resetRun()
         RunStore.shutdown()
-        CompletionOverlay.forceStatic = false
         RunStore.clock = Clock.SYSTEM
     }
 
@@ -126,6 +123,7 @@ class DemoVideoScenesTest {
 
         for (n in 2..5) deliver(activity, withScenes = false, n = n)
         assertEquals(5, RunStore.snapshot()!!.delivered)
+        send(VehicleEvent.GearChanged(Gear.PARK, now())) // 정산은 P에서만
         idle(Duration.ofSeconds(1))
         scene(activity, 6.0, "끝나면 자동 완료 건수와 연료비를 뺀 시간당 실수익")
         File(outDir, "scenes.tsv").writeText(scenes.toString())

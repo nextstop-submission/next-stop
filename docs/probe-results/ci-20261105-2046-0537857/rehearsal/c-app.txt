@@ -1,0 +1,71 @@
+--------- beginning of main
+         1793878094.902  5464  5464 I NextStop: NS|UX|restricted=false
+         1793878095.050  5464  5464 I NextStop: NS|RESTORE|done=0/5
+         1793878098.478  5464  5464 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793878098.684  5464  5464 I NextStop: NS|NAV|cancelRoute by=RunStore.resetRun < DriveActivity.applyLaunchOptions connected=false
+         1793878099.653  5464  5464 I NextStop: NS|NAV|Requested
+         1793878099.930  5464  5464 I NextStop: NS|SERVICE|foreground
+         1793878099.985  5464  5464 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793878099985)
+         1793878120.824  6302  6302 I NextStop: NS|EXIT|last reason=4 importance=100 pss=0kB desc=crash
+         1793878121.892  6302  6302 I NextStop: NS|UX|restricted=false
+         1793878126.633  6302  6302 I NextStop: NS|START|mode=VEHICLE navi=true sources=pleos-door+first-gear(aaos-gear|demo-signal)+pleos-odometer
+         1793878127.486  6302  6302 I NextStop: NS|SIGNAL|GearChanged(gear=PARK, atMillis=1793878127486)
+         1793878132.608  6302  6302 I NextStop: NS|POLL|door open=false (콜백보다 먼저 직접 읽음)
+         1793878132.612  6302  6302 I NextStop: NS|SIGNAL|DoorChanged(open=false, atMillis=1793878132612)
+         1793878135.300  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878134909)
+         1793878135.515  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878134945)
+         1793878138.426  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878138423)
+         1793878144.985  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878144985)
+         1793878152.647  6302  6302 I NextStop: NS|NAV|RouteStarted
+         1793878152.963  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878146333)
+         1793878153.309  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878149475)
+         1793878153.930  6302  6302 I NextStop: NS|EFFECT|IGNORED|NOT_STARTED
+         1793878154.287  6302  6302 I NextStop: NS|NAV|Requested
+         1793878154.458  6302  6302 I NextStop: NS|EFFECT|NAVIGATE_TO|index=0
+         1793878154.918  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878152736)
+         1793878155.542  6302  6302 I NextStop: NS|SERVICE|foreground
+         1793878157.395  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878157395)
+         1793878161.702  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878161692)
+         1793878173.618  6302  6302 I NextStop: NS|NAV|Cancelled
+         1793878175.272  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878171638)
+         1793878177.019  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878175814)
+         1793878180.808  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878180807)
+         1793878184.214  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878184208)
+         1793878188.133  6302  6302 I NextStop: NS|SIGNAL|OdometerUpdated(km=0.0, atMillis=1793878188133)
+         1793878190.858  6302  6302 I NextStop: NS|SIGNAL|SourceError(source=pleos-door, message=java.lang.NullPointerException: 70001, atMillis=1793878190839)
+         1793878190.863  6302  6302 I NextStop: NS|SIGNAL|SourceError(source=pleos-door, message=java.lang.NullPointerException: 70001, atMillis=1793878190854)
+         1793878337.927 20324 20324 I NextStop: NS|EXIT|last reason=0 importance=100 pss=52032kB desc=
+         1793878338.298 20324 20324 I NextStop: NS|UX|restricted=false
+         1793878338.543 20324 20324 I NextStop: NS|RESTORE|done=0/5
+         1793878393.562 27348 27348 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30403kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{4021325 u10 app.nextstop/.drive.RunService}
+         1793878394.205 27348 27348 I NextStop: NS|UX|restricted=false
+         1793878394.465 27348 27348 I NextStop: NS|RESTORE|done=0/5
+         1793878448.456  2995  2995 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30546kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{cedd3ba u10 app.nextstop/.drive.RunService}
+         1793878448.727  2995  2995 I NextStop: NS|UX|restricted=false
+         1793878449.011  2995  2995 I NextStop: NS|RESTORE|done=0/5
+         1793878510.435 12242 12242 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30329kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{13b70b1 u10 app.nextstop/.drive.RunService}
+         1793878511.079 12242 12242 I NextStop: NS|UX|restricted=false
+         1793878511.180 12242 12242 I NextStop: NS|RESTORE|done=0/5
+         1793878567.082 19639 19639 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30317kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{e08310f u10 app.nextstop/.drive.RunService}
+         1793878567.650 19639 19639 I NextStop: NS|UX|restricted=false
+         1793878567.756 19639 19639 I NextStop: NS|RESTORE|done=0/5
+         1793878621.753 26695 26695 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30486kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{bb4a1de u10 app.nextstop/.drive.RunService}
+         1793878622.168 26695 26695 I NextStop: NS|UX|restricted=false
+         1793878622.319 26695 26695 I NextStop: NS|RESTORE|done=0/5
+         1793878674.565  1374  1374 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30526kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{d379ddd u10 app.nextstop/.drive.RunService}
+         1793878674.882  1374  1374 I NextStop: NS|UX|restricted=false
+         1793878675.140  1374  1374 I NextStop: NS|RESTORE|done=0/5
+         1793878736.500 11744 11744 I NextStop: NS|EXIT|last reason=6 importance=300 pss=36746kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{42cef9d u10 app.nextstop/.drive.RunService}
+         1793878736.882 11744 11744 I NextStop: NS|UX|restricted=false
+         1793878737.135 11744 11744 I NextStop: NS|RESTORE|done=0/5
+         1793878790.325 18834 18834 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30602kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{400d139 u10 app.nextstop/.drive.RunService}
+         1793878790.851 18834 18834 I NextStop: NS|UX|restricted=false
+         1793878790.949 18834 18834 I NextStop: NS|RESTORE|done=0/5
+         1793878849.440 26479 26479 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30822kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{1478490 u10 app.nextstop/.drive.RunService}
+         1793878849.904 26479 26479 I NextStop: NS|UX|restricted=false
+         1793878850.026 26479 26479 I NextStop: NS|RESTORE|done=0/5
+         1793878967.824 15873 15873 I NextStop: NS|EXIT|last reason=6 importance=300 pss=30578kB desc=bg anr: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{121db13 u10 app.nextstop/.drive.RunService}
+         1793878967.991 15873 15873 I NextStop: NS|UX|restricted=false
+         1793878968.071 15873 15873 I NextStop: NS|RESTORE|done=0/5
+         1793879048.805 25235 25235 I NextStop: NS|EXIT|last reason=6 importance=125 pss=0kB desc=user request after error: executing service app.nextstop/.drive.RunService
+         1793879048.842 25235 25235 I NextStop: NS|SERVICE|foreground

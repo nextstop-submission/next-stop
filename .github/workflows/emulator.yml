@@ -1,0 +1,273 @@
+name: emulator
+
+# Pleos Connect Emulator(공식 시스템 이미지)를 GitHub 호스트 러너(Linux, KVM)에서 창 없이·소프트웨어 렌더링으로 띄워
+# 노트북과 같은 실측 스크립트(scripts/probe/run-probe.ps1)와 시연 재생·녹화(scripts/demo/demo.ps1)를 돌린다.
+# 그래픽 카드 사양 미달 노트북 대비 경로 — docs/internal/low-spec-paths.md
+# 실행: 커밋 메시지에 [emulator] 를 넣어 push 하거나, 기본 브랜치에서 수동 실행.
+# 커밋 메시지에 [rehearsal]이면 실측 대신 시연 대본 리허설(scripts/demo/rehearse-ci.sh: C 실제 신호 → B 시연 신호)만 돈다.
+# [navi-lab]이면 내비 실험(scripts/probe/navi-lab.sh: 장소 검색 → 목적지 정보, 위치 이동 → 경로 안내 이벤트)만 돈다.
+# 시스템 이미지는 매번 공식 주소에서 받고 캐시·아티팩트로 남기지 않는다(라이선스: 재배포 금지). 결과물은 실측 로그·우리 앱 화면뿐.
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  workflow_dispatch:
+    inputs:
+      ram:
+        description: "AVD RAM(MB) — Pleos 문서 권장 4096"
+        default: "4096"
+
+concurrency:
+  group: emulator-${{ github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[emulator]') || contains(github.event.head_commit.message, '[rehearsal]') || contains(github.event.head_commit.message, '[navi-lab]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      IMG_URL: https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp_car_emulator.zip
+      IMG_SHA1: b4f858d5bcc6c71506d7edfc872bcb9e5a11acaa
+      # [ram6g]: 리허설에서 내비가 앞에 있는 동안 앱(포그라운드 서비스 중)이 메모리 부족으로 종료되는 일이 있어(11/5) 6GB로도 비교한다
+      AVD_RAM: ${{ github.event.inputs.ram || (contains(github.event.head_commit.message, '[ram6g]') && '6144' || '4096') }}
+      ANDROID_AVD_HOME: /home/runner/avd
+      REHEARSAL: ${{ contains(github.event.head_commit.message, '[rehearsal]') }}
+      NAVILAB: ${{ contains(github.event.head_commit.message, '[navi-lab]') }}
+      # 그래픽 방식. 기본 swiftshader_indirect에서는 내비가 '실행 중입니다'(INITIALIZING)에 머문다(navi-lab 1~3회차)
+      # → 커밋 메시지 [gpu-swangle](ANGLE + SwiftShader Vulkan) 또는 [gpu-guest](기기 안 소프트웨어 렌더링)로 바꿔 본다
+      GPU_MODE: ${{ contains(github.event.head_commit.message, '[gpu-swangle]') && 'swangle_indirect' || (contains(github.event.head_commit.message, '[gpu-guest]') && 'guest' || 'swiftshader_indirect') }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Runner resources + free disk
+        run: |
+          echo "::notice title=runner::cpu=$(nproc) $(free -g | awk '/Mem:/{print "mem="$2"G"}') kvm=$(ls /dev/kvm 2>/dev/null || echo none)"
+          echo "::notice title=disk-before::$(df -h / /mnt 2>/dev/null | awk 'NR>1{print $6"="$4}' | tr '\n' ' ')"
+          # 이미지 압축 해제 크기 약 19.6GB(system.img 18.3GB) → 쓰지 않는 기본 도구를 지워 자리를 만든다
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/share/swift /usr/local/share/boost \
+            /usr/local/lib/android/sdk/ndk /opt/hostedtoolcache/CodeQL /usr/local/share/powershell/Modules/Az* || true
+          echo "::notice title=disk-after::$(df -h / /mnt 2>/dev/null | awk 'NR>1{print $6"="$4}' | tr '\n' ' ')"
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -la /dev/kvm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: "platforms;android-35 build-tools;35.0.0 platform-tools emulator"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon --console=plain
+      - name: Pleos Connect system image (official URL, sha1 check, streamed)
+        run: |
+          set -o pipefail
+          # 가장 여유 있는 디스크에 푼다(/mnt가 없거나 작으면 루트)
+          WORK=/mnt/img
+          if [ "$(df -BG --output=avail /mnt 2>/dev/null | tail -1 | tr -dc 0-9)" -lt 30 ] 2>/dev/null || [ ! -d /mnt ]; then WORK=$HOME/img; fi
+          sudo mkdir -p "$WORK" "$ANDROID_AVD_HOME" && sudo chown -R "$USER" "$WORK" "$ANDROID_AVD_HOME"
+          echo "WORK=$WORK" >> "$GITHUB_ENV"
+          command -v bsdtar >/dev/null || sudo apt-get install -y -qq libarchive-tools >/dev/null
+          # 4GB를 한 번에 받다 끊기는 일이 있었다(실측) → 디스크에 이어받기로 받고, 검증한 뒤 푼다(여유 34GB: zip 4 + 해제 19.6)
+          for i in 1 2 3 4 5 6; do
+            curl -fsSL -C - --retry 3 --retry-delay 20 -o "$WORK/crp.zip" "$IMG_URL" && break
+            echo "download attempt $i stopped at $(stat -c %s "$WORK/crp.zip" 2>/dev/null) bytes"; sleep 20
+          done
+          echo "$(sha1sum "$WORK/crp.zip" | cut -d' ' -f1)" > "$WORK/sha1.txt"
+          [ "$(cat "$WORK/sha1.txt")" = "$IMG_SHA1" ] || { echo "::error title=image::sha1 mismatch $(cat "$WORK/sha1.txt") size $(stat -c %s "$WORK/crp.zip")"; exit 1; }
+          bsdtar -xf "$WORK/crp.zip" -C "$WORK" || { echo "::error title=image::extract failed $(df -h "$WORK" | tail -1)"; exit 1; }
+          rm -f "$WORK/crp.zip"
+          sleep 5
+          sz=$(stat -c %s "$WORK/crp_avd_out_x86_64/system.img")
+          [ "$sz" = "18256756736" ] || { echo "::error title=image::system.img size $sz (expected 18256756736)"; exit 1; }
+          got=$(cat "$WORK/sha1.txt")
+          [ "$got" = "$IMG_SHA1" ] || { echo "::error title=image::sha1 mismatch $got"; exit 1; }
+          IMG="$WORK/crp_avd_out_x86_64"
+          # 0으로 채워진 영역을 구멍으로 바꿔 실제 디스크 사용을 줄인다
+          fallocate -d "$IMG/system.img" || true
+          fallocate -d "$IMG/userdata.img" || true
+          mkdir -p "$ANDROID_HOME/system-images/android-34/pleos_car_emulator"
+          ln -sfn "$IMG" "$ANDROID_HOME/system-images/android-34/pleos_car_emulator/x86_64"
+          echo "::notice title=image::ok sha1 $got, used $(du -sh "$IMG" | cut -f1), $(cat "$IMG/data/misc/emulator/version.txt" | tail -1), emulator $("$ANDROID_HOME/emulator/emulator" -version | head -1), free $(df -h "$WORK" | awk 'NR==2{print $4}')"
+      - name: "Create AVD (devices.xml: 2560x1440 mdpi, cold boot)"
+        run: |
+          mkdir -p "$ANDROID_AVD_HOME/pleos.avd"
+          cat > "$ANDROID_AVD_HOME/pleos.ini" <<EOF
+          avd.ini.encoding=UTF-8
+          path=$ANDROID_AVD_HOME/pleos.avd
+          target=android-34
+          EOF
+          cat > "$ANDROID_AVD_HOME/pleos.avd/config.ini" <<EOF
+          AvdId=pleos
+          avd.ini.displayname=Pleos Connect v2.1.0
+          abi.type=x86_64
+          hw.cpu.arch=x86_64
+          hw.cpu.ncore=$(nproc)
+          hw.ramSize=$AVD_RAM
+          hw.lcd.width=2560
+          hw.lcd.height=1440
+          hw.lcd.density=160
+          hw.initialOrientation=landscape
+          hw.keyboard=yes
+          hw.gpu.enabled=yes
+          hw.gpu.mode=$GPU_MODE
+          hw.audioInput=no
+          hw.audioOutput=no
+          disk.dataPartition.size=6G
+          fastboot.forceColdBoot=yes
+          image.sysdir.1=system-images/android-34/pleos_car_emulator/x86_64/
+          tag.id=android-automotive
+          tag.display=Pleos Connect v2.1.0 APIs
+          PlayStore.enabled=false
+          EOF
+          sed -i 's/^ *//' "$ANDROID_AVD_HOME/pleos.ini" "$ANDROID_AVD_HOME/pleos.avd/config.ini"
+          "$ANDROID_HOME/emulator/emulator" -list-avds
+      - name: Boot emulator (headless, software GPU, cold)
+        id: boot
+        run: |
+          adb="$ANDROID_HOME/platform-tools/adb"
+          # adb 키를 에뮬레이터보다 먼저 만든다. 에뮬레이터는 켜질 때 ~/.android/adbkey.pub를 기기에 넘기는데,
+          # 그때 키가 없으면 user 빌드라 승인 창 없이 30분 내내 'device unauthorized'로 남는다(10/30 run 41012865409)
+          [ -f "$HOME/.android/adbkey" ] || { mkdir -p "$HOME/.android"; "$adb" keygen "$HOME/.android/adbkey"; }
+          "$adb" start-server
+          nohup "$ANDROID_HOME/emulator/emulator" -avd pleos -no-window -gpu "$GPU_MODE" -no-snapshot -no-audio -no-boot-anim -accel on > /tmp/emulator.log 2>&1 &
+          for i in $(seq 1 180); do
+            b=$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+            [ "$b" = "1" ] && { echo "::notice title=boot::booted after $((i*10))s"; break; }
+            sleep 10
+            [ $((i % 6)) -eq 0 ] && { echo "waiting $((i*10))s"; tail -3 /tmp/emulator.log; }
+          done
+          [ "$b" = "1" ] || { echo "::error title=boot::timeout $(grep -iE 'error|fatal|panic' /tmp/emulator.log | tail -5 | tr '\n' ' ' | cut -c1-900)"; tail -60 /tmp/emulator.log; exit 1; }
+          sleep 60
+          echo "::notice title=device::$("$adb" shell getprop ro.build.display.id | tr -d '\r') / $("$adb" shell wm size | tr -d '\r') / $("$adb" shell wm density | tr -d '\r') / gpu $GPU_MODE / $("$adb" shell dumpsys SurfaceFlinger | grep -m1 -i 'GLES:' | tr -d '\r' | cut -c1-160)"
+          mkdir -p ci-out && "$adb" exec-out screencap -p > ci-out/00-home.png
+      - name: Script rehearsal — C (Virtual Console) then B (demo signals)
+        if: env.REHEARSAL == 'true' && steps.boot.outcome == 'success'
+        continue-on-error: true
+        run: timeout 2700 bash scripts/demo/rehearse-ci.sh ci-out/rehearsal
+      - name: Navi lab — place search and route events
+        if: env.NAVILAB == 'true' && steps.boot.outcome == 'success'
+        continue-on-error: true
+        run: timeout 1200 bash scripts/probe/navi-lab.sh ci-out/navi-lab
+      - name: Virtual Console drive — real Pleos Door + AAOS gear (recorded)
+        if: env.REHEARSAL != 'true' && env.NAVILAB != 'true'
+        continue-on-error: true
+        run: |
+          set +e
+          adb="$ANDROID_HOME/platform-tools/adb"
+          mkdir -p ci-out/vc demo-output
+          L="$PWD/ci-out/vc/vc-run.log"
+          "$adb" shell service list > ci-out/vc/services.txt 2>&1
+          command -v ffmpeg >/dev/null || sudo apt-get install -y -qq ffmpeg >/dev/null
+          (cd "$RUNNER_TEMP" && npm i --no-save playwright-core@1.48.2 && cp "$GITHUB_WORKSPACE/scripts/probe/vc-drive.mjs" .) >> "$L" 2>&1
+          "$adb" install -r -g app/build/outputs/apk/debug/app-debug.apk >> "$L" 2>&1
+          "$adb" forward tcp:8088 tcp:8088 >> "$L" 2>&1
+          # 기기 로그 버퍼가 2MB라 앞부분이 밀려난다 → 앱 로그만 따로 계속 받는다
+          "$adb" logcat -c
+          "$adb" logcat -v time -s NextStop:I > ci-out/vc/vc-app-logcat.txt &
+          LOGPID=$!
+          # 단계마다 맨 앞 화면이 무엇인지 남긴다(내비가 앱을 덮는지)
+          printf '#!/bin/sh\necho "step $1 $("%s" shell dumpsys activity activities | grep -m1 -E "topResumedActivity|mResumedActivity" | tr -s " ")" >> "%s"\n' "$adb" "$PWD/ci-out/vc/top-activity.txt" > "$RUNNER_TEMP/top.sh"
+          chmod +x "$RUNNER_TEMP/top.sh"
+          export VC_AFTER_STEP="$RUNNER_TEMP/top.sh"
+          for pass in clean navi; do
+            navi=false; [ "$pass" = navi ] && navi=true
+            echo "== pass $pass (navi=$navi)" | tee -a "$L" >> ci-out/vc/top-activity.txt
+            "$adb" shell am start -n app.nextstop/.drive.DriveActivity --es mode vehicle --ez navi $navi --ez reset true --ez sample true --ez autostart true >> "$L" 2>&1
+            sleep 10
+            # screenrecord는 메모리가 빠듯하면 빈 파일을 남긴다(실측) → 화면 캡처를 이어 붙여 영상으로 만든다
+            F="$RUNNER_TEMP/frames-$pass"; mkdir -p "$F"
+            ( while [ ! -f "$F/.stop" ]; do "$adb" exec-out screencap -p > "$F/$(date +%s%3N).png" 2>/dev/null; done ) &
+            CAPPID=$!
+            (cd "$RUNNER_TEMP" && VC_BRIDGE_WAIT=240 timeout 900 node vc-drive.mjs "$GITHUB_WORKSPACE/ci-out/vc/$pass" gear:D gear:P door:open door:close gear:D gear:P door:open door:close gear:D gear:P door:open door:close gear:D) >> "$L" 2>&1
+            echo "vc-drive exit $?" >> "$L"
+            sleep 4
+            touch "$F/.stop"; wait $CAPPID
+            python3 scripts/demo/frames-to-mp4.py "$F" "demo-output/vc-drive-$pass.mp4" >> "$L" 2>&1
+            "$adb" exec-out screencap -p > "ci-out/vc/$pass-after.png"
+          done
+          kill $LOGPID
+          echo "::notice title=vc-steps::$(grep -E '^[0-9]+ ' "$L" | cut -c1-110 | tr '\n' ' ' | cut -c1-950)"
+          echo "::notice title=vc-app::STOP_COMPLETED x$(grep -c 'STOP_COMPLETED' ci-out/vc/vc-app-logcat.txt) · Gear $(grep -c 'GearChanged' ci-out/vc/vc-app-logcat.txt) · Door $(grep -c 'DoorChanged' ci-out/vc/vc-app-logcat.txt) · NAV $(grep -c 'NS|NAV|' ci-out/vc/vc-app-logcat.txt)"
+          echo "::notice title=vc-top::$(cut -c1-120 ci-out/vc/top-activity.txt | tr '\n' ' ' | cut -c1-950)"
+          exit 0
+      - name: Ensure car service is alive (reboot if not)
+        if: always() && steps.boot.outcome == 'success' && env.REHEARSAL != 'true' && env.NAVILAB != 'true'
+        run: |
+          adb="$ANDROID_HOME/platform-tools/adb"
+          if timeout 20 "$adb" shell service check car_service 2>/dev/null | grep -q ': found'; then echo ok; exit 0; fi
+          echo "::warning title=reboot::car_service missing — rebooting the emulator"
+          timeout 30 "$adb" reboot || true
+          sleep 20; timeout 120 "$adb" wait-for-device
+          for i in $(seq 1 90); do [ "$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break; sleep 5; done
+          sleep 45
+      - name: Probe (same script as the laptop)
+        if: always() && steps.boot.outcome == 'success' && env.REHEARSAL != 'true' && env.NAVILAB != 'true'
+        continue-on-error: true
+        run: |
+          timeout 900 pwsh scripts/probe/run-probe.ps1 -Phase auto -SkipBuild -Headless -OutDir "$PWD/ci-out/probe"
+          # 결과 표를 주석으로 남긴다(로그 API를 못 읽는 환경에서도 check-run 주석으로 확인 가능)
+          grep -E '^\| ' ci-out/probe/SUMMARY.md | tail -n +3 | while IFS= read -r line; do echo "::notice title=probe::$(echo "$line" | cut -c1-300)"; done
+      - name: Ensure car service is alive (reboot if not)
+        if: always() && steps.boot.outcome == 'success' && env.REHEARSAL != 'true' && env.NAVILAB != 'true'
+        run: |
+          adb="$ANDROID_HOME/platform-tools/adb"
+          if timeout 20 "$adb" shell service check car_service 2>/dev/null | grep -q ': found'; then echo ok; exit 0; fi
+          echo "::warning title=reboot::car_service missing — rebooting the emulator"
+          timeout 30 "$adb" reboot || true
+          sleep 20; timeout 120 "$adb" wait-for-device
+          for i in $(seq 1 90); do [ "$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break; sleep 5; done
+          sleep 45
+      - name: Demo replay + recording (demo signals, 5 stops)
+        if: always() && steps.boot.outcome == 'success' && env.REHEARSAL != 'true' && env.NAVILAB != 'true'
+        continue-on-error: true
+        run: |
+          timeout 600 pwsh scripts/demo/demo.ps1 -Launch -Stops 5 -Record -GapSec 2
+          echo "::notice title=demo-video::$(ls -la demo-output 2>/dev/null | tail -n +2 | awk '{print $5, $9}' | tr '\n' ' ')"
+      - name: Collect
+        if: always()
+        run: |
+          mkdir -p ci-out
+          cp -r demo-output ci-out/ 2>/dev/null || true
+          tail -200 /tmp/emulator.log > ci-out/emulator-tail.log 2>/dev/null || true
+          timeout 30 "$ANDROID_HOME/platform-tools/adb" logcat -d -b crash > ci-out/crash.txt 2>/dev/null || true
+          cat ci-out/probe/SUMMARY.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - name: Commit probe results + compressed recordings (anonymous author)
+        if: always()
+        run: |
+          # 같은 분에 끝난 회차가 섞이지 않게 커밋 앞 7자를 붙인다
+          D="docs/probe-results/ci-$(TZ=Asia/Seoul date +%Y%m%d-%H%M)-${GITHUB_SHA::7}"
+          mkdir -p "$D"
+          [ -d ci-out/probe ] && cp -r ci-out/probe/. "$D/" || true
+          cp ci-out/00-home.png ci-out/crash.txt "$D/" 2>/dev/null || true
+          [ -d ci-out/vc ] && cp -r ci-out/vc "$D/" || true
+          [ -d ci-out/rehearsal ] && cp -r ci-out/rehearsal "$D/" || true
+          [ -d ci-out/navi-lab ] && cp -r ci-out/navi-lab "$D/" || true
+          # 녹화본은 1280x720으로 줄여 커밋(원본은 아티팩트)
+          if ls demo-output/*.mp4 >/dev/null 2>&1; then
+            command -v ffmpeg >/dev/null || sudo apt-get install -y -qq ffmpeg >/dev/null
+            for f in demo-output/*.mp4; do
+              ffmpeg -nostdin -loglevel error -y -i "$f" -vf scale=1280:-2 -c:v libx264 -crf 30 -preset veryfast -an -map_metadata -1 "$D/$(basename "$f")" || true
+            done
+          fi
+          # 러너 경로·호스트 이름 가림(스크립트가 HOME은 이미 가림)
+          grep -rIl "$(hostname)" "$D" 2>/dev/null | xargs -r sed -i "s/$(hostname)/<host>/g"
+          git config user.name "next-stop-dev"
+          git config user.email "dev@next-stop.invalid"
+          git add "$D"
+          git commit -m "Emulator CI probe results (${GITHUB_SHA::7})" || { echo "no change"; exit 0; }
+          # 여러 회차가 동시에 끝나면 push가 엇갈린다(11/4 1회차 결과가 3번 재시도 끝에 빠짐) → 8번, 간격을 흩뜨림
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q && break; sleep $((RANDOM % 25 + 5)); done
+          echo "::notice title=committed::$D"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: emulator-run
+          path: ci-out
+          retention-days: 14

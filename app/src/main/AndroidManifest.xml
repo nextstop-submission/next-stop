@@ -29,11 +29,6 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
-    <!-- 실측 화면에서 Vehicle Service 버전 확인용 -->
-    <queries>
-        <package android:name="ai.pleos.playground.service.vehicle" />
-    </queries>
-
     <application
         android:name=".NextStopApp"
         android:allowBackup="false"
@@ -66,10 +61,6 @@
                 android:value="Keeps a delivery run listening to vehicle gear and door signals while the navigation app is in front" />
         </service>
 
-        <!-- 실측 화면: 실측 스크립트가 adb로 실행. 정차 중 개발용이므로 distractionOptimized 아님 -->
-        <activity
-            android:name=".probe.ProbeActivity"
-            android:exported="true"
-            android:label="@string/probe_name" />
+        <!-- 실측 화면(ProbeActivity)은 debug 빌드에만 있다: app/src/debug/AndroidManifest.xml -->
     </application>
 </manifest>
