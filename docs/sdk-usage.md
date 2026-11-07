@@ -78,7 +78,8 @@ Vehicle SDK 2.3.2의 다른 도메인(Seat·Light·트렁크 등)도 판정 보�
 | 외부 경로·지도 API(키 필요) | 공모전 규정 확인 전, 시연장 네트워크·비용 위험. 직선거리×보정계수로 동선 최적화 |
 | `onDestinationArrived`를 완료 기준으로 | 에뮬레이터 위치가 안 움직임. 완료는 차량 신호(P·문·D)로 판정 |
 | `requestRouteWithWaypoints` / `addWaypoint` | 경유지 수 제한. 1곳씩 교체가 배송 흐름에 맞음 |
-| Pleos STT·FusedLocation | 핵심 기능이 준비 중일 수 있는 SDK에 의존하지 않음 |
+| Pleos TextToSpeech·SpeechToText 3.3.1 | 둘 다 `registerApp(clientID, clientSecret, …)`로 앱 등록 비밀값을 넣어야 한다(공식 Maven aar의 `TextToSpeech` 클래스 javap: 메서드 `registerApp`, 인자 이름 문자열 `clientID`·`clientSecret`). 공개 저장소에 비밀값을 둘 수 없고 심사위원이 같은 빌드를 재현할 수 없어 이번 제출에서 뺐다 — 음성 안내는 Android 기본 TTS(선택 기능). 운영사에 심사용 등록 방법을 확인한 뒤 붙인다 |
+| Pleos FusedLocation | 위치를 쓰지 않는 설계(지하·단지에서도 같은 동작, 위치 권한 0) |
 | 배송 플랫폼 앱 연동·자동화 | 규정·약관 위험. 배송지 입력은 앱 안에서 |
 
 ## 6. Pleos 설계 가이드 준수 (원문 대조 2026-10-29)
