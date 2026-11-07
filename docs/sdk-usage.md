@@ -89,6 +89,6 @@ Vehicle SDK 2.3.2의 다른 도메인(Seat·Light·트렁크 등)도 판정 보�
 | 앱은 플랫폼 CarUxRestrictions에 따라 주행 중 UX를 제한 | UX 제한 또는 기어 P 아님 → 2줄 화면, 버튼 숨김 |
 | 주행 중 움직이는 이미지·자동 스크롤로 시선 유도 금지 | 완료 연출을 없앴다: 같은 카드의 글자·진행 막대만 바뀌고 화면 전환 0회, 다음 목적지는 D 순간 바로 |
 | 1~2초 안에 파악할 핵심 정보만 | 주행 화면 정보 2줄(다음 배송지·남은 건수) |
-| 쓰는 도메인 권한만 선언 | Pleos 권한 5개(CAR_DOORS, CAR_DRIVE, NAVI_ROUTE, NAVI_ROUTE_SEARCH, NAVI_CUSTOM_MAP) + AAOS CAR_POWERTRAIN |
+| 쓰는 도메인 권한만 선언 | Pleos 권한 6개(CAR_DOORS, CAR_DRIVE, CAR_ENERGY, NAVI_ROUTE, NAVI_ROUTE_SEARCH, NAVI_CUSTOM_MAP) + AAOS CAR_POWERTRAIN |
 | 개인·위치 정보 사용 시 약관·처리방침 | 위치 권한 없음, 서버 전송 없음, 실측 로그에 좌표·주소 미기록, '새 운행' 때 배송지 이름·좌표 삭제 |
 
