@@ -1,0 +1,31 @@
+bridge_ready after 0s (−1 = never)
+inventory: 80 items
+1 gear:D: at=1794034934014 via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+2 odo:+2: at=1794034948127 via=- clicked=odometer 2km → 200 sent=[/vehicle/odometer?traveled_distance_km=2] state: gear=[object Object] door_fl=0
+3 gear:P: at=1794034957030 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+4 door:open: at=1794034969013 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+5 door:close: at=1794034983945 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+6 gear:D: at=1794034997363 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+7 odo:+2: at=1794035012808 via=- clicked=odometer 4km → 200 sent=[/vehicle/odometer?traveled_distance_km=4] state: gear=[object Object] door_fl=0
+8 gear:P: at=1794035020675 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+9 door:open: at=1794035031996 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+10 door:close: at=1794035045480 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+11 gear:D: at=1794035058902 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+12 gear:P: at=1794035074367 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+13 gear:D: at=1794035085958 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+14 odo:+2: at=1794035097469 via=- clicked=odometer 6km → 200 sent=[/vehicle/odometer?traveled_distance_km=6] state: gear=[object Object] door_fl=0
+15 gear:P: at=1794035105828 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+16 door:open: at=1794035117411 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+17 door:close: at=1794035131095 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+18 gear:D: at=1794035144230 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+19 odo:+2: at=1794035158601 via=- clicked=odometer 8km → 200 sent=[/vehicle/odometer?traveled_distance_km=8] state: gear=[object Object] door_fl=0
+20 gear:P: at=1794035166912 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+21 door:open: at=1794035178493 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+22 door:close: at=1794035191069 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+23 gear:D: at=1794035204899 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+24 odo:+2: at=1794035219726 via=- clicked=odometer 10km → 200 sent=[/vehicle/odometer?traveled_distance_km=10] state: gear=[object Object] door_fl=0
+25 gear:P: at=1794035227825 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
+26 door:open: at=1794035238898 via=body clicked=FL door → 1 sent=[/vehicle/body?door_fl=1] state: gear=[object Object] door_fl=1
+27 door:close: at=1794035253636 via=body clicked=FL door → 0 sent=[/vehicle/body?door_fl=0] state: gear=[object Object] door_fl=0
+28 gear:D: at=1794035267570 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=[object Object] door_fl=0
+29 gear:P: at=1794035283290 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 /vehicle/gear?gear=Park] state: gear=[object Object] door_fl=0
