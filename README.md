@@ -6,7 +6,7 @@
 ## 심사위원용 3단계
 
 1. **영상으로 보기** — 실제 신호 녹화(67초, 6배속·자막만 추가): [유튜브](https://www.youtube.com/watch?v=jRONe6q1r9k) · 같은 파일 [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4). Pleos Connect 공식 에뮬레이터에서 Virtual Console로 기어·문을 바꾸면 자동 완료된다.
-2. **기록으로 보기** — 실측·리허설을 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 리허설 숫자는 `python scripts/demo/rehearsal_stats.py`로 누구나 다시 셀 수 있다. 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
+2. **기록으로 보기** — 최종 코드 공식 에뮬레이터 리허설(이 저장소 GitHub Actions, 11/7): 10회 중 9회 배송 5건 모두 자동 완료, 1회는 에뮬레이터 정지로 실패. 실측·리허설을 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 리허설 숫자는 `python scripts/demo/rehearsal_stats.py`로 누구나 다시 셀 수 있다. 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
 3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 87 + 화면 16). 설치: `adb install -r apk/NextStop_다음집_release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
 
 | 문제 | 다음집 |
