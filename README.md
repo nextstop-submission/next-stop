@@ -41,6 +41,9 @@ JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 
 
 ### 빌드·설치
 
+저장소에 실측 녹화·로그가 많아 크다 — 코드만 볼 때는 `git clone --depth 1`.
+
+
 ```bash
 ./gradlew :core:test :app:assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk

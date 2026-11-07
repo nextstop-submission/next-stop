@@ -21,14 +21,14 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doc
 
 
 def stamp(folder):
-    m = re.search(r"(\d{8})", os.path.basename(folder))
+    m = re.search(r"(\d{8}(?:-\d{4})?)", os.path.basename(folder))
     return m.group(1) if m else ""
 
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
-    ap.add_argument("--since", default="", help="YYYYMMDD 이후 폴더만")
+    ap.add_argument("--since", default="", help="YYYYMMDD 또는 YYYYMMDD-HHMM 이후 폴더만(예: 최종 코드 20261107-1526)")
     a = ap.parse_args()
     runs = sorted(d for d in glob.glob(os.path.join(ROOT, "*", "rehearsal")) if stamp(os.path.dirname(d)) >= a.since)
     c_dist, b_dist, medians = {}, {}, []
