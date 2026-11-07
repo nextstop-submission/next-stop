@@ -1,0 +1,80 @@
+goto: page.goto: Timeout 120000ms exceeded.
+Call log:
+  - navigating to "http://127.0.0.1:8088/", waiting until "networkidle"
+
+bridge_ready after -1s (−1 = never)
+inventory: 80 items
+1 gear:D: at=1794032653192 via=prnd clicked=D sent=[/vehicle/controls?speed=0&accelerator=0&brake=0 /vehicle/gear?gear=Drive] state: gear=null door_fl=null
+2 odo:+2: at=1794032663594 via=- clicked=odometer 2km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=2] state: gear=null door_fl=null
+3 gear:P: at=1794032671750 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+4 door:open: at=1794032681743 via=body clicked=FL door → 1 + api door_fl=1 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=1 /vehicle/body?door_fl=1] state: gear=null door_fl=null
+5 door:close: at=1794032693567 via=body clicked=FL door → 0 + api door_fl=0 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=0 /vehicle/body?door_fl=0] state: gear=null door_fl=null
+6 gear:D: at=1794032705490 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+7 odo:+2: at=1794032715485 via=- clicked=odometer 4km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=4] state: gear=null door_fl=null
+8 gear:P: at=1794032723856 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+9 door:open: at=1794032733841 via=body clicked=FL door → 1 + api door_fl=1 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=1 /vehicle/body?door_fl=1] state: gear=null door_fl=null
+10 door:close: at=1794032745608 via=body clicked=FL door → 0 + api door_fl=0 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=0 /vehicle/body?door_fl=0] state: gear=null door_fl=null
+11 gear:D: at=1794032757545 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+12 gear:P: at=1794032767742 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+13 gear:D: at=1794032777797 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+14 odo:+2: at=1794032787653 via=- clicked=odometer 6km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=6] state: gear=null door_fl=null
+15 gear:P: at=1794032796087 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+16 door:open: at=1794032806154 via=body clicked=FL door → 1 + api door_fl=1 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=1 /vehicle/body?door_fl=1] state: gear=null door_fl=null
+17 door:close: at=1794032818386 via=body clicked=FL door → 0 + api door_fl=0 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=0 /vehicle/body?door_fl=0] state: gear=null door_fl=null
+18 gear:D: at=1794032830308 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+19 odo:+2: at=1794032840133 via=- clicked=odometer 8km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=8] state: gear=null door_fl=null
+20 gear:P: at=1794032848409 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+21 door:open: at=1794032858719 via=body clicked=FL door → 1 + api door_fl=1 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=1 /vehicle/body?door_fl=1] state: gear=null door_fl=null
+22 door:close: at=1794032870231 via=body clicked=FL door → 0 + api door_fl=0 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=0 /vehicle/body?door_fl=0] state: gear=null door_fl=null
+23 gear:D: at=1794032882002 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+24 odo:+2: at=1794032891898 via=- clicked=odometer 10km → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/odometer?traveled_distance_km=10] state: gear=null door_fl=null
+25 gear:P: at=1794032900006 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
+26 door:open: at=1794032909989 via=body clicked=FL door → 1 + api door_fl=1 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=1 /vehicle/body?door_fl=1] state: gear=null door_fl=null
+27 door:close: at=1794032922046 via=body clicked=FL door → 0 + api door_fl=0 → page.evaluate: TypeError: Failed to fetch
+    at eval (eval at evaluate (:234:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:236:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) sent=[/vehicle/body?door_fl=0 /vehicle/body?door_fl=0] state: gear=null door_fl=null
+28 gear:D: at=1794032934008 via=prnd clicked=D sent=[/vehicle/gear?gear=Drive] state: gear=null door_fl=null
+29 gear:P: at=1794032944030 via=prnd clicked=P sent=[/vehicle/controls?speed=0&accelerator=0&brake=0&steering=0] state: gear=null door_fl=null
