@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- debug 빌드 전용: 실측 화면. release APK에는 이 화면·진입 버튼이 없다(심사 지적 C12·T6).
+<!-- debug 빌드 전용: 실측 화면. release APK에는 이 화면·진입 버튼이 없다.
      실측 스크립트(scripts/probe/*)와 CI는 debug APK를 설치해 adb로 연다. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 

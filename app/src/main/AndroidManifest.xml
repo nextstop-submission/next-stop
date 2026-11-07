@@ -9,6 +9,8 @@
          Door → CAR_DOORS, Odometer(DrivingMode·Brake와 같은 군) → CAR_DRIVE -->
     <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
     <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <!-- 차가 계산한 평균 연비·전비(Fuel·EvBattery) → 정산에 사용자 입력 대신 차 값 -->
+    <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
 
     <!-- Pleos NaviHelper SDK: 공식 문서 기준
          NAVI_ROUTE → get*Info()(최근 목적지·즐겨찾기·목적지 확인), NAVI_ROUTE_SEARCH → requestRoute()·cancelRoute() -->

@@ -5,13 +5,13 @@
 
 ## 심사위원용 3단계
 
-1. **영상으로 보기** — 실제 신호 녹화(67초, 6배속·자막만 추가): [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4). Pleos Connect 공식 에뮬레이터에서 Virtual Console로 기어·문을 바꾸면 자동 완료된다.
-2. **기록으로 보기** — 실측·리허설 67회를 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
-3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 83 + 화면 15). 설치: `adb install -r apk/NextStop_다음집_release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
+1. **영상으로 보기** — 실제 신호 녹화(67초, 6배속·자막만 추가): [유튜브](https://www.youtube.com/watch?v=jRONe6q1r9k) · 같은 파일 [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4). Pleos Connect 공식 에뮬레이터에서 Virtual Console로 기어·문을 바꾸면 자동 완료된다.
+2. **기록으로 보기** — 실측·리허설을 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 리허설 숫자는 `python scripts/demo/rehearsal_stats.py`로 누구나 다시 셀 수 있다. 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
+3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 87 + 화면 16). 설치: `adb install -r apk/NextStop_다음집_release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
 
 | 문제 | 다음집 |
 |---|---|
-| 하루 끝나고 실제로 얼마 남았는지 모른다 | 차가 기록한 건수·시간·**계기판 주행거리**로 연료비를 뺀 순수익·시간당 실수익 |
+| 기름값 빼면 남는 게 적다 — 어느 운행이 손해인지 끝나고 손으로 계산한다 | 차가 기록한 건수·시간·**계기판 주행거리**·**차량 평균 연비(전기차는 전비)**로 순수익·시간당 실수익, 지난 운행과 비교(가장 남은 운행의 출발 시각) |
 | 배송 기록을 손으로 따로 남긴다 | **기어 P → 1열 문 열림·닫힘 → 기어 D**를 1건 완료로 자동 기록(조수석 하차·동승 배송 포함, 설정으로 운전석만) |
 | 운행 중 다음 주소를 폰·내비에 다시 넣는다 | 배송지는 출발 전 정차 중 한 번에(내비 장소 검색·최근 목적지·즐겨찾기), 운행 중에는 D 순간 다음 배송지를 Pleos 내비로 전달 |
 | 배송지 순서를 머릿속으로 짠다 | 출발 전 동선 최적화(11곳까지 최적해, 그 이상 근사), 출발점은 목록 첫 곳 — 위치 권한 0 |
@@ -23,13 +23,13 @@
 
 ## 화면
 
-JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 그린 스냅샷(`DriveScreensTest`). 주행 중 화면 오른쪽 끝의 작은 손잡이는 시연 신호 모드에서만 보이는 '시연 전용' 조작이다.
+JVM(Robolectric 네이티브 그래픽)에서 시연 모드 흐름을 실제로 그린 스냅샷(`DriveScreensTest`, debug 빌드라 계획 화면에 '실측 화면' 버튼이 보인다 — release APK에는 없다). 주행 중 화면 오른쪽 끝의 작은 손잡이는 시연 신호 모드에서만 보이는 '시연 전용' 조작이다.
 
 | 계획(동선 최적화) | 주행 중(2줄) | 정차·완료 대기 |
 |---|---|---|
 | ![](docs/screens/01-plan.png) | ![](docs/screens/02-driving.png) | ![](docs/screens/03-parked-ready.png) |
-| **D → 1건 완료, 다음 집** | 마지막 건 뒤 주행 중 | 정차(P) 후 정산 |
-| ![](docs/screens/06-next-stop.png) | ![](docs/screens/07-finished-driving.png) | ![](docs/screens/07-settlement.png) |
+| **D → 1건 완료, 다음 집** | 마지막 건 뒤 주행 중 | 정차(P) 후 정산 · 지난 운행 비교 |
+| ![](docs/screens/06-next-stop.png) | ![](docs/screens/07-finished-driving.png) | ![](docs/screens/08-settlement-compare.png) |
 
 ## 실행 방법
 
@@ -71,8 +71,8 @@ adb shell am broadcast -a app.nextstop.SIGNAL -p app.nextstop --es gear D
 
 | 구분 | 내용 |
 |---|---|
-| 단위 테스트 | `core/` 순수 Kotlin 83개 — 동선 최적해, 체크포인트 판정(신호 순서 엇갈림·되돌리기·시동 끔·1열 문 묶음 `SignalOrderTest`), 기어 원천 중재, 배송지 가져오기·직접 추가, 운행 저장·복원, 정산·계기판 값 튐 방어 |
-| 화면 테스트 | Robolectric 15개(+ 영상 장면 생성용 1개는 `-Dnextstop.video`일 때만) — 주행 제한 중 모든 화면 '2줄·버튼 0'(`DrivingRestrictionTest`), 정산은 P에서만, 앱 재시작 뒤 이어서 완료, 새 운행 때 배송지 정보 삭제, 완료 알림이 헤드업으로 뜨지 않음 |
+| 단위 테스트 | `core/` 순수 Kotlin 87개 — 연비·전비 고르기와 지난 운행 비교(`RunHistoryTest`), 동선 최적해, 체크포인트 판정(신호 순서 엇갈림·되돌리기·시동 끔·1열 문 묶음 `SignalOrderTest`), 기어 원천 중재, 배송지 가져오기·직접 추가, 운행 저장·복원, 정산·계기판 값 튐 방어 |
+| 화면 테스트 | Robolectric 16개(+ 영상 장면 생성용 1개는 `-Dnextstop.video`일 때만) — 주행 제한 중 모든 화면 '2줄·버튼 0'(`DrivingRestrictionTest`), 정산은 P에서만, 앱 재시작 뒤 이어서 완료, 새 운행 때 배송지 정보 삭제, 완료 알림이 헤드업으로 뜨지 않음 |
 | CI | GitHub Actions(`.github/workflows/`): `build`(core·화면 테스트 + debug/release APK), `emulator`(공식 에뮬레이터 실측·리허설, 결과를 `docs/probe-results/`에 커밋) |
 | 에뮬레이터 실측 | 같은 스크립트를 두 곳에서: 노트북 `scripts/probe/run-probe.cmd`(Windows), GitHub Actions `emulator` 워크플로(Linux 러너에서 Pleos 공식 이미지를 창 없이 띄움 — `run-probe.ps1 -Headless`). 결과는 `docs/probe-results/` |
 | 시연 영상 | 에뮬레이터 실제 신호 녹화(`emulator` 워크플로의 Virtual Console 조작, 6배속·자막 추가본 `docs/demo/video/nextstop-emulator-real-signals.mp4`) · 노트북 녹화(`scripts/demo/demo.ps1 -Record`) |
@@ -82,7 +82,7 @@ adb shell am broadcast -a app.nextstop.SIGNAL -p app.nextstop --es gear D
 
 자세한 클래스·메서드·권한 표: [docs/sdk-usage.md](docs/sdk-usage.md)
 
-- **Pleos Vehicle SDK 2.3.2** — Door Position 구독(배송 체크포인트), Odometer 누적거리(실주행거리 정산)
+- **Pleos Vehicle SDK 2.3.2** — Door Position 구독(배송 체크포인트), Odometer 누적거리(실주행거리 정산), Fuel·EvBattery 평균 연비·전비(정산에 사람이 넣은 연비 대신 차 값)
 - **Pleos NaviHelper SDK 3.0.5** — 최근 목적지·즐겨찾기로 배송지 입력, `requestRoute`로 다음 배송지 1곳씩 목적지 전달, 이벤트 수신
 - **AAOS Car API** — `GEAR_SELECTION`(기어 P/D, Pleos SDK가 안내하는 경로), `CarUxRestrictions`(주행 중 화면 제한)
 
@@ -95,11 +95,11 @@ core/   순수 Kotlin 도메인 (Android 의존 없음, 단위 테스트)
   route/        동선 최적화: 11곳 이하 Held-Karp 최적해, 그 이상 최근접+2-opt+Or-opt
   checkpoint/   P → 문 사이클 → D 상태기계 (순수 함수 reduce)
   run/          운행: 차량 신호 → 상태기계 → 내비 요청·기록
-  settle/       정산(시간당 실수익), (보조) 업무용 차량 운행기록 내보내기
+  settle/       정산(시간당 실수익), 연비·전비 고르기, 지난 운행 비교, (보조) 업무용 차량 운행기록 내보내기
   display/      주행 중 2줄 문구, 완료 연출 신호
   vehicle/ nav/ 차량 신호·내비 추상화 + 목 구현
 app/    Android
-  platform/     Pleos Door·Odometer·NaviHelper, AAOS 기어·UX 제한, adb 목 신호
+  platform/     Pleos Door·Odometer·Fuel·EvBattery·NaviHelper, AAOS 기어·UX 제한, adb 목 신호
   drive/        계획 → 운행 → 정산 화면, 완료 연출
   probe/        에뮬레이터 실측 화면
 docs/   Pleos 문서 정리, SDK 사용 내역, 실측 순서서, 시연 대본

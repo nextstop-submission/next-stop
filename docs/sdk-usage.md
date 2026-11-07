@@ -10,14 +10,16 @@
 | `Vehicle(context)`, `initialize()`, `release()` | `platform/PleosVehicleSession.kt` | SDK 세션 수명주기 | 🟢 |
 | `Vehicle.getDoor()` | `PleosDoorSource`, `ProbeActivity` | Door 도메인 | 🟢 |
 | `Door.getCurrentDoorPosition(area, onComplete, onFailed)` | `PleosDoorSource` | 시작 시·P 진입 때·2초마다 1열 문 상태 다시 읽기(콜백 유실 대비) | 🟢 `ci-20261105-*` 리허설 |
-| `Door.registerDoorPosition(area, DoorPositionListener)` / `unregisterDoorPosition` | `PleosDoorSource` | **배송 체크포인트: 1열 문 열림→닫힘**(운전석·조수석 묶음, 설정으로 운전석만) | 🟢 Virtual Console 리허설 완료 133건(`rehearsal-20261104-06.md`) |
+| `Door.registerDoorPosition(area, DoorPositionListener)` / `unregisterDoorPosition` | `PleosDoorSource` | **배송 체크포인트: 1열 문 열림→닫힘**(운전석·조수석 묶음, 설정으로 운전석만) | 🟢 Virtual Console 리허설 완료 기록(`scripts/demo/rehearsal_stats.py`로 집계) |
 | `Door.checkDoorPositionCapabilities(onComplete, onFailed)` | `ProbeActivity` | 지원 여부·값 범위 실측 | 🟢 READ_WRITE, 0..1 |
 | `DoorArea(DoorValue.ROW_1_LEFT / ROW_1_RIGHT)` | `PleosDoorSource` | 1열 운전석·조수석 | 🟢 |
 | `Vehicle.getOdometer()` | `PleosOdometerSource`, `ProbeActivity` | Odometer 도메인 | 🟢 |
 | `Odometer.getCurrentDistanceDriven(onComplete, onFailed)` | `PleosOdometerSource` | 운행 시작 계기판 거리 | 🟢 (에뮬레이터 초기값 0.0km) |
 | `Odometer.registerDistanceDriven(DistanceDrivenListener)` / `unregisterDistanceDriven` | `PleosOdometerSource` | **실주행거리 정산·운행기록**, 앱 재시작 중 놓친 출발(D) 보정(0.5km 이상 증가) | 🟢 리허설 정산 화면 |
+| `Vehicle.getFuel()` → `Fuel.getCurrentFuelEconomy` / `getCumulativeFuelEconomy`(onComplete, onFailed) | `platform/PleosEnergyReader.kt` | **차가 계산한 평균 연비(km/L)로 연료비 정산** — 이번 주행 평균을 먼저, 없으면 누적 평균. 3~40km/L 밖이면 버리고 사용자 값(`core/settle/Efficiency.kt`) | ✅ 실측은 리허설 로그 `NS|ENERGY` 줄 |
+| `Vehicle.getEvBattery()` → `EvBattery.getCurrentEvEfficiency` / `getCumulativeEvEfficiency` | `platform/PleosEnergyReader.kt` | 전기차는 평균 전비(km/kWh)로 충전비 정산(2~10km/kWh 밖이면 버림) | ✅ 실측은 리허설 로그 `NS|ENERGY` 줄 |
 
-권한(SDK `@RequiresPermission`·공식 권한 표로 확인, 쓰는 도메인만): `pleos.car.permission.CAR_DOORS`(Door), `pleos.car.permission.CAR_DRIVE`(Odometer)
+권한(SDK `@RequiresPermission`·공식 권한 표로 확인, 쓰는 도메인만): `pleos.car.permission.CAR_DOORS`(Door), `pleos.car.permission.CAR_DRIVE`(Odometer), `pleos.car.permission.CAR_ENERGY`(Fuel·EvBattery)
 
 ## 2. Pleos NaviHelper SDK (`ai.pleos.playground:NaviHelper:3.0.5`)
 

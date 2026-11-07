@@ -31,8 +31,8 @@ import java.io.File
 import java.time.Duration
 
 /**
- * 심사 지적 대응 화면 테스트: 주행 제한 중 '큰 글자 2줄, 버튼 0개'(A1·A3·A5·C11), 시연 패널 접기(G3),
- * 정차 중 되돌리기(B4·B6·V2), 시동 끔 규칙(A7), 알림 등급·id(A4·C14), 수령인 정보 정리(T7).
+ * 화면 테스트: 주행 제한 중 '큰 글자 2줄, 버튼 0개', 시연 패널 접기,
+ * 정차 중 되돌리기, 시동 끔 규칙, 알림 등급·id, 수령인 정보 정리.
  */
 @RunWith(RobolectricTestRunner::class)
 @LooperMode(LooperMode.Mode.PAUSED)

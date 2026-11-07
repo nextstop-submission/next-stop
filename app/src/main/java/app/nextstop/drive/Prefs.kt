@@ -58,6 +58,16 @@ object Prefs {
             .apply()
     }
 
+    /** 전기 단가(원/kWh). 차가 전비를 줄 때(전기차) 정산에 쓴다. */
+    fun evPrice(c: Context): Long = p(c).getLong("price_kwh", DEFAULT_EV_PRICE_WON)
+    fun setEvPrice(c: Context, won: Long) = p(c).edit().putLong("price_kwh", won).apply()
+
+    /**
+     * 전기 단가 기본값 350원/kWh(가정): 공공 급속충전 요금이 2026년 8월 출력별 5단계로 바뀌어 kWh당 약 295~393원이다(보도).
+     * 사람마다 완속·급속·집 충전이 달라 정산 화면에서 −/+로 바꾼다.
+     */
+    const val DEFAULT_EV_PRICE_WON = 350L
+
     /**
      * 기본 가정값(시연용): 건당 750원(대형 이커머스 자차 배송 위탁 계약서 기준 물품 1개당 750원, 세전 — 공개 보도),
      * 휘발유 1,650원/L, 연비 11km/L. 정산 화면에서 −/+로 바꿀 수 있다.

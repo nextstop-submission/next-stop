@@ -14,7 +14,7 @@ import app.nextstop.core.vehicle.VehicleSignalSource
  * 값 해석: 0 = 닫힘, 0 초과 = 열림(에뮬레이터 capability 범위 0..1 기준, 실측으로 재확인).
  *
  * [areaNames]의 문을 [DoorUnion]으로 묶어 '하나라도 열림'을 보낸다. 기본은 1열 운전석·조수석(설정 Prefs.frontDoors) —
- * 조수석 하차·동승자 배송·우핸들(심사 지적 A8·V3). 한 문의 등록이 실패해도 나머지 문은 그대로 쓴다.
+ * 조수석 하차·동승자 배송·우핸들. 한 문의 등록이 실패해도 나머지 문은 그대로 쓴다.
  */
 class PleosDoorSource(
     private val session: PleosVehicleSession,

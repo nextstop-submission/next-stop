@@ -18,7 +18,7 @@ import app.nextstop.core.vehicle.VehicleSignalSource
  *
  * 화면 '시연 패널' 버튼도 같은 경로([inject])를 쓴다.
  *
- * 위조 방지(심사 지적 C13): 보내는 쪽이 [SENDER_PERMISSION](android.permission.DUMP)을 가져야만 받는다.
+ * 위조 방지: 보내는 쪽이 [SENDER_PERMISSION](android.permission.DUMP)을 가져야만 받는다.
  * adb shell은 이 권한을 갖지만 일반 앱은 가질 수 없다(보호 수준 signature|privileged|development — 사람이 adb로 직접 부여해야 함).
  * 또 release 빌드는 시연 신호 모드일 때만 이 수신기를 등록한다(RunStore). 차량 신호 모드의 운행 판정은 외부 방송으로 바꿀 수 없다.
  */

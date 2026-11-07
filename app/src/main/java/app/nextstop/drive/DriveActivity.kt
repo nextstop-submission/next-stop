@@ -30,6 +30,11 @@ import app.nextstop.core.settle.DistanceSource
 import app.nextstop.core.settle.Settlement
 import app.nextstop.core.settle.SettlementReport
 import app.nextstop.core.settle.TripLog
+import app.nextstop.core.settle.Efficiency
+import app.nextstop.core.settle.EfficiencySource
+import app.nextstop.core.settle.EnergyUnit
+import app.nextstop.core.settle.RunComparison
+import app.nextstop.core.settle.RunHistory
 import app.nextstop.core.vehicle.Gear
 import app.nextstop.core.vehicle.VehicleEvent
 import app.nextstop.platform.BroadcastSignalSource
@@ -41,7 +46,7 @@ import java.util.Locale
 /**
  * 메인 화면. 계획(정차) → 운행(주행 중 2줄) → 정산(정차) 세 장면을 한 액티비티에서 바꿔 보여 준다.
  *
- * 주행 제한(CarUxRestrictions, 또는 기어가 P가 아님) 중에는 어떤 장면이든 '큰 글자 2줄, 버튼 0개'만 보인다(심사 지적 A1·A3·A5):
+ * 주행 제한(CarUxRestrictions, 또는 기어가 P가 아님) 중에는 어떤 장면이든 '큰 글자 2줄, 버튼 0개'만 보인다:
  * 운행 전 = 안내 한 줄, 운행 중 = 다음 집·남은 건수, 끝난 뒤 = '오늘 배송 끝'·완료 건수. 정산·계획 화면은 P에서만 열린다.
  * 완료 순간에는 화면을 갈아엎는 연출 없이 진행 막대와 두 줄 글자만 바뀐다(선택 기능인 음성 한 마디는 그대로).
  *
@@ -94,6 +99,8 @@ class DriveActivity : Activity() {
     private var tts: TextToSpeech? = null
     private var ttsReady = false
     private var lastSnapshot: RunSnapshot? = null
+    /** 차 연비·전비를 이미 읽은 운행(시작 시각). 같은 운행 정산을 다시 그릴 때 또 읽지 않는다. */
+    private var settleShownFor: Long? = null
 
     private val runListener = RunListener { snap, effects -> onRun(snap, effects) }
     private val signalListener: () -> Unit = { render() }
@@ -360,8 +367,18 @@ class DriveActivity : Activity() {
     }
 
     private fun renderSettlement(snap: RunSnapshot) {
-        val report = Settlement.settle(snap, RunStore.settlementParams, RunStore.plan.estimatedKm, RunStore.clock.nowMillis())
-        Log.i(RunStore.TAG, "NS|SETTLE|$report")
+        // 차가 계산한 평균 연비·전비를 먼저 읽고(차량 신호 모드), 받은 뒤 그린다. 못 받으면 사용자 값.
+        if (RunStore.mode == SignalMode.VEHICLE && settleShownFor != snap.startedAt) {
+            settleShownFor = snap.startedAt
+            RunStore.refreshEnergy { if (lastSnapshot?.startedAt == snap.startedAt) renderSettlement(snap) }
+        }
+        val eff = RunStore.efficiency()
+        val params = RunStore.settlementFor(eff)
+        val report = Settlement.settle(snap, params, RunStore.plan.estimatedKm, RunStore.clock.nowMillis())
+        Log.i(RunStore.TAG, "NS|SETTLE|$report|eff=${eff.kmPerUnit}${eff.unit.label}|${eff.source}")
+        val summary = RunHistory.summarize(snap, report)
+        val comparison = summary?.let { s -> RunHistory.compare(RunStore.history, s, ZoneId.systemDefault()) }
+        summary?.let { RunStore.recordFinished(it) }
         settleBody.removeAllViews()
         val auto = snap.records.count { it.trigger == CompletionTrigger.GEAR_DRIVE }
         settleBody.addView(label(36f, Palette.SUB).apply { text = "오늘 배송 · 문 닫고 D만으로 기록" })
@@ -371,7 +388,8 @@ class DriveActivity : Activity() {
         settleBody.addView(label(48f, Palette.TEXT, bold = true).apply {
             text = report.netPerHourWon?.let { "시간당 실수익 ${won(it)}" } ?: "순수익 ${won(report.netWon)}"
         }, lp(top = 16f))
-        lines(report).forEach { settleBody.addView(label(34f).apply { text = it }, lp(top = 12f)) }
+        comparison?.let { c -> compareLine(c)?.let { t -> settleBody.addView(label(34f, Palette.ACCENT).apply { text = t }, lp(top = 8f)) } }
+        lines(report, eff).forEach { settleBody.addView(label(34f).apply { text = it }, lp(top = 12f)) }
         settleBody.addView(row(
             pill("새 운행", filled = true) { RunStore.resetRun(); lastSnapshot = null; render() },
             // 보조 기능: 업무용 차량 운행기록 형식으로 내보내기
@@ -379,34 +397,50 @@ class DriveActivity : Activity() {
             // 마지막 건이 잘못 센 것(편의점·부재 등)이면 되돌려 운행을 다시 연다
             pill("마지막 건 되돌리기") { RunStore.undoLast(); render() },
         ), lp(top = 32f))
-        // 가정값은 정차 중 이 자리에서 바꿔 볼 수 있다(내 단가·연비로 다시 계산).
+        // 가정값은 정차 중 이 자리에서 바꿔 볼 수 있다(내 단가·연비로 다시 계산). 차가 연비·전비를 주면 그 값을 쓴다.
         val p = RunStore.settlementParams
         fun update(v: app.nextstop.core.settle.SettlementParams) {
             RunStore.updateSettlement(this, v)
             renderSettlement(snap)
         }
         settleBody.addView(label(22f, Palette.SUB).apply { text = "가정값 (눌러서 조정)" }, lp(top = 32f))
-        listOf(
+        val steppers = mutableListOf(
             stepper("건당 ${won(p.feePerParcelWon)}",
                 { update(p.copy(feePerParcelWon = (p.feePerParcelWon - 50).coerceAtLeast(0))) },
                 { update(p.copy(feePerParcelWon = p.feePerParcelWon + 50)) }),
-            stepper("연비 ${"%.1f".format(p.efficiencyKmPerUnit)}km/L",
-                { update(p.copy(efficiencyKmPerUnit = (p.efficiencyKmPerUnit - 0.5).coerceAtLeast(1.0))) },
-                { update(p.copy(efficiencyKmPerUnit = p.efficiencyKmPerUnit + 0.5)) }),
-            stepper("연료 ${won(p.energyPricePerUnitWon)}/L",
-                { update(p.copy(energyPricePerUnitWon = (p.energyPricePerUnitWon - 50).coerceAtLeast(0))) },
-                { update(p.copy(energyPricePerUnitWon = p.energyPricePerUnitWon + 50)) }),
-        ).forEach { settleBody.addView(it, lp(top = 12f)) }
+        )
+        if (eff.source == EfficiencySource.USER) steppers += stepper("연비 ${"%.1f".format(p.efficiencyKmPerUnit)}km/L",
+            { update(p.copy(efficiencyKmPerUnit = (p.efficiencyKmPerUnit - 0.5).coerceAtLeast(1.0))) },
+            { update(p.copy(efficiencyKmPerUnit = p.efficiencyKmPerUnit + 0.5)) })
+        steppers += if (eff.unit == EnergyUnit.KWH) stepper("전기 ${won(RunStore.evPriceWon)}/kWh",
+            { RunStore.updateEvPrice(this, RunStore.evPriceWon - 10); renderSettlement(snap) },
+            { RunStore.updateEvPrice(this, RunStore.evPriceWon + 10); renderSettlement(snap) })
+        else stepper("연료 ${won(p.energyPricePerUnitWon)}/L",
+            { update(p.copy(energyPricePerUnitWon = (p.energyPricePerUnitWon - 50).coerceAtLeast(0))) },
+            { update(p.copy(energyPricePerUnitWon = p.energyPricePerUnitWon + 50)) })
+        steppers.forEach { settleBody.addView(it, lp(top = 12f)) }
         settleBody.addView(label(20f, Palette.SUB).apply {
             maxLines = 2
             text = "운행기록 내보내기는 업무용승용차 운행기록부 열 구성을 따르며 세무 판단은 하지 않습니다."
         }, lp(top = 24f))
     }
 
-    private fun lines(r: SettlementReport): List<String> = buildList {
+    /** 이 운행을 지난 운행과 비교한 한 줄. 비교할 지난 운행이 없거나 이번 운행이 짧으면 없음. */
+    private fun compareLine(c: RunComparison): String? {
+        val diff = c.diffPerHourWon ?: return null
+        val sign = if (diff >= 0) "+" else "−"
+        val bestWon = c.bestPerHourWon
+        val best = if (c.bestStartHour != null && bestWon != null) " · 가장 남은 운행: ${c.bestStartHour}시 출발 ${won(bestWon)}/시간" else ""
+        return "지난 ${c.pastCount}회 평균보다 시간당 $sign${won(kotlin.math.abs(diff))}$best"
+    }
+
+    private fun lines(r: SettlementReport, eff: Efficiency): List<String> = buildList {
         add("배송 ${r.deliveredStops}곳 · ${r.deliveredParcels}개" + if (r.skippedStops > 0) " · 건너뜀 ${r.skippedStops}" else "")
-        add("매출 ${won(r.grossWon)} − 연료비 ${won(r.energyCostWon)} = 순수익 ${won(r.netWon)}")
+        val energyName = if (eff.unit == EnergyUnit.KWH) "충전비" else "연료비"
+        add("매출 ${won(r.grossWon)} − $energyName ${won(r.energyCostWon)} = 순수익 ${won(r.netWon)}")
         add("주행 ${km(r.distanceKm)} (" + (if (r.distanceSource == DistanceSource.ODOMETER) "계기판 실측" else "동선 추정") + ")")
+        add((if (eff.unit == EnergyUnit.KWH) "전비" else "연비") + " ${"%.1f".format(eff.kmPerUnit)}km/${eff.unit.label} (" +
+            (if (eff.source == EfficiencySource.VEHICLE) "차량 평균" else "입력값") + ")")
         add("운행 ${r.elapsedMillis / 60_000}분" + (r.avgDwellMillis?.let { " · 평균 정차 ${it / 1000}초" } ?: ""))
         if (r.netPerHourWon == null) add("시간당 실수익은 ${Settlement.MIN_MINUTES_FOR_HOURLY}분 이상 운행하면 표시합니다")
         r.costPerParcelWon?.let { add("개당 비용 ${won(it)}" + (r.kmPerStop?.let { k -> " · 배송지당 ${km(k)}" } ?: "")) }

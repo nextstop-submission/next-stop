@@ -36,4 +36,5 @@ jobs:
           mkdir -p docs/screens && cp app/build/screens/*.png docs/screens/ 2>/dev/null || true
           git add apk/NextStop_다음집_release.apk apk/NextStop_다음집_release.apk.sha256 docs/screens
           git commit -m "Update release APK and screen snapshots (${GITHUB_SHA::7})" || echo "no change"
-          git push
+          # 같은 브랜치에 에뮬레이터 결과 커밋이 먼저 올라가 있을 수 있다 → 받아서 다시 올린다
+          for i in 1 2 3 4 5; do git push && break; sleep $((i * 5)); git pull --rebase; done

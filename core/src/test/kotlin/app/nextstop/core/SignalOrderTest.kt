@@ -23,8 +23,8 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 /**
- * 심사 지적 대응: 신호 지연·순서 역전(C10), 놓친 D(11/2 리허설 재시작), 시동 끔(A7), 오탐 되돌리기(B4·B6), 조수석·동승(A8·V3),
- * 출발점 고정 좌표 제거(V4).
+ * 신호 지연·순서 역전, 놓친 D(11/2 리허설 재시작), 시동 끔, 오탐 되돌리기, 조수석·동승,
+ * 출발점 고정 좌표 제거.
  */
 class SignalOrderTest {
 
@@ -153,7 +153,7 @@ class SignalOrderTest {
 
     @Test
     fun `a power cycle while parked counts as one door cycle, but not while driving`() {
-        // 시동 끔: 꺼진 동안 문 이벤트를 받을 수 없다. 다시 켜면 문은 '닫힘'으로 읽혀 사이클 0이 된다(A7).
+        // 시동 끔: 꺼진 동안 문 이벤트를 받을 수 없다. 다시 켜면 문은 '닫힘'으로 읽혀 사이클 0이 된다.
         val parked = run("P" to 30_000L).first
         val tr = CheckpointMachine.reduce(parked, CheckpointInput.PowerCycled(40_000))
         assertTrue(CheckpointEffect.DoorCycleCredited(0, CreditReason.POWER_CYCLE) in tr.effects)
@@ -217,7 +217,7 @@ class SignalOrderTest {
 
     @Test
     fun `passenger door cycle counts when front doors are joined`() {
-        // 동승자가 내려 배송하거나 벽에 붙여 조수석으로 내린 경우(A8·V3): 운전석 문은 그대로 닫혀 있다.
+        // 동승자가 내려 배송하거나 벽에 붙여 조수석으로 내린 경우: 운전석 문은 그대로 닫혀 있다.
         val u = DoorUnion()
         val seen = mutableListOf<Boolean>()
         seen += u.update("ROW_1_LEFT", false)

@@ -26,6 +26,12 @@ import app.nextstop.core.run.RunMemento
 import app.nextstop.core.run.RunListener
 import app.nextstop.core.run.RunSnapshot
 import app.nextstop.core.sample.SampleRoutes
+import app.nextstop.core.settle.Efficiency
+import app.nextstop.core.settle.EfficiencyChoice
+import app.nextstop.core.settle.EfficiencySource
+import app.nextstop.core.settle.EnergyUnit
+import app.nextstop.core.settle.RunHistory
+import app.nextstop.core.settle.RunSummary
 import app.nextstop.core.settle.SettlementParams
 import app.nextstop.core.time.Clock
 import app.nextstop.core.vehicle.CompositeSignalSource
@@ -38,6 +44,7 @@ import app.nextstop.platform.BroadcastSignalSource
 import app.nextstop.platform.CarConnection
 import app.nextstop.platform.CarGearSource
 import app.nextstop.platform.PleosDoorSource
+import app.nextstop.platform.PleosEnergyReader
 import app.nextstop.platform.PleosNavigator
 import app.nextstop.platform.PleosOdometerSource
 import app.nextstop.platform.PleosVehicleSession
@@ -84,6 +91,61 @@ object RunStore : VehicleEventListener {
     fun updateSettlement(context: Context, v: SettlementParams) {
         settlementParams = v
         Prefs.setSettlement(context, v)
+    }
+
+    /** 차가 계산한 평균 연비(km/L)·전비(km/kWh). 차량 신호 모드에서 정산 화면을 열 때 읽는다. 없으면 null → 사용자 값. */
+    var vehicleFuelKmPerL: Double? = null
+        private set
+    var vehicleEvKmPerKwh: Double? = null
+        private set
+
+    /** 정산 화면을 열 때 차의 연비·전비를 다시 읽는다(시연 신호 모드는 차 값이 없어 바로 [done]). */
+    fun refreshEnergy(done: () -> Unit) {
+        val s = session
+        if (mode != SignalMode.VEHICLE || s == null) { done(); return }
+        PleosEnergyReader(s).read { fuel, ev ->
+            vehicleFuelKmPerL = fuel
+            vehicleEvKmPerKwh = ev
+            done()
+        }
+    }
+
+    /** 정산에 쓸 연비·전비: 차 값이 그럴듯하면 차 값, 아니면 사용자 값(내연기관 km/L). */
+    fun efficiency(): Efficiency = EfficiencyChoice.choose(
+        vehicleFuelKmPerL, vehicleEvKmPerKwh,
+        Efficiency(settlementParams.efficiencyKmPerUnit, EnergyUnit.LITER, EfficiencySource.USER),
+    )
+
+    /** 고른 연비·전비와 그 단위의 단가로 정산 입력을 만든다. */
+    fun settlementFor(e: Efficiency): SettlementParams = settlementParams.copy(
+        efficiencyKmPerUnit = e.kmPerUnit,
+        energyPricePerUnitWon = if (e.unit == EnergyUnit.KWH) evPriceWon else settlementParams.energyPricePerUnitWon,
+    )
+
+    /** 전기 단가(원/kWh). 차가 전비를 줄 때만 쓴다. */
+    var evPriceWon: Long = Prefs.DEFAULT_EV_PRICE_WON
+        private set
+
+    fun updateEvPrice(context: Context, won: Long) {
+        evPriceWon = won.coerceAtLeast(0)
+        Prefs.setEvPrice(context, evPriceWon)
+    }
+
+    /** 끝난 운행의 숫자 기록(배송지 없음). '지난 운행 비교'에 쓴다. 새 운행을 시작해도 지우지 않는다. */
+    var history: List<RunSummary> = emptyList()
+        private set
+    private var historyFile: File? = null
+    private const val HISTORY_FILE = "run-history.txt"
+
+    /** 테스트용: 운행 이력을 비운다. */
+    internal fun forgetHistory() {
+        history = emptyList()
+        historyFile?.delete()
+    }
+
+    fun recordFinished(summary: RunSummary) {
+        history = RunHistory.append(history, summary)
+        historyFile?.let { f -> runCatching { f.writeText(RunHistory.encode(history)) } }
     }
 
     private val optimizer = RouteOptimizer()
@@ -226,6 +288,10 @@ object RunStore : VehicleEventListener {
         }
         stateFile = File(app.filesDir, STATE_FILE)
         planFile = File(app.filesDir, PLAN_FILE)
+        historyFile = File(app.filesDir, HISTORY_FILE).also { f ->
+            if (history.isEmpty() && f.exists()) history = runCatching { RunHistory.decode(f.readText()) }.getOrDefault(emptyList())
+        }
+        evPriceWon = Prefs.evPrice(app)
         if (run == null && !planLoaded) loadPlan()
         // 샘플 경로는 시연 모드에서만: 빈 목록으로 시연을 시작하면 샘플을 채운다.
         if (mode == SignalMode.DEMO && run == null && inputStops.isEmpty()) useSampleStops()
