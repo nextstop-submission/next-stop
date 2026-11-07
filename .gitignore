@@ -16,3 +16,4 @@ keystore.properties
 .probe-cache/
 # 시연 녹화 결과(용량이 커서 커밋하지 않음)
 demo-output/
+.kotlin/

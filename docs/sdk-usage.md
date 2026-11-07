@@ -16,8 +16,8 @@
 | `Vehicle.getOdometer()` | `PleosOdometerSource`, `ProbeActivity` | Odometer 도메인 | 🟢 |
 | `Odometer.getCurrentDistanceDriven(onComplete, onFailed)` | `PleosOdometerSource` | 운행 시작 계기판 거리 | 🟢 (에뮬레이터 초기값 0.0km) |
 | `Odometer.registerDistanceDriven(DistanceDrivenListener)` / `unregisterDistanceDriven` | `PleosOdometerSource` | **실주행거리 정산·운행기록**, 앱 재시작 중 놓친 출발(D) 보정(0.5km 이상 증가) | 🟢 리허설 정산 화면 |
-| `Vehicle.getFuel()` → `Fuel.getCurrentFuelEconomy` / `getCumulativeFuelEconomy`(onComplete, onFailed) | `platform/PleosEnergyReader.kt` | **차가 계산한 평균 연비(km/L)로 연료비 정산** — 이번 주행 평균을 먼저, 없으면 누적 평균. 3~40km/L 밖이면 버리고 사용자 값(`core/settle/Efficiency.kt`) | ✅ 실측은 리허설 로그 `NS|ENERGY` 줄 |
-| `Vehicle.getEvBattery()` → `EvBattery.getCurrentEvEfficiency` / `getCumulativeEvEfficiency` | `platform/PleosEnergyReader.kt` | 전기차는 평균 전비(km/kWh)로 충전비 정산(2~10km/kWh 밖이면 버림) | ✅ 실측은 리허설 로그 `NS|ENERGY` 줄 |
+| `Vehicle.getFuel()` → `Fuel.getCurrentFuelEconomy` / `getCumulativeFuelEconomy`(onComplete, onFailed) | `platform/PleosEnergyReader.kt` | **차가 계산한 평균 연비(km/L)로 연료비 정산** — 이번 주행 평균을 먼저, 없으면 누적 평균. 3~40km/L 밖이면 버리고 사용자 값(`core/settle/Efficiency.kt`) | ⏳ 공식 에뮬레이터 v2.1.0은 미지원(`ERROR_NOT_SUPPORTED_PROPERTY`, 11/7 리허설 `ci-20261107-*/rehearsal/c-app.txt`의 `NS|ENERGY`) → 입력값으로 정산되는 것까지 확인 |
+| `Vehicle.getEvBattery()` → `EvBattery.getCurrentEvEfficiency` / `getCumulativeEvEfficiency` | `platform/PleosEnergyReader.kt` | 전기차는 평균 전비(km/kWh)로 충전비 정산(2~10km/kWh 밖이면 버림) | ⏳ 공식 에뮬레이터 v2.1.0은 미지원(`ERROR_NOT_SUPPORTED_PROPERTY`, 11/7 리허설 `ci-20261107-*/rehearsal/c-app.txt`의 `NS|ENERGY`) → 입력값으로 정산되는 것까지 확인 |
 
 권한(SDK `@RequiresPermission`·공식 권한 표로 확인, 쓰는 도메인만): `pleos.car.permission.CAR_DOORS`(Door), `pleos.car.permission.CAR_DRIVE`(Odometer), `pleos.car.permission.CAR_ENERGY`(Fuel·EvBattery)
 

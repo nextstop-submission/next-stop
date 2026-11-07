@@ -19,8 +19,8 @@ APP=app.nextstop/.drive.DriveActivity
 T="$OUT/timeline.txt"
 now() { date +%s%3N; }
 mark() { echo "$(now) $*" | tee -a "$T"; }
-top() { "$adb" shell dumpsys activity activities | grep -m1 -E 'topResumedActivity|mResumedActivity' | grep -o '[a-z0-9.]*/[A-Za-z0-9.$]*' | head -1; }
-shot() { "$adb" exec-out screencap -p > "$OUT/$1.png" 2>/dev/null; }
+top() { timeout 20 "$adb" shell dumpsys activity activities | grep -m1 -E 'topResumedActivity|mResumedActivity' | grep -o '[a-z0-9.]*/[A-Za-z0-9.$]*' | head -1; }
+shot() { timeout 15 "$adb" exec-out screencap -p > "$OUT/$1.png" 2>/dev/null; }
 back_to_app() {
   t=$(top)
   case "$t" in app.nextstop/*) ;; *) mark "$1 top=$t → 앱으로 복귀"; "$adb" shell am start -n "$APP" >/dev/null; sleep 2 ;; esac
@@ -28,10 +28,20 @@ back_to_app() {
 
 cap_start() {
   F="$TMPD/frames-$1"; rm -rf "$F"; mkdir -p "$F"
-  ( while [ ! -f "$F/.stop" ]; do "$adb" exec-out screencap -p > "$F/$(now).png" 2>/dev/null; done ) &
+  ( while [ ! -f "$F/.stop" ]; do timeout 15 "$adb" exec-out screencap -p > "$F/$(now).png" 2>/dev/null; done ) &
   CAP=$!
 }
-cap_stop() { touch "$F/.stop"; wait "$CAP"; python3 scripts/demo/frames-to-mp4.py "$F" "demo-output/rehearsal-$1.mp4"; }
+# 11/7 공개 저장소 2회차(run 42345610411)가 이 단계에서 40분 넘게 멈췄다 — 기기가 굳으면 screencap·wait가 끝나지 않는다.
+# → 화면 캡처 1장 15초 제한, 캡처 루프는 30초 안에 안 끝나면 죽이고 넘어간다.
+cap_stop() {
+  touch "$F/.stop"
+  ( sleep 30; kill "$CAP" 2>/dev/null ) & local guard=$!
+  wait "$CAP" 2>/dev/null; kill "$guard" 2>/dev/null
+  timeout 300 python3 scripts/demo/frames-to-mp4.py "$F" "demo-output/rehearsal-$1.mp4"
+}
+# 스크립트가 어떻게 끝나든(바깥 timeout 포함) 백그라운드 logcat·캡처가 남아 단계를 붙잡지 않게
+cleanup() { touch "$TMPD"/frames-*/.stop 2>/dev/null; jobs -p | xargs -r kill 2>/dev/null; }
+trap cleanup EXIT TERM INT
 
 # 화면에서 글자로 버튼을 찾아 누른다(uiautomator). 못 찾으면 1을 돌려준다.
 tap_text() {
@@ -130,10 +140,19 @@ if [ "$(dead_steps)" -ge 5 ]; then
   [ -d "$OUT/c-vc" ] && mv "$OUT/c-vc" "$OUT/c1-vc"
   timeout 30 "$adb" reboot || true
   sleep 20; timeout 180 "$adb" wait-for-device
-  for i in $(seq 1 90); do [ "$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break; sleep 5; done
+  for i in $(seq 1 90); do [ "$(timeout 20 "$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break; sleep 5; done
   sleep 60
-  mark "C 재부팅 끝 boot=$("$adb" shell getprop sys.boot_completed | tr -d '\r')"
-  run_c
+  BOOT=$(timeout 20 "$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+  mark "C 재부팅 끝 boot=$BOOT"
+  if [ "$BOOT" = "1" ]; then
+    run_c
+  else
+    # 11/7 run 42345610411: 재부팅 뒤 기기가 돌아오지 않았는데 C·B를 이어 돌다 단계가 끝나지 않았다 → 여기서 끝내고 결과를 남긴다
+    mark "C 재부팅 실패 → C 다시·B 건너뜀"
+    echo "C 0/5 · B 건너뜀 · 기기 정지 뒤 재부팅 실패(환경) · 무응답 단계 $(dead_steps)" | tee "$OUT/result.txt"
+    echo "::notice title=rehearsal::$(cat "$OUT/result.txt")"
+    exit 0
+  fi
 fi
 
 # ---------- B: 시연 신호 목업(예비) ----------

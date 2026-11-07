@@ -56,6 +56,9 @@ class RouteOptimizerTest {
     fun `optimized route is never longer than given order`() {
         val plan = optimizer.optimize(SampleRoutes.DEPOT, SampleRoutes.DEMO_5)
         assertTrue(plan.estimatedKm <= optimizer.estimateKm(SampleRoutes.DEPOT, SampleRoutes.DEMO_5) + 1e-9)
+        // 기획서·README의 '가상 샘플 5곳, 입력 순서 대비 14.1km → 8.1km'(직선거리×1.3 근사)를 여기서 고정한다
+        assertEquals(14.1, optimizer.estimateKm(SampleRoutes.DEPOT, SampleRoutes.DEMO_5), 0.05)
+        assertEquals(8.1, plan.estimatedKm, 0.05)
     }
 
     @Test

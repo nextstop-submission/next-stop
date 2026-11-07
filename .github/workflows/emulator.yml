@@ -150,7 +150,9 @@ jobs:
       - name: Script rehearsal — C (Virtual Console) then B (demo signals)
         if: env.REHEARSAL == 'true' && steps.boot.outcome == 'success'
         continue-on-error: true
-        run: timeout 2700 bash scripts/demo/rehearse-ci.sh ci-out/rehearsal
+        # 바깥 timeout이 bash만 끝내고 남은 자식이 단계를 붙잡은 적이 있다(11/7) → -k로 강제 종료 + 단계 자체에도 상한
+        timeout-minutes: 50
+        run: timeout -k 60 2700 bash scripts/demo/rehearse-ci.sh ci-out/rehearsal
       - name: Navi lab — place search and route events
         if: env.NAVILAB == 'true' && steps.boot.outcome == 'success'
         continue-on-error: true
