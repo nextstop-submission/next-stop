@@ -67,7 +67,7 @@ done
 
 section "5. APK"
 apks="$(git ls-files '*.apk')"
-if [ -z "$apks" ]; then warn "커밋된 APK가 없음(apk/next-stop-release.apk 필요)"; fi
+if [ -z "$apks" ]; then warn "커밋된 APK가 없음(apk/NextStop_다음집_release.apk 필요)"; fi
 for apk in $apks; do
   if command -v unzip >/dev/null; then
     tmp="$(mktemp -d)"; unzip -q -o "$apk" -d "$tmp" 2>/dev/null

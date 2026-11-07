@@ -7,7 +7,7 @@
 
 1. **영상으로 보기** — 실제 신호 녹화(67초, 6배속·자막만 추가): [`docs/demo/video/nextstop-emulator-real-signals.mp4`](docs/demo/video/nextstop-emulator-real-signals.mp4). Pleos Connect 공식 에뮬레이터에서 Virtual Console로 기어·문을 바꾸면 자동 완료된다.
 2. **기록으로 보기** — 실측·리허설 67회를 성공·실패 그대로 모은 색인: [`docs/probe-results/INDEX.md`](docs/probe-results/INDEX.md). 판정 코드 [`core/.../checkpoint/CheckpointMachine.kt`](core/src/main/kotlin/app/nextstop/core/checkpoint/CheckpointMachine.kt)와 테스트 `core/src/test`.
-3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 83 + 화면 15). 설치: `adb install -r apk/next-stop-release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
+3. **직접 돌려 보기** — 테스트: `./gradlew :core:test :app:testDebugUnitTest`(단위 83 + 화면 15). 설치: `adb install -r apk/NextStop_다음집_release.apk` → 시연 신호 모드 `adb shell am start -n app.nextstop/.drive.DriveActivity --es mode demo`(일반 Android 기기·에뮬레이터에서도 동작, 차량 신호는 Pleos 에뮬레이터에서).
 
 | 문제 | 다음집 |
 |---|---|
